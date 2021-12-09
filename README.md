@@ -2,6 +2,7 @@
 
 To start:
 cd front-team
+npm i
 npm start
 
 For linting:
