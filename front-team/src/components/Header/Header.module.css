@@ -1,0 +1,28 @@
+.navbarWrapper {
+    background-color: #bcfd4c;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.navbarContainer {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+@media (max-width: 999px) {
+    .navbarContainer {
+        width: 768px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbarContainer {
+        width: 451px;
+    }
+}
+
+@media (max-width: 450px) {
+    .navbarContainer {
+        width: 375px;
+    }
+}
