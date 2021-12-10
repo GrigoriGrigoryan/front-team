@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import I18nProvider from './i18n/provider';
 import { LOCALES } from './types/locales';
 import { COUNTRY_CODES } from './types/countryCodes';
-// import HelloWorld from './components/HelloWorld';
 import Map from './components/Map/Map';
 import './App.css';
 
@@ -23,7 +22,6 @@ const App = () => {
     // and pass the localeHandler to change the language
     <I18nProvider locale={locale}>
       <div className='map'>
-        {/* <HelloWorld localeHandler={localeHandler} /> */}
         <Map />
       </div>
     </I18nProvider>
