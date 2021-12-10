@@ -1,19 +1,49 @@
-.Map {
-  height: 100vh;
-  width: 100vw;
+:root {
+  --grey: #353839;
+}
+.MapContainer {
   position: relative;
+  overflow-x: hidden;
 }
 
+.Map {
+  height: 60vh;
+  width: 100vw;
+}
+
+/* default (mobile-first) size */
 .GarbageTypes {
-  position: absolute;
-  width: 25rem;
-  height: 80vh;
-  left: 2%;
-  top: 12%;
-  z-index: 1000;
+  width: 85vw;
+  height: 20rem;
   background: white;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
   font-size: 1rem;
   border-radius: 6px;
   padding: 0.5rem 1rem;
+  margin: 1rem auto;
+  color: var(--grey);
+}
+
+/* on larger screen sizes */
+@media screen and (min-width: 44rem) {
+  .GarbageTypes {
+    position: absolute;
+    width: 25rem;
+    height: 80vh;
+    left: 2%;
+    top: 12%;
+    z-index: 1000;
+  }
+  .Map {
+    height: 100vh;
+  }
+}
+
+/* extra small */
+@media screen and (max-width: 33rem) {
+  .GarbageTypes {
+    width: 100vw;
+    height: 25rem;
+    box-shadow: none;
+  }
 }
