@@ -1,0 +1,40 @@
+.btn {
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: white;
+    background: #6e6e6e;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 0.6rem;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #6e6e6e;
+}
+.btn:focus {
+    background-color: #6e6e6e;
+}
+
+@media (max-width: 999px) {
+    .btn {
+        font-size: 10px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .btn {
+        font-size: 10px;
+        margin: 0;
+
+    }
+}
+
+@media (max-width: 450px) {
+    .btn {
+        font-size: 10px;
+        margin: 0;
+    }
+}
