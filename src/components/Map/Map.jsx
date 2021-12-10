@@ -1,21 +1,19 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
-import { TileLayer, Marker, Popup, MapContainer } from 'react-leaflet';
-import Leaflet from 'leaflet';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { TileLayer, MapContainer } from 'react-leaflet';
 import '../styles/Map.css';
-import MapMarkers from './MapMarkers';
-import { MARKERS } from '../../models/staticMarkerArray.js';
+import MapStations from './MapStations';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
+import Icons from './Icons';
 
 const Map = () => {
+  const [filterOptions, setFilterOptions] = useState([]);
   return (
     <div className='MapContainer'>
       <div className='Map'>
         <MapContainer
           className='Map'
           center={[59.9375, 30.308611]}
-          zoom={13}
+          zoom={9}
           scrollWheelZoom={true}
         >
           <TileLayer
@@ -26,12 +24,13 @@ const Map = () => {
             noWrap={true}
           />
           <MarkerClusterGroup>
-            <MapMarkers />
+            <MapStations filterOptions={filterOptions} />
           </MarkerClusterGroup>
         </MapContainer>
       </div>
       <div className='GarbageTypes'>
-        <h2>Different icons according to the waste types will belong here..</h2>
+        <h3>PICK MATERIALS FOR DISPOSAL:</h3>
+        <Icons filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
       </div>
     </div>
   );

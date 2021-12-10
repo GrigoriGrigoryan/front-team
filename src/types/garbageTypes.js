@@ -1,0 +1,16 @@
+export const GARBAGE_TYPES = {
+  automotive: 'type_automotive',
+  glass: 'type_glass',
+  electronics: 'type_electronics',
+  metal: 'type_metal',
+  plastic: 'type_plastic',
+  household: 'type_household',
+  hazardous: 'type_hazardous',
+  construction: 'type_construction',
+  paper: 'type_paper',
+  clothing: 'type_clothing',
+  batteries: 'type_batteries',
+  lightBulbs: 'type_lightBulbs',
+  organicWaste: 'type_organicWaste',
+  other: 'type_other',
+};

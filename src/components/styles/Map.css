@@ -1,5 +1,5 @@
 :root {
-  --grey: #353839;
+  --greyGreen: #4d724d;
 }
 .MapContainer {
   position: relative;
@@ -14,22 +14,52 @@
 /* default (mobile-first) size */
 .GarbageTypes {
   width: 85vw;
-  height: 20rem;
+  height: 25rem;
   background: white;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
   font-size: 1rem;
   border-radius: 6px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   margin: 1rem auto;
-  color: var(--grey);
+  color: var(--greyGreen);
+  overflow: auto;
+}
+
+.GarbageTypes .icons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.icon {
+  width: 7.2rem;
+  height: 4rem;
+  padding: 0.4rem 0.2rem;
+  border: 1px solid var(--greyGreen);
+  margin: 0.3rem;
+  border-radius: 5px;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.icon:hover,
+.active {
+  color: white;
+  background: #738276;
+}
+
+.icon > span {
+  display: block;
+  font-size: 1rem;
 }
 
 /* on larger screen sizes */
 @media screen and (min-width: 44rem) {
   .GarbageTypes {
     position: absolute;
-    width: 25rem;
-    height: 80vh;
+    width: 26.5rem;
+    height: 70vh;
     left: 2%;
     top: 12%;
     z-index: 1000;
@@ -43,7 +73,7 @@
 @media screen and (max-width: 33rem) {
   .GarbageTypes {
     width: 100vw;
-    height: 25rem;
+    height: 37rem;
     box-shadow: none;
   }
 }
