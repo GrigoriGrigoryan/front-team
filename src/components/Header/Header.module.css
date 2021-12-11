@@ -5,7 +5,7 @@
 }
 
 .pagesWrapper {
-  margin-left: 400px;
+  margin-left: 650px;
 }
 
 .navbarContainer {
@@ -13,9 +13,10 @@
   margin: 0 auto;
 }
 
-.container {
-  display: flex;
-  flex-direction: space-between;
+@media (max-width: 1200px) {
+  .pagesWrapper {
+    margin-left: 450px;
+  }
 }
 
 @media (max-width: 999px) {
@@ -23,7 +24,7 @@
     width: 768px;
   }
   .pagesWrapper {
-    margin-left: 150px;
+    margin-left: 200px;
   }
 }
 
@@ -34,6 +35,10 @@
   .pagesWrapper {
     margin-left: 0;
     text-align: center;
+  }
+  .container {
+    display: flex;
+    flex-direction: space-between;
   }
 }
 

@@ -17,7 +17,7 @@ const Header = (props) => {
   const intl = useIntl();
   return (
     <Navbar className={`m-0 ${styles.navbarWrapper}`} expand='md'>
-      <div className={`d-flex container ${styles.navbarContainer}`}>
+      <div className={`d-flex justify-content-between container ${styles.navbarContainer}`}>
         <Navbar.Brand as={Link} to='/' className='d-block'>
           Recycling
         </Navbar.Brand>
@@ -36,8 +36,9 @@ const Header = (props) => {
             <Nav.Link as={Link} to='/garbageLibrary'>
               {intl.formatMessage({ id: messages.garbageLibraryMsg })}
             </Nav.Link>
-            <BtnsLanguages localeHandler={props.localeHandler} />
           </Nav>
+
+          <BtnsLanguages localeHandler={props.localeHandler} />
         </Navbar.Collapse>
       </div>
     </Navbar>
