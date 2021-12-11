@@ -1,0 +1,32 @@
+.PopupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.Rating {
+  width: 2.3rem;
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.Rating.green {
+  background: green;
+}
+
+.Rating.red {
+  background: red;
+}
+
+.Rating.orange {
+  background: orange;
+}
+
+.EcoStationTitle {
+  margin-left: 0.4rem;
+}

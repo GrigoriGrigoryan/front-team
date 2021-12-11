@@ -1,16 +1,16 @@
-import { STATIONS } from '../../models/staticStationArray.js';
+import { STATIONS, MARKERS } from '../../models/staticStationArray.js';
 
 const MapStations = (props) => {
   return props.filterOptions.length
-    ? STATIONS.map((station) => {
+    ? STATIONS.map((station, index) => {
         for (let filterOption of props.filterOptions) {
-          if (!station.garbageTypes.includes(filterOption)) {
+          if (!station.wasteTypes.includes(filterOption)) {
             return;
           }
         }
-        return station.marker;
+        return MARKERS[index];
       })
-    : STATIONS.map((station) => station.marker);
+    : MARKERS.map((marker) => marker);
 };
 
 export default MapStations;

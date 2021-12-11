@@ -31,7 +31,7 @@ const CustomMarker = (props) => {
         },
       }}
     >
-      <Popup>Informations about the eco station.</Popup>
+      <Popup>{props.children}</Popup>
     </Marker>
   );
 };
@@ -39,6 +39,7 @@ const CustomMarker = (props) => {
 CustomMarker.propTypes = {
   posX: PropTypes.number,
   posY: PropTypes.number,
+  children: PropTypes.node.isRequired,
 };
 
 export default CustomMarker;
