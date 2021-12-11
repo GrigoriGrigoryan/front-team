@@ -1,5 +1,5 @@
 :root {
-  --greyGreen: #4d724d;
+  --greyGreen: #6c8f15;
 }
 .MapContainer {
   position: relative;
@@ -46,7 +46,7 @@
 .icon:hover,
 .active {
   color: white;
-  background: #738276;
+  background: #6c8f15;
 }
 
 .icon > span {
@@ -58,7 +58,7 @@
 @media screen and (min-width: 44rem) {
   .GarbageTypes {
     position: absolute;
-    width: 26.5rem;
+    width: 27rem;
     height: 70vh;
     left: 2%;
     top: 12%;

@@ -10,12 +10,7 @@ const Map = () => {
   return (
     <div className='MapContainer'>
       <div className='Map'>
-        <MapContainer
-          className='Map'
-          center={[59.9375, 30.308611]}
-          zoom={9}
-          scrollWheelZoom={true}
-        >
+        <MapContainer className='Map' center={[59.9375, 30.308611]} zoom={9} scrollWheelZoom={true}>
           <TileLayer
             attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
             url='https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'
