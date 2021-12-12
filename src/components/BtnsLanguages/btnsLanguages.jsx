@@ -11,8 +11,12 @@ const BtnsLanguages = (props) => {
       {/* pass the id of the message to the formatMessage method */}
       {/*<h2 className='HelloWorld'>{intl.formatMessage({ id: messages.helloWorldMsg })}</h2>*/}
       <div className='d-flex justify-content-center'>
-        <i className={`flag us ${styles.btn}`} onClick={() => props.localeHandler(COUNTRY_CODES.EN)}></i>
-        <i className={`flag ru ${styles.btn}`} onClick={() => props.localeHandler(COUNTRY_CODES.RU)}></i>
+        {/*<i className={`flag us ${styles.btn}`} onClick={() => props.localeHandler(COUNTRY_CODES.EN)}></i>*/}
+        {/*<i className={`flag ru ${styles.btn}`} onClick={() => props.localeHandler(COUNTRY_CODES.RU)}></i>*/}
+          <p className={styles.langBtns}>
+              <span onClick={() => props.localeHandler(COUNTRY_CODES.EN)}>EN </span>|
+              <span onClick={() => props.localeHandler(COUNTRY_CODES.RU)}> RU</span>
+          </p>
       </div>
     </>
   );

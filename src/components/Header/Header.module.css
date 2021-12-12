@@ -1,21 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .navbarWrapper {
-  background-color: #bcfd4c;
+  background-color: #00DB7A;
   width: 100%;
   margin: 0 auto;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .pagesWrapper {
-  margin-left: 650px;
+  margin-left: 375px;
 }
 
 .navbarContainer {
-  width: 1000px;
+  width: 1630px;
   margin: 0 auto;
+  text-transform: uppercase;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+.navLink {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  margin-right: 32px;
+  position: relative;
+}
+.navLink.focus-within::after {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 70px;
+  height: 3px;
+  color: white;
+  border-bottom: 2px solid white;
 }
 
+.logo {
+  width: 200px;
+  height: 56px;
+}
+@media (max-width: 1400px) {
+  .pagesWrapper {
+    margin-left: 200px;
+  }
+}
 @media (max-width: 1200px) {
   .pagesWrapper {
-    margin-left: 450px;
+    margin-left: 20px;
   }
 }
 
@@ -24,7 +64,13 @@
     width: 768px;
   }
   .pagesWrapper {
-    margin-left: 200px;
+    margin-left: 20px;
+  }
+  .navLink {
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 10px;
+    margin-right: 0;
   }
 }
 
@@ -38,7 +84,11 @@
   }
   .container {
     display: flex;
-    flex-direction: space-between;
+    /*flex-direction: space-between;*/
+  }
+  .logo {
+    width: 150px;
+    height: 45px;
   }
 }
 

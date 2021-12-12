@@ -1,9 +1,9 @@
 import React from 'react';
-// import './App.css';
+import styles from './Articles.module.css';
 
 const Articles = () => {
     return (
-        <div>
+        <div className={styles.articlesWrapper}>
             Articles
         </div>
     );

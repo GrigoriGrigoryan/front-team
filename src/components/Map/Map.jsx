@@ -1,9 +1,9 @@
 import React from 'react';
-// import './App.css';
+import styles from './Map.module.css';
 
 const Map = () => {
     return (
-        <div>
+        <div className={styles.mapWrapper}>
             Map
         </div>
     );
