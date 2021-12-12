@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+.closeBtn {
+    /*align-self: flex-end;*/
+    display: inline-block;
+    margin-left: auto;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.modalContent {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+    height: 590px;
+    width: 800px;
+    text-align: right;
+
+}
+.modalWrapper {
+    width: 553px;
+    height: 418px;
+    margin: 50px auto 0;
+    background-color: #F8F5F5;
+    border-radius: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 42px;
+    color: #050505;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.modalWrapper p {
+    margin: 0;
+    padding: 0;
+}
+.imgHeart {
+    width: 100%;
+    height: 100%;
+}
+.imgHeartWrapper {
+    width: 96px;
+    height: 84px;
+    margin-bottom: 15px;
+}
+.text1 {
+    font-family: 'Roboto', sans-serif;
+
+}
+.text2 {
+    font-family: 'Roboto', sans-serif;
+
+}
+.text3{
+    font-family: 'Roboto', sans-serif;
+    color: #00DB7A;
+}
+.modalFooterText {
+    font-family: 'Noto Serif', serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 46px;
+    text-align: center;
+}
+p.modalFooterText {
+    margin-top: 20px;
+}
+
+.bottomBtn {
+    width: 130px;
+    height: 60px;
+    background: #00DB7A;
+    border-radius: 5px;
+    border: none;
+    letter-spacing: 2px;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+    display: inline-block;
+    margin-left: auto;
+}

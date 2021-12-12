@@ -10,6 +10,7 @@ import { LOCALES } from './types/locales';
 import { COUNTRY_CODES } from './types/countryCodes';
 import './App.css';
 import {Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import MainPage from "./components/MainPage/MainPage";
 
 const App = () => {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
@@ -29,6 +30,7 @@ const App = () => {
           <Router>
             <Header localeHandler={localeHandler}/>
             <Switch>
+              <Route exact path="/" component={MainPage}/>
               <Route path="/map" component={Map}/>
               <Route path="/garbageLibrary" component={GarbageLibrary}/>
               <Route path="/articles" component={Articles} />
