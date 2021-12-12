@@ -4,6 +4,10 @@
   background-color: #00DB7A;
   width: 100%;
   margin: 0 auto;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .pagesWrapper {

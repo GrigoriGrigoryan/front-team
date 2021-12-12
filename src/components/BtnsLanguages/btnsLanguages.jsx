@@ -14,8 +14,8 @@ const BtnsLanguages = (props) => {
         {/*<i className={`flag us ${styles.btn}`} onClick={() => props.localeHandler(COUNTRY_CODES.EN)}></i>*/}
         {/*<i className={`flag ru ${styles.btn}`} onClick={() => props.localeHandler(COUNTRY_CODES.RU)}></i>*/}
           <p className={styles.langBtns}>
-              <span onClick={() => props.localeHandler(COUNTRY_CODES.EN)}>EN</span>|
-              <span onClick={() => props.localeHandler(COUNTRY_CODES.RU)}>RU</span>
+              <span onClick={() => props.localeHandler(COUNTRY_CODES.EN)}>EN </span>|
+              <span onClick={() => props.localeHandler(COUNTRY_CODES.RU)}> RU</span>
           </p>
       </div>
     </>

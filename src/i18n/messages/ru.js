@@ -10,5 +10,6 @@ export const RUSSIAN_MESSAGES = {
   collectRecycleID: 'Собирать. Перерабатывать. Сделать лучшее будущее.',
   thankYouForVotingID: 'СПАСИБО ЗА ВАШ ГОЛОС',
   forTextID: 'за',
-  letsMakeFutureID: 'Давайте вместе сделаем лучшее будущее!'
+  letsMakeFutureID: 'Давайте вместе сделаем лучшее будущее!',
+  closeID: 'закрыть'
 };

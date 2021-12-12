@@ -11,4 +11,5 @@ export const ENGLISH_MESSAGES = {
   thankYouForVotingID: 'THANK YOU FOR VOTING ',
   forTextID: 'for',
   letsMakeFutureID: 'Let"s make better future together!',
+  closeID: 'close'
 };

@@ -89,7 +89,7 @@ p.modalFooterText {
 }
 
 .bottomBtn {
-    width: 130px;
+    width: 150px;
     height: 60px;
     background: #00DB7A;
     border-radius: 5px;
@@ -135,7 +135,7 @@ p.modalFooterText {
     }
 
     .bottomBtn {
-        width: 90px;
+        width: 120px;
         height: 40px;
         letter-spacing: 1px;
         font-size: 26px;
@@ -164,11 +164,11 @@ p.modalFooterText {
     }
 
     .bottomBtn {
-        width: 60px;
+        width: 90px;
         height: 30px;
         letter-spacing: 1px;
-        font-size: 20px;
-        line-height: 22px;
+        font-size: 16px;
+        line-height: 20px;
     }
     p.modalFooterText {
         font-size: 20px;

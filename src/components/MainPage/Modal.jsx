@@ -12,6 +12,7 @@ const Modal = ({active, setActive}) => {
         thankYouForVotingMsg: 'thankYouForVotingID',
         forTextMsg: 'forTextID',
         letsMakeFutureMsg: 'letsMakeFutureID',
+        closeMsg: 'closeID'
 
     };
     return (
@@ -27,7 +28,9 @@ const Modal = ({active, setActive}) => {
                     <p className="text3">GREEN TEAM</p>
                     <p className="modalFooterText">{intl.formatMessage({ id: messages.letsMakeFutureMsg })}</p>
                 </div>
-                <button type="button" className="bottomBtn" onClick={() => setActive(false)}>close</button>
+                <button type="button" className="bottomBtn" onClick={() => setActive(false)}>
+                    {intl.formatMessage({ id: messages.closeMsg })}
+                </button>
             </div>
         </div>
     )
