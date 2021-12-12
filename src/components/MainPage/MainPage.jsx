@@ -25,7 +25,7 @@ const MainPage = () => {
                         {intl.formatMessage({ id: messages.aboutProjectTextMsg })}
                     </p>
                 </div>
-                <div className={styles.mainPageImg}>
+                <div className={styles.mainPageImgWrapper}>
                     <h4 className={styles.headerImg}>
                         {intl.formatMessage({ id: messages.howToStartRecyclingMsg })}
                     </h4>

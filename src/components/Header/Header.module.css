@@ -6,7 +6,6 @@
 
 .pagesWrapper {
   margin-left: 375px;
-  /*margin-left: 193px;*/
 }
 
 .navbarContainer {
@@ -19,21 +18,25 @@
 }
 .navLink {
   color: white;
-  font-family: Roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
   margin-left: 33px;
-
+  position: relative;
 }
-/*.navLink:focus-visible {*/
-/*  border-bottom: 1px solid #ffffff;*/
-/*}*/
-
-/*.linkWrapper:focus-within {*/
-/*  border-bottom: 1px solid #ffffff;*/
-/*}*/
+.navLink.focus-within::after {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 70px;
+  height: 3px;
+  color: white;
+  border-bottom: 2px solid white;
+}
 
 .logo {
   width: 200px;
@@ -47,7 +50,6 @@
 @media (max-width: 1200px) {
   .pagesWrapper {
     margin-left: 20px;
-    background-color: red;
   }
 }
 
