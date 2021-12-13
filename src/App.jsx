@@ -11,6 +11,7 @@ import { COUNTRY_CODES } from './types/countryCodes';
 import './App.css';
 import {Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import MainPage from "./components/MainPage/MainPage";
+import Article from "./components/Articles/Article/Article";
 
 const App = () => {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
@@ -34,6 +35,7 @@ const App = () => {
               <Route path="/map" component={Map}/>
               <Route path="/garbageLibrary" component={GarbageLibrary}/>
               <Route path="/articles" component={Articles} />
+              <Route path="/article/:id" component={Article} />
             </Switch>
             <Footer />
           </Router>

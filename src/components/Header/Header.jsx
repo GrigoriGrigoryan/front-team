@@ -23,10 +23,12 @@ const Header = (props) => {
           <img src={logo} alt="logo" className={styles.logo}/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
-        <Navbar.Collapse id='basic-navbar-nav'>
+        <Navbar.Collapse id='basic-navbar-nav' className={styles.navbarCollapse}>
           <Nav className={`${styles.pagesWrapper}`}>
-            <Nav.Link as={Link} to='/' className={styles.linkWrapper}>
-              <span className={styles.navLink}>{intl.formatMessage({ id: messages.homeMsg })}</span>
+            <Nav.Link as={Link} to='/' activeClassName={styles.active}>
+              <span className={styles.navLink}>
+                {intl.formatMessage({ id: messages.homeMsg })}
+              </span>
             </Nav.Link>
             <Nav.Link as={Link} to='/map' className={styles.linkWrapper}>
               <span className={styles.navLink}>{intl.formatMessage({ id: messages.mapMsg })}</span>

@@ -3,8 +3,7 @@
 
 .mainPageWrapper {
     width: 1360px;
-    margin: 0 auto;
-    margin-top: 120px;
+    margin: 120px auto 0;
 }
 .mainPageTextWrapper {
     padding-right: 75px;
@@ -85,7 +84,7 @@
 
 @media (max-width: 1500px) {
     .mainPageWrapper {
-        width: 1270px;
+        width: 1320px;
     }
 }
 @media (max-width: 1400px) {
@@ -100,7 +99,7 @@
 }
 @media (max-width: 1200px) {
     .mainPageWrapper {
-        width: 900px;
+        width: 939px;
     }
     .mainPageRow {
         flex-direction: column;
@@ -139,7 +138,7 @@
 
 @media (max-width: 999px) {
     .mainPageWrapper {
-        width: 768px;
+        width: 698px;
     }
     .mainPageImg {
         width: 500px;
