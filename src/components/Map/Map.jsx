@@ -4,9 +4,15 @@ import '../styles/Map.css';
 import MapStations from './MapStations';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import Icons from './Icons';
+import { useIntl } from 'react-intl';
+
+const messages = {
+  pickMaterialsID: 'pickMaterialsID',
+};
 
 const Map = () => {
   const [filterOptions, setFilterOptions] = useState([]);
+  const intl = useIntl();
   return (
     <div className='MapContainer'>
       <div className='Map'>
@@ -24,7 +30,7 @@ const Map = () => {
         </MapContainer>
       </div>
       <div className='GarbageTypes'>
-        <h3>PICK MATERIALS FOR DISPOSAL:</h3>
+        <h3>{intl.formatMessage({ id: messages.pickMaterialsID })}</h3>
         <Icons filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
       </div>
     </div>

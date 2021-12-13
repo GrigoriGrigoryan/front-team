@@ -10,10 +10,6 @@ const CustomPopup = (props) => {
         </div>
         <h3 className='EcoStationTitle'>{props.ecoStationName}</h3>
       </div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident recusandae necessitatibus reiciendis
-        mollitia modi corporis, vero vel ut architecto doloremque?
-      </p>
     </div>
   );
 };

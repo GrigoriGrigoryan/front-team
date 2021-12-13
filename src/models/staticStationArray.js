@@ -7,7 +7,7 @@ export const STATIONS = [
   {
     wasteTypes: [GARBAGE_TYPES.automotive, GARBAGE_TYPES.metal, GARBAGE_TYPES.paper],
     rating: 3.17,
-    ecoStationName: 'Eco Station Name',
+    ecoStationName: 'Eco Station Name - Loooooooong name with new lines ......',
     deliveryOptions: ['does not pick up trash in person '],
     paymentCondition: {
       price: 0,

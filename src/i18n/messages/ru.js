@@ -1,3 +1,18 @@
 export const RUSSIAN_MESSAGES = {
   helloWorldID: 'Всем привет',
+  pickMaterialsID: '???',
+  icons_automotiveID: '???',
+  icons_glassID: '???',
+  icons_electronicsID: '???',
+  icons_metalID: '???',
+  icons_plasticID: '???',
+  icons_householdID: '???',
+  icons_hazardousID: '???',
+  icons_constructionID: '???',
+  icons_paperID: '???',
+  icons_clothingID: '???',
+  icons_batteriesID: '???',
+  icons_lightBulbsID: '???',
+  icons_organicWasteID: '???',
+  icons_otherID: '???',
 };

@@ -1,5 +1,5 @@
 :root {
-  --greyGreen: #6c8f15;
+  --green: #158f59;
 }
 .MapContainer {
   position: relative;
@@ -21,7 +21,7 @@
   border-radius: 6px;
   padding: 0.5rem 1.5rem;
   margin: 1rem auto;
-  color: var(--greyGreen);
+  color: var(--green);
   overflow: auto;
 }
 
@@ -35,7 +35,7 @@
   width: 7.2rem;
   height: 4rem;
   padding: 0.4rem 0.2rem;
-  border: 1px solid var(--greyGreen);
+  border: 1px solid var(--green);
   margin: 0.3rem;
   border-radius: 5px;
   font-size: 2rem;
@@ -46,7 +46,7 @@
 .icon:hover,
 .active {
   color: white;
-  background: #6c8f15;
+  background: var(--green);
 }
 
 .icon > span {
