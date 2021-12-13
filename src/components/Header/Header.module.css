@@ -21,7 +21,7 @@
   display: flex;
   justify-content: space-between;
 }
-.navLink {
+.linkWrapper {
   color: white;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -30,18 +30,37 @@
   line-height: 28px;
   margin-right: 32px;
   position: relative;
+  text-decoration: none;
+  padding-bottom: 5px;
 }
-.navLink.focus-within::after {
-  position: absolute;
-  display: block;
-  bottom: 0;
-  left: 0;
-  content: '';
-  width: 70px;
-  height: 3px;
+.linkWrapper:hover {
   color: white;
+}
+
+.active {
   border-bottom: 2px solid white;
 }
+/*.navLink {*/
+/*  color: white;*/
+/*  font-family: 'Roboto', sans-serif;*/
+/*  font-style: normal;*/
+/*  font-weight: bold;*/
+/*  font-size: 24px;*/
+/*  line-height: 28px;*/
+/*  margin-right: 32px;*/
+/*  position: relative;*/
+/*}*/
+/*.navLink.focus-within::after {*/
+/*  position: absolute;*/
+/*  display: block;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*  content: '';*/
+/*  width: 70px;*/
+/*  height: 3px;*/
+/*  color: white;*/
+/*  border-bottom: 2px solid white;*/
+/*}*/
 
 .logo {
   width: 200px;
@@ -97,10 +116,7 @@
   }
 }
 
-.active {
-  background-color: red;
-  color: red;
-}
+
 
 .navbarCollapse {
   justify-content: flex-end;

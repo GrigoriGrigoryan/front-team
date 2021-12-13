@@ -6,19 +6,19 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding-top: 100px;
+    padding-bottom: 80px;
 }
 
 .articleItem {
     width: 30%;
     position: relative;
     margin-bottom: 50px;
-    /*margin: 10px;*/
 }
 .articleTitle {
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 100;
+    z-index: 3;
     padding: 10px;
     color: white;
     font-size: 20px;
