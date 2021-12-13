@@ -30,7 +30,7 @@ const Map = () => {
         </MapContainer>
       </div>
       <div className='GarbageTypes'>
-        <h3>{intl.formatMessage({ id: messages.pickMaterialsID })}</h3>
+        <h4>{intl.formatMessage({ id: messages.pickMaterialsID })}</h4>
         <Icons filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
       </div>
     </div>

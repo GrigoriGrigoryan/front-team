@@ -4,7 +4,7 @@ import { LOCALES } from './types/locales';
 import { COUNTRY_CODES } from './types/countryCodes';
 import Map from './components/Map/Map';
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () => {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
 

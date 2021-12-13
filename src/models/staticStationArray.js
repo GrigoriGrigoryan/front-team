@@ -87,28 +87,100 @@ export const STATIONS = [
 ];
 
 export const MARKERS = [
-  <CustomMarker key='marker__1' posX={59.9375} posY={30.308611}>
-    <CustomPopup rating={STATIONS[0].rating} ecoStationName={STATIONS[0].ecoStationName} />
+  <CustomMarker
+    key='marker__1'
+    posX={59.9375}
+    posY={30.308611}
+    rating={STATIONS[0].rating}
+    ecoStationName={STATIONS[0].ecoStationName}
+    wasteTypes={STATIONS[0].wasteTypes}
+    deliveryOptions={STATIONS[0].deliveryOptions}
+    paymentCondition={STATIONS[0].paymentCondition}
+  >
+    <CustomPopup />
   </CustomMarker>,
-  <CustomMarker key='marker__2' posX={59.8375} posY={30.408611}>
-    <CustomPopup rating={STATIONS[1].rating} ecoStationName={STATIONS[1].ecoStationName} />
+  <CustomMarker
+    key='marker__2'
+    posX={59.8375}
+    posY={30.408611}
+    rating={STATIONS[1].rating}
+    ecoStationName={STATIONS[1].ecoStationName}
+    wasteTypes={STATIONS[1].wasteTypes}
+    deliveryOptions={STATIONS[1].deliveryOptions}
+    paymentCondition={STATIONS[1].paymentCondition}
+  >
+    <CustomPopup />
   </CustomMarker>,
-  <CustomMarker key='marker__3' posX={59.7375} posY={30.208611}>
-    <CustomPopup rating={STATIONS[2].rating} ecoStationName={STATIONS[2].ecoStationName} />
+  <CustomMarker
+    key='marker__3'
+    posX={59.7375}
+    posY={30.208611}
+    rating={STATIONS[2].rating}
+    ecoStationName={STATIONS[2].ecoStationName}
+    wasteTypes={STATIONS[2].wasteTypes}
+    deliveryOptions={STATIONS[2].deliveryOptions}
+    paymentCondition={STATIONS[2].paymentCondition}
+  >
+    <CustomPopup />
   </CustomMarker>,
-  <CustomMarker key='marker__4' posX={59.7375} posY={30.128611}>
-    <CustomPopup rating={STATIONS[3].rating} ecoStationName={STATIONS[3].ecoStationName} />
+  <CustomMarker
+    key='marker__4'
+    posX={59.7375}
+    posY={30.128611}
+    rating={STATIONS[3].rating}
+    ecoStationName={STATIONS[3].ecoStationName}
+    wasteTypes={STATIONS[3].wasteTypes}
+    deliveryOptions={STATIONS[3].deliveryOptions}
+    paymentCondition={STATIONS[3].paymentCondition}
+  >
+    <CustomPopup />
   </CustomMarker>,
-  <CustomMarker key='marker__5' posX={59.0075} posY={30.238611}>
-    <CustomPopup rating={STATIONS[4].rating} ecoStationName={STATIONS[4].ecoStationName} />
+  <CustomMarker
+    rating={STATIONS[4].rating}
+    ecoStationName={STATIONS[4].ecoStationName}
+    key='marker__5'
+    posX={59.0075}
+    posY={30.238611}
+    wasteTypes={STATIONS[4].wasteTypes}
+    deliveryOptions={STATIONS[4].deliveryOptions}
+    paymentCondition={STATIONS[4].paymentCondition}
+  >
+    <CustomPopup />
   </CustomMarker>,
-  <CustomMarker key='marker__6' posX={59.4375} posY={30.08611}>
-    <CustomPopup rating={STATIONS[5].rating} ecoStationName={STATIONS[5].ecoStationName} />
+  <CustomMarker
+    rating={STATIONS[5].rating}
+    ecoStationName={STATIONS[5].ecoStationName}
+    key='marker__6'
+    posX={59.4375}
+    posY={30.08611}
+    wasteTypes={STATIONS[5].wasteTypes}
+    deliveryOptions={STATIONS[5].deliveryOptions}
+    paymentCondition={STATIONS[5].paymentCondition}
+  >
+    <CustomPopup />
   </CustomMarker>,
-  <CustomMarker key='marker__7' posX={59.6375} posY={30.408611}>
-    <CustomPopup rating={STATIONS[6].rating} ecoStationName={STATIONS[6].ecoStationName} />
+  <CustomMarker
+    key='marker__7'
+    posX={59.6375}
+    posY={30.408611}
+    rating={STATIONS[6].rating}
+    ecoStationName={STATIONS[6].ecoStationName}
+    wasteTypes={STATIONS[6].wasteTypes}
+    deliveryOptions={STATIONS[6].deliveryOptions}
+    paymentCondition={STATIONS[6].paymentCondition}
+  >
+    <CustomPopup />
   </CustomMarker>,
-  <CustomMarker key='marker__8' posX={59.1075} posY={30.308611}>
-    <CustomPopup rating={STATIONS[7].rating} ecoStationName={STATIONS[7].ecoStationName} />
+  <CustomMarker
+    rating={STATIONS[7].rating}
+    ecoStationName={STATIONS[7].ecoStationName}
+    key='marker__8'
+    posX={59.1075}
+    posY={30.308611}
+    wasteTypes={STATIONS[7].wasteTypes}
+    deliveryOptions={STATIONS[7].deliveryOptions}
+    paymentCondition={STATIONS[7].paymentCondition}
+  >
+    <CustomPopup />
   </CustomMarker>,
 ];
