@@ -13,4 +13,5 @@ export const GARBAGE_TYPES = {
   lightBulbs: 'type_lightBulbs',
   organicWaste: 'type_organicWaste',
   other: 'type_other',
+  tree: 'type_tree',
 };

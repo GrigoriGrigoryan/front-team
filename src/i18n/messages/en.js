@@ -13,6 +13,7 @@ export const ENGLISH_MESSAGES = {
   icons_clothingID: 'Clothing',
   icons_batteriesID: 'Batteries',
   icons_lightBulbsID: 'Light bulbs',
-  icons_organicWasteID: 'Organic waste',
+  icons_organicWasteID: 'Bio waste',
   icons_otherID: 'Other',
+  icons_treeID: 'Tree',
 };

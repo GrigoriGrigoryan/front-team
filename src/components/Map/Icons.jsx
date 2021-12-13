@@ -19,6 +19,7 @@ const messages = {
   lightBulbsID: 'icons_lightBulbsID',
   organicWasteID: 'icons_organicWasteID',
   otherID: 'icons_otherID',
+  treeID: 'icons_treeID',
 };
 
 const Icons = (props) => {
@@ -83,7 +84,7 @@ const Icons = (props) => {
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.paper}
-        iconName='fas fa-newspaper'
+        iconName='fas fa-book-open'
         innerText={intl.formatMessage({ id: messages.paperID })}
       />
       <Icon
@@ -107,8 +108,14 @@ const Icons = (props) => {
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.organicWaste}
-        iconName='fas fa-drumstick-bite'
+        iconName='fas fa-apple-alt'
         innerText={intl.formatMessage({ id: messages.organicWasteID })}
+      />
+      <Icon
+        filterByGarbageType={filterByGarbageType}
+        garbageType={GARBAGE_TYPES.tree}
+        iconName='fas fa-tree'
+        innerText={intl.formatMessage({ id: messages.treeID })}
       />
       <Icon
         filterByGarbageType={filterByGarbageType}

@@ -15,4 +15,5 @@ export const RUSSIAN_MESSAGES = {
   icons_lightBulbsID: '???',
   icons_organicWasteID: '???',
   icons_otherID: '???',
+  icons_treeID: '???',
 };
