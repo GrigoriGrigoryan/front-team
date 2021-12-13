@@ -1,6 +1,6 @@
 .PopupHeader {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 
@@ -31,4 +31,5 @@
 .EcoStationTitle {
   margin-left: 0.4rem;
   font-size: 1rem;
+  align-self: flex-end;
 }
