@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 
 const Icon = (props) => {
+  const intl = useIntl();
   const [active, setActive] = useState(false);
   return (
     <div className='IconContainer'>
@@ -12,16 +14,17 @@ const Icon = (props) => {
           setActive(!active);
         }}
       ></i>
-      <span>{props.innerText}</span>
+      {props.showText && <span>{intl.formatMessage({ id: props.textID })}</span>}
     </div>
   );
 };
 
 Icon.propTypes = {
-  innerText: PropTypes.string,
   filterByGarbageType: PropTypes.func,
   iconName: PropTypes.string,
   garbageType: PropTypes.string,
+  showText: PropTypes.bool,
+  textID: PropTypes.string,
 };
 
 export default Icon;
