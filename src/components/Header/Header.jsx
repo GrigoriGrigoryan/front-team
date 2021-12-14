@@ -14,6 +14,7 @@ const messages = {
   articlesMsg: 'articlesID',
   garbageLibraryMsg: 'garbageLibraryID',
 };
+
 const Header = (props) => {
   const intl = useIntl();
   const checkActive = (match, location) => {
@@ -23,10 +24,10 @@ const Header = (props) => {
   }
 
   return (
-    <Navbar className={`m-0 ${styles.navbarWrapper}`} expand='md'>
+    <Navbar className={`m-0 ${styles.navbarWrapper}`} expand='md' variant='dark'>
       <div className={`d-flex justify-content-between container ${styles.navbarContainer}`}>
         <Navbar.Brand as={Link} to='/' className='d-block'>
-          <img src={logo} alt="logo" className={styles.logo}/>
+          <img src={logo} alt='logo' className={styles.logo} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav' className={styles.navbarCollapse}>
