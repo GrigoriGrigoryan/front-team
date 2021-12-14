@@ -19,32 +19,28 @@
     /*align-self: flex-end;*/
     display: inline-block;
     margin-left: auto;
+    width: 4px;
+    height: 4px;
+
+
 }
 
 .modal.active {
     opacity: 1;
     pointer-events: all;
 }
-.modalContent {
-    padding: 20px;
-    border-radius: 12px;
-    background-color: white;
-    height: 590px;
-    width: 680px;
-    text-align: right;
-
-}
 .modalWrapper {
-    width: 553px;
-    height: 418px;
-    margin: 50px auto 0;
+    width: 480px;
+    /*height: 418px;*/
+    margin: 0 auto;
+    padding: 30px;
     background-color: #F8F5F5;
-    border-radius: 100px;
+    border-radius: 10px;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 900;
-    font-size: 36px;
-    line-height: 42px;
+    font-size: 24px;
+    line-height: 28px;
     color: #050505;
     display: flex;
     justify-content: center;
@@ -60,13 +56,13 @@
     height: 100%;
 }
 .imgHeartWrapper {
-    width: 96px;
-    height: 84px;
-    margin-bottom: 15px;
+    width: 70px;
+    height: 60px;
+    margin-bottom: 10px;
 }
 .text1 {
     font-family: 'Roboto', sans-serif;
-
+    text-align: center;
 }
 .text2 {
     font-family: 'Roboto', sans-serif;
@@ -80,8 +76,8 @@
     font-family: 'Noto Serif', serif;
     font-style: normal;
     font-weight: 300;
-    font-size: 32px;
-    line-height: 46px;
+    font-size: 24px;
+    line-height: 30px;
     text-align: center;
 }
 p.modalFooterText {
@@ -106,31 +102,31 @@ p.modalFooterText {
 }
 
 @media (max-width: 999px) {
-    .modalContent {
-        height: 590px;
-        width: 750px;
-    }
+    /*.modalContent {*/
+    /*    height: 590px;*/
+    /*    width: 750px;*/
+    /*}*/
     .modalWrapper {
         width: 553px;
-        height: 418px;
+        /*height: 418px;*/
     }
 
 }
 @media (max-width: 767px) {
-    .modalContent {
-        height: 500px;
-        width: 500px;
-    }
+    /*.modalContent {*/
+    /*    height: 500px;*/
+    /*    width: 500px;*/
+    /*}*/
     .modalWrapper {
         width: 400px;
-        height: 400px;
-        font-size: 30px;
-        line-height: 34px;
+        /*height: 400px;*/
+        font-size: 28px;
+        line-height: 32px;
         margin: 0 auto;
     }
     .imgHeartWrapper {
-        width: 66px;
-        height: 54px;
+        width: 50px;
+        height: 40px;
         margin-bottom: 10px;
     }
 
@@ -145,17 +141,18 @@ p.modalFooterText {
 }
 
 @media (max-width: 510px) {
-    .modalContent {
-        height: 327px;
-        width: 300px;
-    }
+    /*.modalContent {*/
+    /*    height: 327px;*/
+    /*    width: 300px;*/
+    /*}*/
     .modalWrapper {
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        /*height: 250px;*/
         font-size: 18px;
         line-height: 20px;
         margin: 0 auto;
-        border-radius: 40px;
+        /*border-radius: 40px;*/
+        padding: 15px;
     }
     .imgHeartWrapper {
         width: 40px;

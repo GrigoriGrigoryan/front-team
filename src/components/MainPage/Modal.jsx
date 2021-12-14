@@ -18,8 +18,8 @@ const Modal = ({active, setActive}) => {
     return (
         <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
             <div className="modalContent" onClick={e => e.stopPropagation()}>
-                <CloseButton onClick={() => setActive(false)} className="closeBtn"/>
                 <div className="modalWrapper">
+                    <CloseButton onClick={() => setActive(false)} className="closeBtn"/>
                     <div className="imgHeartWrapper">
                         <img src={imgHeart} alt="" className="imgHeart"/>
                     </div>
