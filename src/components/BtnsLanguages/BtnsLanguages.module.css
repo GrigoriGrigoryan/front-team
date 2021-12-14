@@ -16,9 +16,14 @@
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 20px;
   color: white;
+  padding-bottom: 2px;
+}
+
+.active {
+  border-bottom: 2px solid white;
 }
 .langBtns span:hover {
   cursor: pointer;

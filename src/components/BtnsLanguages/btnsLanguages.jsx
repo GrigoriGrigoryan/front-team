@@ -6,6 +6,11 @@ import styles from './BtnsLanguages.module.css';
 const BtnsLanguages = (props) => {
   // we use useIntl() to translate the message
   // const intl = useIntl();
+
+    // const changeLangAndAddUnderline = () => {
+    //     props.localeHandler(COUNTRY_CODES.EN)();
+    // }
+
   return (
     <>
       {/* pass the id of the message to the formatMessage method */}
@@ -16,6 +21,8 @@ const BtnsLanguages = (props) => {
           <p className={styles.langBtns}>
               <span onClick={() => props.localeHandler(COUNTRY_CODES.EN)}>EN </span>|
               <span onClick={() => props.localeHandler(COUNTRY_CODES.RU)}> RU</span>
+              {/*<span onClick={() => changeLangAndAddUnderline}>EN </span>|*/}
+              {/*<span onClick={() => changeLangAndAddUnderline}> RU</span>*/}
           </p>
       </div>
     </>
