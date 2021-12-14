@@ -62,14 +62,16 @@
 .donateButton {
     width: 335px;
     height: 70px;
-    background: #006400;
+    /*background: #006400;*/
+    /*background: #97A7E2;*/
+    background: #00DB7A;
     border-radius: 50px;
     border: none;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 900;
-    font-size: 30px;
-    line-height: 34px;
+    font-size: 26px;
+    line-height: 28px;
     text-transform: uppercase;
     color: white;
     letter-spacing: 5px;
