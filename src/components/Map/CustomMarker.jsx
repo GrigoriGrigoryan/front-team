@@ -39,6 +39,8 @@ const CustomMarker = (props) => {
         wasteTypes={props.wasteTypes}
         deliveryOptions={props.deliveryOptions}
         paymentCondition={props.paymentCondition}
+        setShowModal={setShowModal}
+        setSelectedMarker={props.setSelectedMarker}
       />
     </>
   );

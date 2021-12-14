@@ -15,9 +15,11 @@ const Map = () => {
   const [isSelectedMarker, setSelectedMarker] = useState(false);
 
   const DisableScrollWhenModalAppear = () => {
+    const map = useMap();
     if (isSelectedMarker) {
-      const map = useMap();
       map.scrollWheelZoom.disable();
+    } else {
+      map.scrollWheelZoom.enable();
     }
     return null;
   };
@@ -27,12 +29,7 @@ const Map = () => {
   return (
     <div className='MapContainer'>
       <div className='Map'>
-        <MapContainer
-          className='Map'
-          center={[59.9375, 30.308611]}
-          zoom={9}
-          scrollWheelZoom={isSelectedMarker ? 'disabled' : true}
-        >
+        <MapContainer className='Map' center={[59.9375, 30.308611]} zoom={9} scrollWheelZoom={true}>
           <DisableScrollWhenModalAppear />
           <TileLayer
             attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
@@ -47,7 +44,7 @@ const Map = () => {
         </MapContainer>
       </div>
       <div className='GarbageTypes'>
-        <h4>{intl.formatMessage({ id: messages.pickMaterialsID })}</h4>
+        <h4 className='PickMaterialsTitle'>{intl.formatMessage({ id: messages.pickMaterialsID })}</h4>
         <Icons showText filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
       </div>
     </div>
