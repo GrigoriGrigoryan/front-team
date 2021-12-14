@@ -1,21 +1,39 @@
 import React, { useState } from 'react';
-import { TileLayer, MapContainer } from 'react-leaflet';
+import { TileLayer, MapContainer, useMap } from 'react-leaflet';
 import '../styles/Map.css';
 import MapStations from './MapStations';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import Icons from './Icons/Icons';
 import { useIntl } from 'react-intl';
+
 const messages = {
   pickMaterialsID: 'pickMaterialsID',
 };
 
 const Map = () => {
   const [filterOptions, setFilterOptions] = useState([]);
+  const [isSelectedMarker, setSelectedMarker] = useState(false);
+
+  const DisableScrollWhenModalAppear = () => {
+    if (isSelectedMarker) {
+      const map = useMap();
+      map.scrollWheelZoom.disable();
+    }
+    return null;
+  };
+
   const intl = useIntl();
+
   return (
     <div className='MapContainer'>
       <div className='Map'>
-        <MapContainer className='Map' center={[59.9375, 30.308611]} zoom={9} scrollWheelZoom={true}>
+        <MapContainer
+          className='Map'
+          center={[59.9375, 30.308611]}
+          zoom={9}
+          scrollWheelZoom={isSelectedMarker ? 'disabled' : true}
+        >
+          <DisableScrollWhenModalAppear />
           <TileLayer
             attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
             url='https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'
@@ -24,7 +42,7 @@ const Map = () => {
             noWrap={true}
           />
           <MarkerClusterGroup>
-            <MapStations filterOptions={filterOptions} />
+            <MapStations setSelectedMarker={setSelectedMarker} filterOptions={filterOptions} />
           </MarkerClusterGroup>
         </MapContainer>
       </div>

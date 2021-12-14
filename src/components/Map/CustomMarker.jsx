@@ -23,7 +23,10 @@ const CustomMarker = (props) => {
         eventHandlers={{
           mouseover: () => leafletRef.current.openPopup(),
           mouseout: () => leafletRef.current.closePopup(),
-          click: () => setShowModal(true),
+          click: () => {
+            setShowModal(true);
+            props.setSelectedMarker(true);
+          },
         }}
       >
         <Popup>{React.cloneElement(props.children, { ...props })}</Popup>
@@ -50,6 +53,7 @@ CustomMarker.propTypes = {
   wasteTypes: PropTypes.array,
   deliveryOptions: PropTypes.array,
   paymentCondition: PropTypes.object,
+  setSelectedMarker: PropTypes.func,
 };
 
 export default CustomMarker;

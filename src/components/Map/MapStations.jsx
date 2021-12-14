@@ -1,3 +1,4 @@
+import React from 'react';
 import { STATIONS, MARKERS } from '../../models/staticStationArray.js';
 
 const MapStations = (props) => {
@@ -8,9 +9,9 @@ const MapStations = (props) => {
             return;
           }
         }
-        return MARKERS[index];
+        return React.cloneElement(MARKERS[index], { ...props });
       })
-    : MARKERS.map((marker) => marker);
+    : MARKERS.map((marker) => React.cloneElement(marker, { ...props }));
 };
 
 export default MapStations;
