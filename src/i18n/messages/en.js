@@ -1,5 +1,4 @@
 export const ENGLISH_MESSAGES = {
-  helloWorldID: 'Hello world',
   pickMaterialsID: 'PICK MATERIALS FOR DISPOSAL:',
   icons_automotiveID: 'Automotive',
   icons_glassID: 'Glass',

@@ -23,7 +23,7 @@ const messages = {
 export const ICONS = [
   {
     key: GARBAGE_TYPES.automotive,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.automotive}
@@ -31,12 +31,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.automotiveID}
         key={GARBAGE_TYPES.automotive}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.glass,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.glass}
@@ -44,12 +45,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.glassID}
         key={GARBAGE_TYPES.glass}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.electronics,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.electronics}
@@ -57,12 +59,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.electronicsID}
         key={GARBAGE_TYPES.electronics}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.metal,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.metal}
@@ -70,12 +73,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.metalID}
         key={GARBAGE_TYPES.metal}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.plastic,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.plastic}
@@ -83,12 +87,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.plasticID}
         key={GARBAGE_TYPES.plastic}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.household,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.household}
@@ -96,12 +101,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.householdID}
         key={GARBAGE_TYPES.household}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.hazardous,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.hazardous}
@@ -109,12 +115,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.hazardousID}
         key={GARBAGE_TYPES.hazardous}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.construction,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.construction}
@@ -122,12 +129,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.constructionID}
         key={GARBAGE_TYPES.construction}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.paper,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.paper}
@@ -135,12 +143,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.paperID}
         key={GARBAGE_TYPES.paper}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.clothing,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.clothing}
@@ -148,12 +157,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.clothingID}
         key={GARBAGE_TYPES.clothing}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.batteries,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.batteries}
@@ -161,12 +171,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.batteriesID}
         key={GARBAGE_TYPES.batteries}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.lightBulbs,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.lightBulbs}
@@ -174,12 +185,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.lightBulbsID}
         key={GARBAGE_TYPES.lightBulbs}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.organicWaste,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.organicWaste}
@@ -187,12 +199,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.organicWasteID}
         key={GARBAGE_TYPES.organicWaste}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.tree,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.tree}
@@ -200,12 +213,13 @@ export const ICONS = [
         showText={showText}
         textID={messages.treeID}
         key={GARBAGE_TYPES.tree}
+        alignRight={alignRight}
       />
     ),
   },
   {
     key: GARBAGE_TYPES.other,
-    component: (filterByGarbageType, showText) => (
+    component: (filterByGarbageType, showText, alignRight) => (
       <Icon
         filterByGarbageType={filterByGarbageType}
         garbageType={GARBAGE_TYPES.other}
@@ -213,6 +227,7 @@ export const ICONS = [
         showText={showText}
         textID={messages.otherID}
         key={GARBAGE_TYPES.other}
+        alignRight={alignRight}
       />
     ),
   },

@@ -1,22 +1,55 @@
-.ModalContainer {
-  display: flex;
-  flex-direction: column;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+  --green: #00db7a;
 }
 
-.EcoImg {
-  width: 55%;
-  margin: 0 auto;
-  border-radius: 5px;
-  border: 2px solid #00db7a;
-  padding: 0.3rem;
+.MainContainer {
+  position: fixed;
+  right: -41%;
+  bottom: 7%;
+  width: 20rem;
+  height: 70vh;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  transition: right 0.3s ease-in;
+  border-radius: 6px;
+  z-index: -1;
+  color: #252120;
+  background: white;
+  padding: 1rem;
 }
 
-@media screen and (max-width: 61.9rem) {
-  .EcoImg {
-    width: 80%;
-  }
+.MainContainer.active {
+  z-index: 1000;
+  right: 1%;
+}
+
+.Stars {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .ModalTitle {
-  font-size: 1.5rem !important;
+  font-size: 1.1rem !important;
+  font-weight: bolder;
+}
+
+.EcoStationTitle {
+  margin-top: 0.8rem;
+}
+
+.location {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #00db7a;
+  margin-bottom: 0.4rem;
+  margin-left: 0.4rem;
+}
+
+.location > span {
+  font-size: 0.9rem;
+  margin-left: 0.2rem;
+  color: grey;
+  font-weight: normal;
 }

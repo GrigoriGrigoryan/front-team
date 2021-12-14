@@ -8,13 +8,19 @@ const Icon = (props) => {
   return (
     <div className='IconContainer'>
       <i
-        className={`${props.iconName} icon ${active ? 'active' : ''}`}
+        className={`${props.iconName} icon ${active ? 'active' : props.alignRight ? 'alignRight' : ''}`}
         onClick={() => {
-          props.filterByGarbageType(props.garbageType);
-          setActive(!active);
+          if (props.filterByGarbageType) {
+            props.filterByGarbageType(props.garbageType);
+            setActive(!active);
+          }
         }}
       ></i>
-      {props.showText && <span>{intl.formatMessage({ id: props.textID })}</span>}
+      {props.showText && (
+        <span className={`${props.alignRight ? 'alignRight' : 'alignBottom'}`}>
+          {intl.formatMessage({ id: props.textID })}
+        </span>
+      )}
     </div>
   );
 };
@@ -25,6 +31,7 @@ Icon.propTypes = {
   garbageType: PropTypes.string,
   showText: PropTypes.bool,
   textID: PropTypes.string,
+  alignRight: PropTypes.bool,
 };
 
 export default Icon;

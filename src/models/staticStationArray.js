@@ -58,7 +58,7 @@ export const STATIONS = [
     wasteTypes: [GARBAGE_TYPES.batteries, GARBAGE_TYPES.metal, GARBAGE_TYPES.paper, GARBAGE_TYPES.plastic],
     rating: 2.3,
     ecoStationName: 'Eco Station Name',
-    deliveryOptions: ['paid eco taxi service', 'can be handed over in person '],
+    deliveryOptions: ['paid eco taxi service', 'containers for receiving garbages '],
     paymentCondition: {
       price: 15,
       details: 'paid',
@@ -68,7 +68,7 @@ export const STATIONS = [
     wasteTypes: [GARBAGE_TYPES.plastic],
     rating: 2.1,
     ecoStationName: 'Eco Station Name',
-    deliveryOptions: ['paid eco taxi service', 'can be handed over in person '],
+    deliveryOptions: ['paid eco taxi service', 'containers for receiving garbages '],
     paymentCondition: {
       price: 12,
       details: 'paid',

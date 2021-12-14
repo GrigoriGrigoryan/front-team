@@ -10,13 +10,18 @@ const Icons = (props) => {
       props.setFilterOptions([...props.filterOptions, garbageType]);
     }
   };
-  return <div className='icons'>{ICONS.map((icon) => icon.component(filterByGarbageType, props.showText))}</div>;
+  return (
+    <div className='icons'>
+      {ICONS.map((icon) => icon.component(filterByGarbageType, props.showText, props.alignRight))}
+    </div>
+  );
 };
 
 Icons.propTypes = {
   filterOptions: PropTypes.array,
   setFilterOptions: PropTypes.func,
   showText: PropTypes.bool,
+  alignRight: PropTypes.bool,
 };
 
 export default Icons;
