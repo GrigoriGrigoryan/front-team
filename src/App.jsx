@@ -13,6 +13,9 @@ import MainPage from './components/MainPage/MainPage';
 import Article from './components/Articles/Article/Article';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import WastePage from "./components/GarbageLibrary/WastePage/WastePage";
+
+
 const App = () => {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
   const [currentLang, setCurrentLang] = useState('en');
@@ -40,6 +43,7 @@ const App = () => {
           <Route path='/garbageLibrary' component={GarbageLibrary} />
           <Route path='/articles' component={Articles} />
           <Route path='/article/:id' component={Article} />
+          <Route path='/typeofwaste/:id' component={WastePage} />
         </Switch>
         <Footer />
       </Router>

@@ -1,21 +1,22 @@
 import React from 'react';
-import styles from './GarbageLibrary.module.css';
-import { useIntl } from "react-intl";
-import {GARBAGE_TYPES} from "../../types/garbageTypes";
-// import Icon from "../Map/Icons/Icon";
+import styles from './wastePage.module.css';
+import {useIntl} from "react-intl";
+import {GARBAGE_TYPES} from "../../../types/garbageTypes";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {fas} from "@fortawesome/free-solid-svg-icons";
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import prev from './../../../assets/images/prev.png';
+import next from './../../../assets/images/next.png'
 import {NavLink} from "react-router-dom";
+import Parser from "html-react-parser";
 
-library.add(fas, fab);
-
-const GarbageLibrary = () => {
+const WastePage = (props) => {
     const intl = useIntl();
+    // eslint-disable-next-line react/prop-types
+    const currentTypeOfWasteID = +props.match.params.id;
+    // eslint-disable-next-line react/prop-types
+    const prevTypeOfWasteID = +props.match.params.id-1;
+    // eslint-disable-next-line react/prop-types
+    const nextTypeOfWasteID = +props.match.params.id+1;
     const messages = {
-        garbageLibraryTitleMsg: 'garbageLibraryTitleID',
-        garbageLibraryMainTextMsg: 'garbageLibraryMainTextID',
         automotiveMsg: 'icons_automotiveID',
         glassMsg: 'icons_glassID',
         electronicsMsg: 'icons_electronicsID',
@@ -31,16 +32,30 @@ const GarbageLibrary = () => {
         organicWasteMsg: 'icons_organicWasteID',
         otherMsg: 'icons_otherID',
         treeMsg: 'icons_treeID',
+        organicWasteInfoMsg: 'organicWasteInfoID',
+        paperInfoMsg: 'paperInfoID',
+        glassInfoMsg: 'glassInfoID',
+        plasticInfoMsg: 'plasticInfoID',
+        clothingInfoMsg: 'clothingInfoID',
+        electronicsInfoMsg: 'electronicsInfoID',
+        batteriesInfoMsg: 'batteriesInfoID',
+        householdInfoMsg: 'householdInfoID',
+        lightBulbsInfoMsg: 'lightBulbsInfoID',
+        automotiveInfoMsg: 'automotiveInfoID',
+        metalInfoMsg: 'metalInfoID',
+        hazardousInfoMsg: 'hazardousInfoID',
+        treeInfoMsg: 'treeInfoID',
+        otherInfoMsg: 'otherInfoID'
     }
-
     const allIcons = [
         {
             id: 1,
             key: GARBAGE_TYPES.organicWaste,
             component: <FontAwesomeIcon
-                    icon={['fas', 'apple-alt']}
-                ></FontAwesomeIcon>,
+                icon={['fas', 'apple-alt']}
+            ></FontAwesomeIcon>,
             name:  messages.organicWasteMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 2,
@@ -49,6 +64,7 @@ const GarbageLibrary = () => {
                 icon={['fas', 'book-open']}
             ></FontAwesomeIcon>,
             name: messages.paperMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 3,
@@ -56,7 +72,8 @@ const GarbageLibrary = () => {
             component: <FontAwesomeIcon
                 icon={['fas', 'wine-bottle']}
             ></FontAwesomeIcon>,
-            name: messages.glassMsg
+            name: messages.glassMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 4,
@@ -65,6 +82,7 @@ const GarbageLibrary = () => {
                 icon={['fab', 'gulp']}
             ></FontAwesomeIcon>,
             name: messages.plasticMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 5,
@@ -73,6 +91,7 @@ const GarbageLibrary = () => {
                 icon={['fas', 'tshirt']}
             ></FontAwesomeIcon>,
             name: messages.clothingMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 6,
@@ -80,7 +99,8 @@ const GarbageLibrary = () => {
             component: <FontAwesomeIcon
                 icon={['fas', 'laptop']}
             ></FontAwesomeIcon>,
-            name: messages.electronicsMsg
+            name: messages.electronicsMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 7,
@@ -89,6 +109,7 @@ const GarbageLibrary = () => {
                 icon={['fas', 'battery-three-quarters']}
             ></FontAwesomeIcon>,
             name: messages.batteriesMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 8,
@@ -96,7 +117,8 @@ const GarbageLibrary = () => {
             component: <FontAwesomeIcon
                 icon={['fas', 'home']}
             ></FontAwesomeIcon>,
-            name: messages.householdMsg
+            name: messages.householdMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 9,
@@ -105,6 +127,7 @@ const GarbageLibrary = () => {
                 icon={['fas', 'lightbulb']}
             ></FontAwesomeIcon>,
             name: messages.lightBulbsMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 10,
@@ -113,6 +136,7 @@ const GarbageLibrary = () => {
                 icon={['fas', 'hammer']}
             ></FontAwesomeIcon>,
             name: messages.constructionMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 11,
@@ -121,6 +145,7 @@ const GarbageLibrary = () => {
                 icon={['fas', 'car-crash']}
             ></FontAwesomeIcon>,
             name: messages.automotiveMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 12,
@@ -129,6 +154,7 @@ const GarbageLibrary = () => {
                 icon={['fas', 'pager']}
             ></FontAwesomeIcon>,
             name: messages.metalMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 13,
@@ -137,6 +163,7 @@ const GarbageLibrary = () => {
                 icon={['fas', 'radiation']}
             ></FontAwesomeIcon>,
             name: messages.hazardousMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 14,
@@ -145,6 +172,7 @@ const GarbageLibrary = () => {
                 icon={['fas', 'tree']}
             ></FontAwesomeIcon>,
             name: messages.treeMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         },
         {
             id: 15,
@@ -153,37 +181,45 @@ const GarbageLibrary = () => {
                 icon={['fas', 'hands']}
             ></FontAwesomeIcon>,
             name: messages.otherMsg,
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
         }
     ];
+    let currentTypeOfWaste = {};
+    allIcons.forEach((item) => {
+        if(currentTypeOfWasteID === item.id) {
+            currentTypeOfWaste = item;
+        }
+    })
 
     return (
-        <div className={styles.garbageLibraryWrapper}>
-            <h4  className={styles.garbageLibraryTitle}>
-                {intl.formatMessage({ id: messages.garbageLibraryTitleMsg })}
-            </h4>
-            <p className={styles.garbageLibraryMainText}>
-                {intl.formatMessage({ id: messages.garbageLibraryMainTextMsg })}
-            </p>
-            <div className={styles.iconsWrapper}>
-                {
-                    allIcons.map((item) => {
-                        return (
-                                <div key={item.key} className={styles.iconWrapper}>
-                                    <NavLink to={`/typeofwaste/${item.id}`} className={styles.link}>
-                                        <div className={styles.icon}>
-                                            {item.component}
-                                        </div>
-                                        <p className={styles.iconText}>
-                                            {intl.formatMessage({ id: item.name })}
-                                        </p>
-                                    </NavLink>
-                                </div>
-                        )
-                })
-                }
+        <div className={styles.wrapper}>
+            <div className={styles.titleWrapper}>
+                <div className={styles.btnPrevWrapper}>
+                    <NavLink to={`/typeofwaste/${prevTypeOfWasteID}`}>
+                        <img src={prev} alt="" className={`${styles.btnArrows} ${styles.btnPrev}`}/><span className={`${styles.prevBtnText} ${styles.btnText}`}>Back</span>
+                    </NavLink>
+                </div>
+                <div className={styles.iconWrapper}>
+                    <div className={styles.icon}>
+                        {currentTypeOfWaste.component}
+                    </div>
+                    <p className={styles.iconText}>
+                        {intl.formatMessage({ id: currentTypeOfWaste.name })}
+                    </p>
+                </div>
+                <div className={styles.btnPrevWrapper}>
+                    <NavLink to={`/typeofwaste/${nextTypeOfWasteID}`}>
+                        <span className={`${styles.nextBtnText} ${styles.btnText}`}>Next</span><img src={next} alt="" className={`${styles.btnArrows}  ${styles.btnNext}`}/>
+                    </NavLink>
+                </div>
+            </div>
+            <div className={styles.mainContent}>
+                {currentTypeOfWaste.info}
             </div>
         </div>
-    );
-};
+    )
 
-export default GarbageLibrary;
+
+}
+
+export default WastePage;
