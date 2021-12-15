@@ -11,7 +11,9 @@ const Articles = () => {
         article1TitleMsg: 'article1TitleID',
         article1TextMsg: 'article1TextID',
         article2TitleMsg: 'article2TitleID',
-        article2TextMsg: 'article2TextID'
+        article2TextMsg: 'article2TextID',
+        article3TitleMsg: 'article3TitleID',
+        article3TextMsg: 'article3TextID'
     };
     const articlesArr = [
         {
@@ -23,14 +25,14 @@ const Articles = () => {
         {
             id: 2,
             title: messages.article2TitleMsg,
-            img: 'https://cdn.zmescience.com/wp-content/uploads/2020/07/recycling-1024x384.jpg',
+            img: 'https://americanbutler.ru/uploads/images/useful/lifehacks/recycling/recycling-01.jpg',
             text: messages.article2TextMsg
         },
         {
             id: 3,
-            title: messages.article2TitleMsg,
-            img: 'https://www.waste360.com/sites/waste360.com/files/RecyclingApps_0.png',
-            text: messages.article2TextMsg
+            title: messages.article3TitleMsg,
+            img: 'https://www.5.ua/media/pictures/original/190244.jpg?t=1596014476',
+            text: messages.article3TextMsg
         }
     ]
     return (
