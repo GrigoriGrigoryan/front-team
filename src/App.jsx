@@ -14,12 +14,15 @@ import Article from "./components/Articles/Article/Article";
 
 const App = () => {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
+  const [currentLang, setCurrentLang] = useState('en');
 
   const localeHandler = (countryCode) => {
     if (countryCode === COUNTRY_CODES.EN) {
       setLocale(LOCALES.ENGLISH);
+      setCurrentLang('en');
     } else {
       setLocale(LOCALES.RUSSIAN);
+      setCurrentLang('ru');
     }
   };
 
@@ -28,7 +31,7 @@ const App = () => {
     // and pass the localeHandler to change the language
     <I18nProvider locale={locale}>
           <Router>
-            <Header localeHandler={localeHandler}/>
+            <Header localeHandler={localeHandler} currentLang={currentLang}/>
             <Switch>
               <Route exact path="/" component={MainPage}/>
               <Route path="/map" component={Map}/>

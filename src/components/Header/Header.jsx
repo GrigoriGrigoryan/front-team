@@ -45,7 +45,7 @@ const Header = (props) => {
                 {intl.formatMessage({ id: messages.garbageLibraryMsg })}
             </NavLink>
           </Nav>
-          <BtnsLanguages localeHandler={props.localeHandler} />
+          <BtnsLanguages localeHandler={props.localeHandler} currentLang={props.currentLang}/>
         </Navbar.Collapse>
       </div>
     </Navbar>
@@ -54,6 +54,7 @@ const Header = (props) => {
 
 Header.propTypes = {
   localeHandler: PropTypes.func,
+  currentLang: PropTypes.string,
 };
 
 export default Header;
