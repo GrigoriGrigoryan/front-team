@@ -1,0 +1,117 @@
+:root {
+  --green: #00db7a;
+}
+.MapContainer {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.Map {
+  margin-top: 4.9rem;
+  height: 60vh;
+  width: 100vw;
+}
+
+.PickMaterialsTitle {
+  font-size: 1.21rem;
+  margin: 0.3rem 0 0.7rem 0;
+}
+
+/* default (mobile-first) size */
+.GarbageTypes {
+  width: 85vw;
+  height: 24rem;
+  background: white;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+  margin: 3rem auto;
+  color: #252120;
+  overflow: auto;
+}
+
+.GarbageTypes .icons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.IconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: first baseline;
+  flex-direction: column;
+  width: 4.3rem;
+  margin: 0.3rem;
+}
+
+.icon {
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  padding: 1rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.icon:hover,
+.active {
+  background: var(--green);
+  color: white;
+}
+
+/* When the text is aligned to the right of the icon */
+.icon.alignRight {
+  border: 2px solid var(--green);
+}
+
+.icon ~ span {
+  font-size: 1rem;
+}
+
+/* Align the text to the right side (in the Modal) */
+.icon ~ span.alignRight {
+  position: absolute;
+  left: 33%;
+  margin-top: 1.2rem;
+}
+
+.icon ~ span.alignBottom {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* on larger screen sizes */
+@media screen and (min-width: 44rem) {
+  .GarbageTypes {
+    position: absolute;
+    width: 21rem;
+    height: 36rem;
+    left: 0.2%;
+    top: 13%;
+    z-index: 1000;
+    overflow-y: hidden;
+  }
+  .Map {
+    min-height: 100vh;
+    height: 100%;
+  }
+
+  .icon ~ span.alignBottom {
+    font-size: 1rem;
+  }
+}
+
+/* extra small */
+@media screen and (max-width: 33rem) {
+  .GarbageTypes {
+    width: 100vw;
+    height: 37rem;
+    box-shadow: none;
+  }
+}

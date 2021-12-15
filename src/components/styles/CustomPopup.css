@@ -1,0 +1,20 @@
+.Popup {
+  min-width: 15rem;
+  position: relative;
+}
+
+.EcoStationTitle {
+  font-size: 0.95rem !important;
+  padding-top: 1.3rem;
+}
+
+.Stars {
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+}
+
+.EcoStationAddress {
+  font-size: 0.8rem !important;
+  color: grey;
+}
