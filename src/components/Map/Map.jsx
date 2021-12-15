@@ -52,7 +52,9 @@ const Map = () => {
       </div>
       <div className='GarbageTypes'>
         <h4 className='PickMaterialsTitle'>{intl.formatMessage({ id: messages.pickMaterialsID })}</h4>
-        <Icons showText filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
+        <div className='MapIcons'>
+          <Icons showText filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
+        </div>
       </div>
     </div>
   );

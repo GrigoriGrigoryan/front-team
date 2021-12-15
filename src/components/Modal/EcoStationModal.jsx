@@ -21,6 +21,7 @@ const messages = {
   saturday: 'modal_saturday',
   sunday: 'modal_sunday',
   dayOff: 'modal_dayOff',
+  notSpecified: 'modal_notSpecified',
 };
 
 const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, deliveryOptions, ...props }) => {
@@ -45,7 +46,7 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
             name='rating'
           />
         </div>
-        <h4 className='EcoStationTitle'>{ecoStationName}</h4>
+        <h4 className='StationTitl'>{ecoStationName}</h4>
         <i className='fas fa-map-marker-alt location'>
           <span>{address}</span>
         </i>
@@ -53,7 +54,7 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.contactPhone })}</h4>
         <div className='ContactPhone'>
           <i className='fas fa-phone-volume'></i>
-          <span>{props.contact}</span>
+          <span>{props.contact === '-' ? intl.formatMessage({ id: messages.notSpecified }) : props.contact}</span>
         </div>
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.workingHours })}</h4>
         <div className='WorkingHours'>
@@ -63,13 +64,16 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
               {intl.formatMessage({ id: messages.mondayFriday })} {props.workingHours[0]}
             </span>
             <span>
-              {intl.formatMessage({ id: messages.saturday })} {props.workingHours[props.workingHours.length - 2]}
+              {intl.formatMessage({ id: messages.saturday })}{' '}
+              {props.workingHours[props.workingHours.length - 2] === '-'
+                ? intl.formatMessage({ id: messages.dayOff })
+                : props.workingHours[props.workingHours.length - 2]}
             </span>
             <span>
               {intl.formatMessage({ id: messages.sunday })}{' '}
-              {props.workingHours[props.workingHours.length - 1] === '-'
-                ? 'day off'
-                : props.workingHours[props.workingHours.length - 1]}
+              {props.workingHours[props.workingHours.length - 2] === '-'
+                ? intl.formatMessage({ id: messages.dayOff })
+                : props.workingHours[props.workingHours.length - 2]}
             </span>
           </div>
         </div>

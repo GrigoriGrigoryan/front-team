@@ -49,4 +49,5 @@ export const ENGLISH_MESSAGES = {
   modal_saturday: 'Saturday:',
   modal_sunday: 'Sunday:',
   modal_dayOff: 'day off',
+  modal_notSpecified: 'not specified',
 };
