@@ -41,6 +41,9 @@ const CustomMarker = (props) => {
         paymentCondition={props.paymentCondition}
         setShowModal={setShowModal}
         setSelectedMarker={props.setSelectedMarker}
+        address={props.address}
+        contact={props.contact}
+        workingHours={props.workingHours}
       />
     </>
   );
@@ -56,6 +59,9 @@ CustomMarker.propTypes = {
   deliveryOptions: PropTypes.array,
   paymentCondition: PropTypes.object,
   setSelectedMarker: PropTypes.func,
+  address: PropTypes.string,
+  contact: PropTypes.string,
+  workingHours: PropTypes.array,
 };
 
 export default CustomMarker;

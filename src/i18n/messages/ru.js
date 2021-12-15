@@ -15,4 +15,13 @@ export const RUSSIAN_MESSAGES = {
   icons_organicWasteID: 'Биоотходы',
   icons_otherID: 'Другое',
   icons_treeID: 'Древесина',
+  modal_acceptedGarbageTypes: '???',
+  modal_paymentConditions: '???',
+  modal_deliveryOptions: '???',
+  modal_contactPhone: '???',
+  modal_workingHours: '???',
+  modal_mondayFriday: '???',
+  modal_saturday: '???',
+  modal_sunday: '???',
+  modal_dayOff: '???',
 };

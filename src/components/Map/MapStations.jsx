@@ -1,17 +1,36 @@
 import React from 'react';
-import { STATIONS, MARKERS } from '../../models/staticStationArray.js';
+import CustomMarker from './CustomMarker.jsx';
+import CustomPopup from './CustomPopup.jsx';
+
+const CustomizedMarker = (props, ecoStation, index) => (
+  <CustomMarker
+    {...props}
+    ecoStationName={ecoStation.ecoStationName}
+    key={`${index}__marker`}
+    posX={+ecoStation.latitude}
+    posY={+ecoStation.longitude}
+    rating={ecoStation.rating}
+    wasteTypes={ecoStation.wasteTypes}
+    deliveryOptions={ecoStation.deliveryOptions}
+    address={ecoStation.address}
+    contact={ecoStation.contact}
+    workingHours={ecoStation.workingHours}
+  >
+    <CustomPopup />
+  </CustomMarker>
+);
 
 const MapStations = (props) => {
   return props.filterOptions.length
-    ? STATIONS.map((station, index) => {
+    ? props.leaves.map((ecoStation, index) => {
         for (let filterOption of props.filterOptions) {
-          if (!station.wasteTypes.includes(filterOption)) {
+          if (!ecoStation.wasteTypes.includes(filterOption)) {
             return;
           }
         }
-        return React.cloneElement(MARKERS[index], { ...props });
+        return CustomizedMarker(props, ecoStation, index);
       })
-    : MARKERS.map((marker) => React.cloneElement(marker, { ...props }));
+    : props.leaves.map((ecoStation, index) => CustomizedMarker(props, ecoStation, index));
 };
 
 export default MapStations;

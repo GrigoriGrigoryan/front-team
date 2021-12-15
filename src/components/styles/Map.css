@@ -96,7 +96,8 @@
     overflow-y: hidden;
   }
   .Map {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
   }
 
   .icon ~ span.alignBottom {

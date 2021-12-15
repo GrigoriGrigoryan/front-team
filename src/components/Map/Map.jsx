@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TileLayer, MapContainer, useMap } from 'react-leaflet';
 import '../styles/Map.css';
 import MapStations from './MapStations';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import Icons from './Icons/Icons';
 import { useIntl } from 'react-intl';
+import { getLeaves } from '../Api/MapApi';
 
 const messages = {
   pickMaterialsID: 'pickMaterialsID',
@@ -13,6 +14,12 @@ const messages = {
 const Map = () => {
   const [filterOptions, setFilterOptions] = useState([]);
   const [isSelectedMarker, setSelectedMarker] = useState(false);
+  const [leaves, setLeaves] = useState([]);
+
+  useEffect(async () => {
+    const data = await getLeaves();
+    setLeaves(data);
+  }, []);
 
   const DisableScrollWhenModalAppear = () => {
     const map = useMap();
@@ -39,7 +46,7 @@ const Map = () => {
             noWrap={true}
           />
           <MarkerClusterGroup>
-            <MapStations setSelectedMarker={setSelectedMarker} filterOptions={filterOptions} />
+            <MapStations leaves={leaves} setSelectedMarker={setSelectedMarker} filterOptions={filterOptions} />
           </MarkerClusterGroup>
         </MapContainer>
       </div>

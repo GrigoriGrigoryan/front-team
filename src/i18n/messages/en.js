@@ -15,4 +15,13 @@ export const ENGLISH_MESSAGES = {
   icons_organicWasteID: 'Bio waste',
   icons_otherID: 'Other',
   icons_treeID: 'Tree',
+  modal_acceptedGarbageTypes: 'Accepted garbage types:',
+  modal_paymentConditions: 'Payment conditions:',
+  modal_deliveryOptions: 'Delivery options:',
+  modal_contactPhone: 'Contact phone:',
+  modal_workingHours: 'Working hours:',
+  modal_mondayFriday: 'Monday-Friday:',
+  modal_saturday: 'Saturday:',
+  modal_sunday: 'Sunday:',
+  modal_dayOff: 'day off',
 };
