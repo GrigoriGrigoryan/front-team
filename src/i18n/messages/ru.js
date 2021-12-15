@@ -48,4 +48,6 @@ export const RUSSIAN_MESSAGES = {
   modal_saturday: '???',
   modal_sunday: '???',
   modal_dayOff: '???',
+  garbageLibraryTitleID: 'Добро пожаловать в справочник мусора',
+  garbageLibraryMainTextID: 'Чтобы упростить вам процесс сортировки, мы создали этот справочник видов отходов, где вы можете прочитать подробную информацию о каждом типе отходов.'
 };
