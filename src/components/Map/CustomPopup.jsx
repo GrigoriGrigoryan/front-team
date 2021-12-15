@@ -1,15 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/CustomPopup.css';
+import StarRatings from 'react-star-ratings';
+
 const CustomPopup = (props) => {
   return (
     <div className='Popup'>
-      <div className='PopupHeader'>
-        <div className={`Rating ${props.rating > 4 ? 'green' : props.rating > 2.5 ? 'orange' : 'red'}`}>
-          {(Math.round(props.rating * 100) / 100).toFixed(1)}
-        </div>
-        <h4 className='EcoStationTitle'>{props.ecoStationName}</h4>
+      <div className='Stars'>
+        <StarRatings
+          rating={+props.rating}
+          starSpacing='1px'
+          starDimension='1.2rem'
+          starRatedColor='#00db7a'
+          numberOfStars={5}
+          name='rating'
+        />
       </div>
+      <h4 className='EcoStationTitle'>{props.ecoStationName}</h4>
+      <h5 className='EcoStationAddress'>{props.address}</h5>
     </div>
   );
 };
@@ -17,6 +25,7 @@ const CustomPopup = (props) => {
 CustomPopup.propTypes = {
   rating: PropTypes.number,
   ecoStationName: PropTypes.string,
+  address: PropTypes.string,
 };
 
 export default CustomPopup;
