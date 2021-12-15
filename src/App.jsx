@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import BtnsLanguages from './components/btnsLanguages';
 import Map from "./components/Map/Map";
 import Header from "./components/Header/Header";
 import Articles from "./components/Articles/Articles";
@@ -11,15 +10,19 @@ import { COUNTRY_CODES } from './types/countryCodes';
 import './App.css';
 import {Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import MainPage from "./components/MainPage/MainPage";
+import Article from "./components/Articles/Article/Article";
 
 const App = () => {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
+  const [currentLang, setCurrentLang] = useState('en');
 
   const localeHandler = (countryCode) => {
     if (countryCode === COUNTRY_CODES.EN) {
       setLocale(LOCALES.ENGLISH);
+      setCurrentLang('en');
     } else {
       setLocale(LOCALES.RUSSIAN);
+      setCurrentLang('ru');
     }
   };
 
@@ -28,12 +31,13 @@ const App = () => {
     // and pass the localeHandler to change the language
     <I18nProvider locale={locale}>
           <Router>
-            <Header localeHandler={localeHandler}/>
+            <Header localeHandler={localeHandler} currentLang={currentLang}/>
             <Switch>
               <Route exact path="/" component={MainPage}/>
               <Route path="/map" component={Map}/>
               <Route path="/garbageLibrary" component={GarbageLibrary}/>
               <Route path="/articles" component={Articles} />
+              <Route path="/article/:id" component={Article} />
             </Switch>
             <Footer />
           </Router>

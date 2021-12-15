@@ -12,7 +12,8 @@ const MainPage = () => {
         aboutProjectMsg: 'aboutProjectID',
         aboutProjectTextMsg: 'aboutProjectTextID',
         howToStartRecyclingMsg: 'howToStartRecyclingID',
-        collectRecycleMsg: 'collectRecycleID'
+        collectRecycleMsg: 'collectRecycleID',
+        donateMsg: 'donateID'
     };
 
     return (
@@ -38,7 +39,7 @@ const MainPage = () => {
                     <p className={styles.textDonate}>{intl.formatMessage({ id: messages.collectRecycleMsg })}</p>
                     <div className={styles.donateButtonWrapper}>
                         <button onClick={() => setModalActive(true)} className={styles.donateButton}>
-                            Donate
+                            {intl.formatMessage({ id: messages.donateMsg })}
                         </button>
                     </div>
                 </div>
