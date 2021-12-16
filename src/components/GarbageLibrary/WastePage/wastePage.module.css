@@ -19,7 +19,7 @@ h4 {
     width: 15px;
     height: 20px;
     display: inline-block;
-    margin-top: -8px;
+    margin-top: -6px;
 }
 .btnPrev {
     margin-right: 7px;
@@ -54,3 +54,76 @@ h4 {
     margin-top: 50px;
     text-align: justify;
 }
+
+@media (max-width: 999px) {
+
+}
+
+@media (max-width: 767px) {
+    .wrapper {
+        width: 500px;
+        margin: 70px auto 0;
+        padding-bottom: 80px;
+    }
+    .btnArrows {
+        width: 10px;
+        height: 15px;
+        margin-top: -4px;
+    }
+    .btnText {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .icon {
+        font-size: 40px;
+    }
+    .iconText {
+        margin-top: 6px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .titleWrapper {
+        padding-bottom: 10px;
+    }
+}
+@media (max-width: 541px) {
+    .wrapper {
+        width: 339px;
+    }
+}
+
+
+/**/
+.Overlay {
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.Image {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+}
+
+.Carousel {
+  margin-top: 30rem !important;
+  z-index: 20000;
+  width: 40vw;
+  margin: auto;
+}
+
+.BigImage {
+  width: 100%;
+  height: 75vh;
+  object-fit: cover;
+}
+
+.BigCarousel {
+  z-index: 20000;
+  width: 85vw;
+  margin: auto;
+}
+

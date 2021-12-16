@@ -5,6 +5,9 @@
     width: 1300px;
     margin: 100px auto 0;
 }
+.mainPageWrapper a {
+    text-decoration: none;
+}
 .mainPageTextWrapper {
     padding-right: 75px;
 }

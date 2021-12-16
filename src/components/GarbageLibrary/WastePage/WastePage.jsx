@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, {useState} from 'react';
 import styles from './wastePage.module.css';
 import {useIntl} from "react-intl";
 import {GARBAGE_TYPES} from "../../../types/garbageTypes";
@@ -7,15 +8,37 @@ import prev from './../../../assets/images/prev.png';
 import next from './../../../assets/images/next.png'
 import {NavLink} from "react-router-dom";
 import Parser from "html-react-parser";
+import { Carousel, Row, Col, Image, Modal, Button } from 'react-bootstrap';
+import organic1 from './../../../assets/images/organic1.jpeg';
+import organic2 from './../../../assets/images/organic2.jpeg';
+import organic3 from './../../../assets/images/organic3.jpeg';
+import organic4 from './../../../assets/images/organic4.jpeg';
+// import Lightbox from 'react-image-lightbox';
+// import Lightbox from 'react-lightbox-component';
+import Lightbox from "react-awesome-lightbox";
+// You need to import the CSS only once
+import "react-awesome-lightbox/build/style.css";
+
+// import $ from 'jquery';
+
+// import Gallery from "react-photo-gallery";
+// import Carousel, { Modal, ModalGateway } from "react-images";
+
 
 const WastePage = (props) => {
+    const [showBigger, setShowBigger] = useState(false);
     const intl = useIntl();
     // eslint-disable-next-line react/prop-types
-    const currentTypeOfWasteID = +props.match.params.id;
+    let currentTypeOfWasteID = +props.match.params.id;
     // eslint-disable-next-line react/prop-types
-    const prevTypeOfWasteID = +props.match.params.id-1;
+    let prevTypeOfWasteID = +props.match.params.id-1;
     // eslint-disable-next-line react/prop-types
-    const nextTypeOfWasteID = +props.match.params.id+1;
+    let nextTypeOfWasteID = +props.match.params.id+1;
+    if(prevTypeOfWasteID <= 0) {
+        prevTypeOfWasteID = 15;
+    } else if(nextTypeOfWasteID >= 15) {
+        nextTypeOfWasteID = 1;
+    }
     const messages = {
         automotiveMsg: 'icons_automotiveID',
         glassMsg: 'icons_glassID',
@@ -45,7 +68,10 @@ const WastePage = (props) => {
         metalInfoMsg: 'metalInfoID',
         hazardousInfoMsg: 'hazardousInfoID',
         treeInfoMsg: 'treeInfoID',
-        otherInfoMsg: 'otherInfoID'
+        otherInfoMsg: 'otherInfoID',
+        backMsg: 'backID',
+        nextMsg: 'nextID',
+        photoExamplesMsg: 'photoExamplesID',
     }
     const allIcons = [
         {
@@ -55,7 +81,13 @@ const WastePage = (props) => {
                 icon={['fas', 'apple-alt']}
             ></FontAwesomeIcon>,
             name:  messages.organicWasteMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            imgs: [
+                organic1,
+                organic2,
+                organic3,
+                organic4,
+            ]
         },
         {
             id: 2,
@@ -190,13 +222,29 @@ const WastePage = (props) => {
             currentTypeOfWaste = item;
         }
     })
+    // const [currentImage, setCurrentImage] = useState(0);
+    // const [viewerIsOpen, setViewerIsOpen] = useState(false);
+    //
+    // const openLightbox = useCallback((event, { index }) => {
+    //     setCurrentImage(index);
+    //     setViewerIsOpen(true);
+    // }, []);
+    //
+    // const closeLightbox = () => {
+    //     setCurrentImage(0);
+    //     setViewerIsOpen(false);
+    // };
+
+
+    // console.log('src', allIcons[0].imgs[0])
+    // $('.sliderWrapper').slickLightbox();
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.titleWrapper}>
                 <div className={styles.btnPrevWrapper}>
                     <NavLink to={`/typeofwaste/${prevTypeOfWasteID}`}>
-                        <img src={prev} alt="" className={`${styles.btnArrows} ${styles.btnPrev}`}/><span className={`${styles.prevBtnText} ${styles.btnText}`}>Back</span>
+                        <img src={prev} alt="" className={`${styles.btnArrows} ${styles.btnPrev}`}/><span className={`${styles.prevBtnText} ${styles.btnText}`}>{intl.formatMessage({ id: messages.backMsg })}</span>
                     </NavLink>
                 </div>
                 <div className={styles.iconWrapper}>
@@ -209,13 +257,70 @@ const WastePage = (props) => {
                 </div>
                 <div className={styles.btnPrevWrapper}>
                     <NavLink to={`/typeofwaste/${nextTypeOfWasteID}`}>
-                        <span className={`${styles.nextBtnText} ${styles.btnText}`}>Next</span><img src={next} alt="" className={`${styles.btnArrows}  ${styles.btnNext}`}/>
+                        <span className={`${styles.nextBtnText} ${styles.btnText}`}>{intl.formatMessage({ id: messages.nextMsg })}</span><img src={next} alt="" className={`${styles.btnArrows}  ${styles.btnNext}`}/>
                     </NavLink>
                 </div>
             </div>
             <div className={styles.mainContent}>
                 {currentTypeOfWaste.info}
             </div>
+            <br></br>
+            <h4>Photo examples for this  garbage type:</h4>
+            <div className={showBigger ? styles.Overlay : ''} onClick={() => setShowBigger(false)}></div>
+            <Carousel variant='dark' className={showBigger ? styles.BigCarousel : styles.Carousel}>
+                {currentTypeOfWaste.imgs.map((imageItem, index) => (
+                    <Carousel.Item
+                        onClick={() => setShowBigger(true)}
+                        key={`${index}_slide`}
+                        interval={20000}
+                        style={{ background: 'transparent' }}
+                    >
+                        <Row className='justify-content-md-center'>
+                            <Col md={8}>
+                                <Image className={showBigger ? styles.BigImage : styles.Image} src={imageItem} alt={`${index}_slide`} />
+                            </Col>
+                        </Row>
+                    </Carousel.Item>
+                ))}
+            </Carousel>
+                    {/*{*/}
+                    {/*    currentTypeOfWaste.imgs.map((item, index) => {*/}
+                    {/*        return (*/}
+                    {/*            <div key={index} className={styles.imgWrapper}>*/}
+                    {/*                <img src={item} />*/}
+                    {/*            </div>*/}
+                    {/*        )*/}
+                    {/*    })*/}
+                    {/*}*/}
+
+                {/*<Lightbox*/}
+                {/*    images={currentTypeOfWaste.imgs}*/}
+                {/*    showImageModifiers={false}/>*/}
+
+                {/*<Lightbox images={currentTypeOfWaste.images} />*/}
+
+                {/*<div>*/}
+                {/*    <Gallery photos={currentTypeOfWaste.images} onClick={openLightbox} />*/}
+                {/*    <ModalGateway>*/}
+                {/*        {viewerIsOpen ? (*/}
+                {/*            <Modal onClose={closeLightbox}>*/}
+                {/*                <Carousel*/}
+                {/*                    currentIndex={currentImage}*/}
+                {/*                    views={currentTypeOfWaste.images.map(x => ({*/}
+                {/*                        ...x,*/}
+                {/*                        srcset: x.srcSet,*/}
+                {/*                        caption: x.title*/}
+                {/*                    }))}*/}
+                {/*                />*/}
+                {/*            </Modal>*/}
+                {/*        ) : null}*/}
+                {/*    </ModalGateway>*/}
+                {/*</div>*/}
+
+
+
+
+            {/*</div>*/}
         </div>
     )
 

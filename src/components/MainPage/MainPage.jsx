@@ -3,6 +3,7 @@ import styles from './MainPage.module.css';
 import mainPageImg from '../../assets/images/mainPageImg.jpeg'
 import Modal from "./Modal";
 import { useIntl } from "react-intl";
+import {NavLink} from "react-router-dom";
 
 const MainPage = () => {
     const [modalActive, setModalActive] = useState();
@@ -27,10 +28,12 @@ const MainPage = () => {
                     </p>
                 </div>
                 <div className={styles.mainPageImgWrapper}>
-                    <h4 className={styles.headerImg}>
-                        {intl.formatMessage({ id: messages.howToStartRecyclingMsg })}
-                    </h4>
-                    <img src={mainPageImg} alt="" className={styles.mainPageImg}/>
+                    <NavLink to={`/article/3`}>
+                        <h4 className={styles.headerImg}>
+                            {intl.formatMessage({ id: messages.howToStartRecyclingMsg })}
+                        </h4>
+                        <img src={mainPageImg} alt="" className={styles.mainPageImg}/>
+                    </NavLink>
                 </div>
             </div>
             <div className={styles.donateBlock}>
