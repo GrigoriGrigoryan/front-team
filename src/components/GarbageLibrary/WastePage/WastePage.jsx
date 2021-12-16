@@ -31,19 +31,6 @@ const CustomFooter = ({ innerProps, isModal }) => isModal ? (
         {/*// your component internals*/}
     </div>
 ) : null;
-// eslint-disable-next-line react/prop-types
-const CustomView = ({ innerProps, isModal, img }) => isModal ? (
-    <div {...innerProps} className={styles.modalImg}>
-        {/* eslint-disable-next-line react/prop-types */}
-        {img.map((item) => {
-            return(
-                // eslint-disable-next-line react/jsx-key
-                <img src={item} />
-
-            )
-        })}
-    </div>
-) : null;
 
 const WastePage = (props) => {
     const [showBigger, setShowBigger] = useState(false);
@@ -383,12 +370,6 @@ const WastePage = (props) => {
                                                     left: '110px',
                                                 }
                                             }),
-
-                                            // view: () => ({
-                                            //     // none of react-images styles are passed to <View />
-                                            //     height: 400,
-                                            //     width: 600,
-                                            // }),
                                             container: (base, state) => ({
                                                 ...base,
                                                 width: 600,
@@ -397,11 +378,6 @@ const WastePage = (props) => {
 
                                                 ['@media (max-width: 770px)']: {
                                                     ...base,
-                                                    // alignItems: 'center',
-                                                    // display: 'flex ',
-                                                    // justifyContent: 'center',
-                                                    // width: 300,
-                                                    // height: 200,
                                                     width: 300,
 
                                                 },
@@ -413,22 +389,10 @@ const WastePage = (props) => {
                                                 justifyContent: 'center',
 
                                                 ['@media (max-width: 770px)']: {
-                                                    // ...base,
                                                     padding: 10,
                                                     maxWidth: '300px',
                                                     marginLeft: 'auto',
                                                     marginRight: 'auto',
-                                                    // alignItems: 'center',
-                                                    // alignSelf: 'center',
-                                                    // display: 'flex ',
-                                                    // justifyContent: 'center',
-                                                    // position: 'absolute',
-                                                    // top: '50%',
-                                                    // left: '50%',
-                                                    // transform: `translate(-50%, -50%)`,
-                                                    // '& > img': {
-                                                    //     width: 200,
-                                                    // },
                                                 },
 
                                                 '& > img': {
@@ -479,8 +443,6 @@ const WastePage = (props) => {
                 </div>
             </div>
     )
-
-
 }
 
 export default WastePage;
