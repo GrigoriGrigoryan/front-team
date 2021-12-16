@@ -65,7 +65,9 @@
 
 .location > span,
 .WorkingHoursTexts > span,
-.ContactPhone > span {
+.ContactPhone > span,
+.DeliveryOpt span,
+.PaymentCondition span {
   font-size: 0.9rem;
   margin-left: 0.2rem;
   color: grey;
@@ -74,7 +76,8 @@
 
 .WorkingHours,
 .ContactPhone,
-.DeliveryOpt {
+.DeliveryOpt,
+.PaymentCondition {
   position: relative;
   margin-bottom: 1.5rem;
 }
@@ -85,7 +88,8 @@
 
 .WorkingHours > i,
 .ContactPhone > i,
-.DeliveryOpt i {
+.DeliveryOpt i,
+.PaymentCondition i {
   font-size: 3rem;
   margin-left: 0.6rem;
 }
@@ -97,14 +101,18 @@
 }
 
 .ContactPhone > span,
-.DeliveryOpt span {
+.DeliveryOpt span,
+.PaymentCondition span {
   position: absolute;
   left: 23%;
   top: 40%;
 }
 .DeliveryOpt span {
-  left: 23%;
-  font-size: 0.9rem;
+  left: 26%;
+}
+.PaymentCondition span {
+  top: 25%;
+  left: 27%;
 }
 /* Custom scrollbar */
 

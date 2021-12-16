@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import { ICONS } from '../../models/Icons';
+import { DELIVERY } from '../../types/deliveryOptions';
+import { LOCALES } from '../../types/locales';
 import '../styles/Button.css';
 import './EcoStationModal.css';
 import '../styles/CustomPopup.css';
 import { useIntl } from 'react-intl';
 
 const displayAcceptedGarbageTypes = (wasteTypes) => {
-  return ICONS.map((icon) => wasteTypes.includes(icon.key) && icon.component(null, true, false));
+  return ICONS.map((icon) => wasteTypes.includes(icon.key) && icon.component(null, true, true));
 };
 
 const messages = {
@@ -23,9 +25,20 @@ const messages = {
   dayOff: 'modal_dayOff',
   notSpecified: 'modal_notSpecified',
   unknownID: 'unknownId',
+  paidID: 'paidId',
+  freeID: 'freeId',
 };
 
-const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, deliveryOptions, ...props }) => {
+const EcoStationModal = ({
+  address,
+  addressRu,
+  ecoStationName,
+  rating,
+  wasteTypes,
+  deliveryOptions,
+  deliveryOptionsRu,
+  ...props
+}) => {
   const intl = useIntl();
   return (
     <>
@@ -51,7 +64,15 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
           {ecoStationName ? ecoStationName : intl.formatMessage({ id: messages.unknownID })}
         </h4>
         <i className='fas fa-map-marker-alt location'>
-          <span>{address ? address : intl.formatMessage({ id: messages.unknownID })}</span>
+          <span>
+            {props.locale === LOCALES.ENGLISH
+              ? address
+                ? address
+                : intl.formatMessage({ id: messages.unknownID })
+              : addressRu
+              ? addressRu
+              : intl.formatMessage({ id: messages.unknownID })}
+          </span>
         </i>
         <hr />
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.contactPhone })}</h4>
@@ -88,26 +109,26 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
         <div className='DeliveryOpt'>
           {deliveryOptions.map((option, index) => (
             <div key={`list_${index}`}>
-              {option === 'free of charge' ? (
-                <i className='fas fa-hand-holding-usd'></i>
-              ) : (
-                <i className='fas fa-taxi'></i>
-              )}
-              <span>{option}</span>
+              {option === DELIVERY.selfDelivery ? <i className='fas fa-car'></i> : <i className='fas fa-taxi'></i>}
+              <span>{props.locale === LOCALES.ENGLISH ? option : deliveryOptionsRu[index]}</span>
             </div>
           ))}
         </div>
 
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.paymentConditionsID })}</h4>
-        <div className='DeliveryOpt'>
+        <div className='PaymentCondition'>
           {deliveryOptions.map((option, index) => (
             <div key={`list_${index}`}>
-              {option === 'self-delivery' ? (
+              {option === DELIVERY.selfDelivery ? (
                 <i className='fas fa-hand-holding-usd'></i>
               ) : (
                 <i className='fas fa-money-bill'></i>
               )}
-              <span>{option}</span>
+              <span>
+                {option === DELIVERY.selfDelivery
+                  ? intl.formatMessage({ id: messages.freeID })
+                  : intl.formatMessage({ id: messages.paidID })}
+              </span>
             </div>
           ))}
         </div>
@@ -129,5 +150,8 @@ EcoStationModal.propTypes = {
   address: PropTypes.string,
   workingHours: PropTypes.array,
   contact: PropTypes.string,
+  locale: PropTypes.string,
+  addressRu: PropTypes.string,
+  deliveryOptionsRu: PropTypes.array,
 };
 export default EcoStationModal;

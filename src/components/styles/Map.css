@@ -66,19 +66,12 @@
 }
 
 /* When the text is aligned to the right of the icon */
-.icon.alignRight {
-  border: 2px solid var(--green);
+.IconContainer.displayInModal {
+  margin: 0.4rem 0.73rem;
 }
 
 .icon ~ span {
   font-size: 1rem;
-}
-
-/* Align the text to the right side (in the Modal) */
-.icon ~ span.alignRight {
-  position: absolute;
-  left: 33%;
-  margin-top: 1.2rem;
 }
 
 .icon ~ span.alignBottom {

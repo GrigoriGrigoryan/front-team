@@ -44,6 +44,9 @@ const CustomMarker = (props) => {
         address={props.address}
         contact={props.contact}
         workingHours={props.workingHours}
+        locale={props.locale}
+        addressRu={props.addressRu}
+        deliveryOptionsRu={props.deliveryOptionsRu}
       />
     </>
   );
@@ -62,6 +65,9 @@ CustomMarker.propTypes = {
   address: PropTypes.string,
   contact: PropTypes.string,
   workingHours: PropTypes.array,
+  locale: PropTypes.string,
+  deliveryOptionsRu: PropTypes.array,
+  addressRu: PropTypes.string,
 };
 
 export default CustomMarker;

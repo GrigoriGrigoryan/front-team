@@ -12,10 +12,10 @@ const Icon = (props) => {
   const intl = useIntl();
   const [active, setActive] = useState(false);
   return (
-    <div className='IconContainer'>
+    <div className={`IconContainer ${props.displayInModal ? 'displayInModal' : ''}`}>
       <FontAwesomeIcon
         icon={[props.iconName.split(' ')[0], props.iconName.split(' ')[1]]}
-        className={`icon ${active ? 'active' : props.alignRight ? 'alignRight' : ''}`}
+        className={`icon ${active ? 'active' : ''}`}
         onClick={() => {
           if (props.filterByGarbageType) {
             props.filterByGarbageType(props.garbageType);
@@ -23,11 +23,7 @@ const Icon = (props) => {
           }
         }}
       ></FontAwesomeIcon>
-      {props.showText && (
-        <span className={`${props.alignRight ? 'alignRight' : 'alignBottom'}`}>
-          {intl.formatMessage({ id: props.textID })}
-        </span>
-      )}
+      {props.showText && <span className='alignBottom'>{intl.formatMessage({ id: props.textID })}</span>}
     </div>
   );
 };
@@ -38,7 +34,7 @@ Icon.propTypes = {
   garbageType: PropTypes.string,
   showText: PropTypes.bool,
   textID: PropTypes.string,
-  alignRight: PropTypes.bool,
+  displayInModal: PropTypes.bool,
 };
 
 export default Icon;
