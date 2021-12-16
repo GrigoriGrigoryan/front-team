@@ -12,6 +12,16 @@ import organic1 from './../../../assets/images/organic1.jpeg';
 import organic2 from './../../../assets/images/organic2.jpeg';
 import organic3 from './../../../assets/images/organic3.jpeg';
 import organic4 from './../../../assets/images/organic4.jpeg';
+import glass1 from './../../../assets/images/glass1.jpeg';
+import glass2 from './../../../assets/images/glass2.jpeg';
+import glass3 from './../../../assets/images/glass3.jpeg';
+import glass4 from './../../../assets/images/glass4.jpeg';
+import cloth1 from './../../../assets/images/cloth1.jpeg';
+import cloth2 from './../../../assets/images/cloth2.jpeg';
+import cloth3 from './../../../assets/images/cloth3.jpeg';
+import cloth4 from './../../../assets/images/cloth4.jpeg';
+import bigLeaf from './../../../assets/images/bigLeaf.png';
+import heart from './../../../assets/images/heart.png';
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 
@@ -97,35 +107,24 @@ const WastePage = (props) => {
                     src: organic1,
                     width: 1,
                     height: 1,
-                    // original: organic1,
-                    // // originalWidth: 150px,
-                    // // originalHeight: 150px,
                 },
                 {
-                    // original: organic2,
-                    // width: 2,
-                    // height: 2,
-
                     src: organic2,
                     width: 2,
-                    height: 2,},
+                    height: 2,
+                },
                 {
-                    // original: organic3,
-                    // width: 2,
-                    // height: 2,
                     src: organic3,
                     width: 2,
                     height: 2,
                 },
                 {
-                    // original: organic4,
-                    // width: 2,
-                    // height: 2,
                     src: organic4,
                     width: 2,
                     height: 2,
                 },
-            ]
+            ],
+            isAllInfo: true,
 
         },
         {
@@ -135,7 +134,8 @@ const WastePage = (props) => {
                 icon={['fas', 'book-open']}
             ></FontAwesomeIcon>,
             name: messages.paperMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 3,
@@ -144,7 +144,31 @@ const WastePage = (props) => {
                 icon={['fas', 'wine-bottle']}
             ></FontAwesomeIcon>,
             name: messages.glassMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            imgs: [
+                {
+                    src: glass1,
+                    width: 1,
+                    height: 1,
+                },
+                {
+                    src: glass2,
+                    width: 2,
+                    height: 2,
+                },
+                {
+                    src: glass3,
+                    width: 2,
+                    height: 2,
+                },
+                {
+                    src: glass4,
+                    width: 2,
+                    height: 2,
+                },
+            ],
+            isAllInfo: true,
+
         },
         {
             id: 4,
@@ -153,7 +177,8 @@ const WastePage = (props) => {
                 icon={['fab', 'gulp']}
             ></FontAwesomeIcon>,
             name: messages.plasticMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 5,
@@ -162,7 +187,31 @@ const WastePage = (props) => {
                 icon={['fas', 'tshirt']}
             ></FontAwesomeIcon>,
             name: messages.clothingMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            imgs: [
+                {
+                    src: cloth1,
+                    width: 1,
+                    height: 1,
+                },
+                {
+                    src: cloth2,
+                    width: 2,
+                    height: 2,
+                },
+                {
+                    src: cloth3,
+                    width: 2,
+                    height: 2,
+                },
+                {
+                    src: cloth4,
+                    width: 2,
+                    height: 2,
+                },
+            ],
+            isAllInfo: true,
+
         },
         {
             id: 6,
@@ -171,7 +220,8 @@ const WastePage = (props) => {
                 icon={['fas', 'laptop']}
             ></FontAwesomeIcon>,
             name: messages.electronicsMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 7,
@@ -180,7 +230,8 @@ const WastePage = (props) => {
                 icon={['fas', 'battery-three-quarters']}
             ></FontAwesomeIcon>,
             name: messages.batteriesMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 8,
@@ -189,7 +240,8 @@ const WastePage = (props) => {
                 icon={['fas', 'home']}
             ></FontAwesomeIcon>,
             name: messages.householdMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 9,
@@ -198,7 +250,8 @@ const WastePage = (props) => {
                 icon={['fas', 'lightbulb']}
             ></FontAwesomeIcon>,
             name: messages.lightBulbsMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 10,
@@ -207,7 +260,8 @@ const WastePage = (props) => {
                 icon={['fas', 'hammer']}
             ></FontAwesomeIcon>,
             name: messages.constructionMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 11,
@@ -216,7 +270,8 @@ const WastePage = (props) => {
                 icon={['fas', 'car-crash']}
             ></FontAwesomeIcon>,
             name: messages.automotiveMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 12,
@@ -225,7 +280,8 @@ const WastePage = (props) => {
                 icon={['fas', 'pager']}
             ></FontAwesomeIcon>,
             name: messages.metalMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 13,
@@ -234,7 +290,8 @@ const WastePage = (props) => {
                 icon={['fas', 'radiation']}
             ></FontAwesomeIcon>,
             name: messages.hazardousMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 14,
@@ -243,7 +300,8 @@ const WastePage = (props) => {
                 icon={['fas', 'tree']}
             ></FontAwesomeIcon>,
             name: messages.treeMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         },
         {
             id: 15,
@@ -252,7 +310,8 @@ const WastePage = (props) => {
                 icon={['fas', 'hands']}
             ></FontAwesomeIcon>,
             name: messages.otherMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg}))
+            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            isAllInfo: false,
         }
     ];
     let currentTypeOfWaste = {};
@@ -279,101 +338,128 @@ const WastePage = (props) => {
     // $('.sliderWrapper').slickLightbox();
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.titleWrapper}>
-                <div className={styles.btnPrevWrapper}>
-                    <NavLink to={`/typeofwaste/${prevTypeOfWasteID}`}>
-                        <img src={prev} alt="" className={`${styles.btnArrows} ${styles.btnPrev}`}/><span className={`${styles.prevBtnText} ${styles.btnText}`}>{intl.formatMessage({ id: messages.backMsg })}</span>
-                    </NavLink>
-                </div>
-                <div className={styles.iconWrapper}>
-                    <div className={styles.icon}>
-                        {currentTypeOfWaste.component}
+        currentTypeOfWaste.isAllInfo === true ?
+            <div className={styles.wrapper}>
+                <div className={styles.titleWrapper}>
+                    <div className={styles.btnPrevWrapper}>
+                        <NavLink to={`/typeofwaste/${prevTypeOfWasteID}`}>
+                            <img src={prev} alt="" className={`${styles.btnArrows} ${styles.btnPrev}`}/><span className={`${styles.prevBtnText} ${styles.btnText}`}>{intl.formatMessage({ id: messages.backMsg })}</span>
+                        </NavLink>
                     </div>
-                    <p className={styles.iconText}>
-                        {intl.formatMessage({ id: currentTypeOfWaste.name })}
-                    </p>
+                    <div className={styles.iconWrapper}>
+                        <div className={styles.icon}>
+                            {currentTypeOfWaste.component}
+                        </div>
+                        <p className={styles.iconText}>
+                            {intl.formatMessage({ id: currentTypeOfWaste.name })}
+                        </p>
+                    </div>
+                    <div className={styles.btnPrevWrapper}>
+                        <NavLink to={`/typeofwaste/${nextTypeOfWasteID}`}>
+                            <span className={`${styles.nextBtnText} ${styles.btnText}`}>{intl.formatMessage({ id: messages.nextMsg })}</span><img src={next} alt="" className={`${styles.btnArrows}  ${styles.btnNext}`}/>
+                        </NavLink>
+                    </div>
                 </div>
-                <div className={styles.btnPrevWrapper}>
-                    <NavLink to={`/typeofwaste/${nextTypeOfWasteID}`}>
-                        <span className={`${styles.nextBtnText} ${styles.btnText}`}>{intl.formatMessage({ id: messages.nextMsg })}</span><img src={next} alt="" className={`${styles.btnArrows}  ${styles.btnNext}`}/>
-                    </NavLink>
+                <div className={styles.mainContent}>
+                    {currentTypeOfWaste.info}
                 </div>
-            </div>
-            <div className={styles.mainContent}>
-                {currentTypeOfWaste.info}
-            </div>
-            <br></br>
-            <h4>Photo examples for this  garbage type:</h4>
-
-            <div className={styles.sliderWrapper}>
-                {/*<div className={styles.smallImages}>*/}
+                <br></br>
+                {/*<h4>Photo examples for this  garbage type:</h4>*/}
+                <h4>{intl.formatMessage({ id: messages.photoExamplesMsg })}</h4>
+                <div className={styles.sliderWrapper}>
                     <Gallery photos={currentTypeOfWaste.imgs} onClick={openLightbox} />
-                {/*</div>*/}
-                {/*<ImageGallery items={currentTypeOfWaste.imgs} onClick={openLightbox}/>*/}
-                <div className={styles.test}>
-                    <ModalGateway>
-                        {viewerIsOpen ? (
-                            <Modal onClose={closeLightbox}>
-                                <Carousel
-                                    styles={{
-                                        navigationNext: (StyleObj, State)=> ({
-                                            ...StyleObj,
-                                            right: '-100px',
-                                        }),
-                                        navigationPrev: (StyleObj, State)=> ({
-                                            ...StyleObj,
-                                            left: '-100px',
-                                        }),
+                    <div className={styles.test}>
+                        <ModalGateway>
+                            {viewerIsOpen ? (
+                                <Modal onClose={closeLightbox}>
+                                    <Carousel
+                                        styles={{
+                                            navigationNext: (StyleObj, State)=> ({
+                                                ...StyleObj,
+                                                right: '-100px',
+                                            }),
+                                            navigationPrev: (StyleObj, State)=> ({
+                                                ...StyleObj,
+                                                left: '-100px',
+                                            }),
 
-                                        // view: () => ({
-                                        //     // none of react-images styles are passed to <View />
-                                        //     height: 400,
-                                        //     width: 600,
-                                        // }),
-                                        container: (base, state) => ({
-                                            ...base,
-                                            width: 600,
-                                            height: 500,
-                                            ['@media (max-width: 770px)']: {
+                                            // view: () => ({
+                                            //     // none of react-images styles are passed to <View />
+                                            //     height: 400,
+                                            //     width: 600,
+                                            // }),
+                                            container: (base, state) => ({
+                                                ...base,
+                                                width: 600,
+                                                height: 500,
+                                                ['@media (max-width: 770px)']: {
+                                                    ...base,
+                                                    alignItems: 'center',
+                                                    display: 'flex ',
+                                                    justifyContent: 'center',
+                                                },
+                                            }),
+                                            view: base => ({
                                                 ...base,
                                                 alignItems: 'center',
                                                 display: 'flex ',
                                                 justifyContent: 'center',
-                                            },
-                                        }),
-                                        view: base => ({
-                                            ...base,
-                                            alignItems: 'center',
-                                            display: 'flex ',
-                                            justifyContent: 'center',
 
-                                            ['@media (max-width: 770px)']: {
-                                                ...base,
-                                                padding: 20,
-                                                maxWidth: '300px',
-                                                alignItems: 'center',
-                                                display: 'flex ',
-                                                justifyContent: 'center',
-                                            },
+                                                ['@media (max-width: 770px)']: {
+                                                    ...base,
+                                                    padding: 20,
+                                                    maxWidth: '300px',
+                                                    alignItems: 'center',
+                                                    display: 'flex ',
+                                                    justifyContent: 'center',
+                                                },
 
-                                            '& > img': {
-                                            },
-                                        })
+                                                '& > img': {
+                                                },
+                                            })
 
-                                    }}
-                                    components={{ Footer: CustomFooter,
-                                        // View: CustomView(currentTypeOfWaste.imgs)
-                                    }}
-                                    currentIndex={currentImage}
-                                    views={currentTypeOfWaste.imgs}
-                                />
-                            </Modal>
-                        ) : null}
-                    </ModalGateway>
+                                        }}
+                                        components={{ Footer: CustomFooter,
+                                            // View: CustomView(currentTypeOfWaste.imgs)
+                                        }}
+                                        currentIndex={currentImage}
+                                        views={currentTypeOfWaste.imgs}
+                                    />
+                                </Modal>
+                            ) : null}
+                        </ModalGateway>
+                    </div>
                 </div>
             </div>
-        </div>
+             :
+            <div className={styles.wrapper}>
+                <div className={styles.titleWrapper}>
+                    <div className={styles.btnPrevWrapper}>
+                        <NavLink to={`/typeofwaste/${prevTypeOfWasteID}`}>
+                            <img src={prev} alt="" className={`${styles.btnArrows} ${styles.btnPrev}`}/><span className={`${styles.prevBtnText} ${styles.btnText}`}>{intl.formatMessage({ id: messages.backMsg })}</span>
+                        </NavLink>
+                    </div>
+                    <div className={styles.iconWrapper}>
+                        <div className={styles.icon}>
+                            {currentTypeOfWaste.component}
+                        </div>
+                        <p className={styles.iconText}>
+                            {intl.formatMessage({ id: currentTypeOfWaste.name })}
+                        </p>
+                    </div>
+                    <div className={styles.btnPrevWrapper}>
+                        <NavLink to={`/typeofwaste/${nextTypeOfWasteID}`}>
+                            <span className={`${styles.nextBtnText} ${styles.btnText}`}>{intl.formatMessage({ id: messages.nextMsg })}</span><img src={next} alt="" className={`${styles.btnArrows}  ${styles.btnNext}`}/>
+                        </NavLink>
+                    </div>
+                </div>
+                <p className={styles.noAllText}>This section will be filled with information soon.
+                    <br></br>Thank you for your interest in our site!</p>
+                <div className={styles.bigLeafWrapper}>
+                    <img src={heart} alt="" className={styles.heartImg}/>
+                    <img src={bigLeaf} alt="" className={styles.bigLeaf}/>
+                </div>
+            </div>
     )
 
 

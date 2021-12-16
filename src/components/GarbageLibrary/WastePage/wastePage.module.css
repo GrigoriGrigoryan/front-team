@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 h4 {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
 .wrapper {
     width: 700px;
-    margin: 120px auto 0;
+    margin: 80px auto 0;
     padding-bottom: 120px;
 }
 .titleWrapper {
@@ -49,12 +50,53 @@ img.btnArrows {
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
+    text-align: center;
 }
 .mainContent {
     margin-top: 50px;
     text-align: justify;
 }
 
+.sliderWrapper img {
+    width: 171px;
+    height: 171px;
+    object-fit: cover;
+}
+
+.sliderWrapper {
+}
+
+.react-images__view-image {
+    width: 500px!important;
+    height: 500px!important;
+}
+
+.bigLeafWrapper {
+    position: relative;
+    margin-bottom: 200px;
+    text-align: center;
+}
+.bigLeaf {
+    width: 470px;
+    /*height: 300px;*/
+}
+.noAllText {
+    font-family: 'Noto Serif', serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.heartImg {
+    position: absolute;
+    top: 0;
+    left: 330px;
+    display: block;
+    width: 35px;
+    height: 30px;
+}
 @media (max-width: 999px) {
 
 }
@@ -86,54 +128,34 @@ img.btnArrows {
     .titleWrapper {
         padding-bottom: 10px;
     }
+    .bigLeafWrapper {
+
+        margin-bottom: 100px;
+    }
+    .bigLeaf {
+        width: 300px;
+    }
+    .noAllText {
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    .heartImg {
+        left: 235px;
+    }
 }
 @media (max-width: 541px) {
     .wrapper {
         width: 339px;
     }
+    .bigLeaf {
+        width: 200px;
+    }
+    .heartImg {
+        left: 160px;
+    }
 }
 
-
-/**/
-.Overlay {
-  position: fixed;
-  min-width: 100vw;
-  min-height: 100vh;
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.Image {
-  width: 100%;
-  height: 30vh;
-  object-fit: cover;
-}
-
-.Carousel {
-  margin-top: 30rem !important;
-  z-index: 20000;
-  width: 40vw;
-  margin: auto;
-}
-
-.BigImage {
-  width: 100%;
-  height: 75vh;
-  object-fit: cover;
-}
-
-.BigCarousel {
-  z-index: 20000;
-  width: 85vw;
-  margin: auto;
-}
-
-.sliderWrapper img {
-    width: 171px;
-    height: 171px;
-}
-
-.react-images__view-image {
-    width: 500px!important;
-    height: 500px!important;
-}
 
