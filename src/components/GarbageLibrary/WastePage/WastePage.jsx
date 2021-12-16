@@ -359,16 +359,10 @@ const WastePage = (props) => {
                                             navigationNext: (StyleObj, State)=> ({
                                                 ...StyleObj,
                                                 right: '-100px',
-                                                ['@media (max-width: 770px)']: {
-                                                    right: '110px',
-                                                }
                                             }),
                                             navigationPrev: (StyleObj, State)=> ({
                                                 ...StyleObj,
                                                 left: '-100px',
-                                                ['@media (max-width: 770px)']: {
-                                                    left: '110px',
-                                                }
                                             }),
                                             container: (base, state) => ({
                                                 ...base,
