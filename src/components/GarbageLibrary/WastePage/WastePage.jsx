@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import styles from './wastePage.module.css';
 import {useIntl} from "react-intl";
 import {GARBAGE_TYPES} from "../../../types/garbageTypes";
@@ -8,22 +8,32 @@ import prev from './../../../assets/images/prev.png';
 import next from './../../../assets/images/next.png'
 import {NavLink} from "react-router-dom";
 import Parser from "html-react-parser";
-import { Carousel, Row, Col, Image, Modal, Button } from 'react-bootstrap';
 import organic1 from './../../../assets/images/organic1.jpeg';
 import organic2 from './../../../assets/images/organic2.jpeg';
 import organic3 from './../../../assets/images/organic3.jpeg';
 import organic4 from './../../../assets/images/organic4.jpeg';
-// import Lightbox from 'react-image-lightbox';
-// import Lightbox from 'react-lightbox-component';
-import Lightbox from "react-awesome-lightbox";
-// You need to import the CSS only once
-import "react-awesome-lightbox/build/style.css";
+import Gallery from "react-photo-gallery";
+import Carousel, { Modal, ModalGateway } from "react-images";
 
-// import $ from 'jquery';
+// eslint-disable-next-line react/prop-types
+const CustomFooter = ({ innerProps, isModal }) => isModal ? (
+    <div {...innerProps}>
+        {/*// your component internals*/}
+    </div>
+) : null;
+// eslint-disable-next-line react/prop-types
+const CustomView = ({ innerProps, isModal, img }) => isModal ? (
+    <div {...innerProps} className={styles.modalImg}>
+        {/* eslint-disable-next-line react/prop-types */}
+        {img.map((item) => {
+            return(
+                // eslint-disable-next-line react/jsx-key
+                <img src={item} />
 
-// import Gallery from "react-photo-gallery";
-// import Carousel, { Modal, ModalGateway } from "react-images";
-
+            )
+        })}
+    </div>
+) : null;
 
 const WastePage = (props) => {
     const [showBigger, setShowBigger] = useState(false);
@@ -83,11 +93,40 @@ const WastePage = (props) => {
             name:  messages.organicWasteMsg,
             info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
             imgs: [
-                organic1,
-                organic2,
-                organic3,
-                organic4,
+                {
+                    src: organic1,
+                    width: 1,
+                    height: 1,
+                    // original: organic1,
+                    // // originalWidth: 150px,
+                    // // originalHeight: 150px,
+                },
+                {
+                    // original: organic2,
+                    // width: 2,
+                    // height: 2,
+
+                    src: organic2,
+                    width: 2,
+                    height: 2,},
+                {
+                    // original: organic3,
+                    // width: 2,
+                    // height: 2,
+                    src: organic3,
+                    width: 2,
+                    height: 2,
+                },
+                {
+                    // original: organic4,
+                    // width: 2,
+                    // height: 2,
+                    src: organic4,
+                    width: 2,
+                    height: 2,
+                },
             ]
+
         },
         {
             id: 2,
@@ -222,18 +261,18 @@ const WastePage = (props) => {
             currentTypeOfWaste = item;
         }
     })
-    // const [currentImage, setCurrentImage] = useState(0);
-    // const [viewerIsOpen, setViewerIsOpen] = useState(false);
-    //
-    // const openLightbox = useCallback((event, { index }) => {
-    //     setCurrentImage(index);
-    //     setViewerIsOpen(true);
-    // }, []);
-    //
-    // const closeLightbox = () => {
-    //     setCurrentImage(0);
-    //     setViewerIsOpen(false);
-    // };
+    const [currentImage, setCurrentImage] = useState(0);
+    const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+    const openLightbox = useCallback((event, { index }) => {
+        setCurrentImage(index);
+        setViewerIsOpen(true);
+    }, []);
+
+    const closeLightbox = () => {
+        setCurrentImage(0);
+        setViewerIsOpen(false);
+    };
 
 
     // console.log('src', allIcons[0].imgs[0])
@@ -266,61 +305,74 @@ const WastePage = (props) => {
             </div>
             <br></br>
             <h4>Photo examples for this  garbage type:</h4>
-            <div className={showBigger ? styles.Overlay : ''} onClick={() => setShowBigger(false)}></div>
-            <Carousel variant='dark' className={showBigger ? styles.BigCarousel : styles.Carousel}>
-                {currentTypeOfWaste.imgs.map((imageItem, index) => (
-                    <Carousel.Item
-                        onClick={() => setShowBigger(true)}
-                        key={`${index}_slide`}
-                        interval={20000}
-                        style={{ background: 'transparent' }}
-                    >
-                        <Row className='justify-content-md-center'>
-                            <Col md={8}>
-                                <Image className={showBigger ? styles.BigImage : styles.Image} src={imageItem} alt={`${index}_slide`} />
-                            </Col>
-                        </Row>
-                    </Carousel.Item>
-                ))}
-            </Carousel>
-                    {/*{*/}
-                    {/*    currentTypeOfWaste.imgs.map((item, index) => {*/}
-                    {/*        return (*/}
-                    {/*            <div key={index} className={styles.imgWrapper}>*/}
-                    {/*                <img src={item} />*/}
-                    {/*            </div>*/}
-                    {/*        )*/}
-                    {/*    })*/}
-                    {/*}*/}
 
-                {/*<Lightbox*/}
-                {/*    images={currentTypeOfWaste.imgs}*/}
-                {/*    showImageModifiers={false}/>*/}
-
-                {/*<Lightbox images={currentTypeOfWaste.images} />*/}
-
-                {/*<div>*/}
-                {/*    <Gallery photos={currentTypeOfWaste.images} onClick={openLightbox} />*/}
-                {/*    <ModalGateway>*/}
-                {/*        {viewerIsOpen ? (*/}
-                {/*            <Modal onClose={closeLightbox}>*/}
-                {/*                <Carousel*/}
-                {/*                    currentIndex={currentImage}*/}
-                {/*                    views={currentTypeOfWaste.images.map(x => ({*/}
-                {/*                        ...x,*/}
-                {/*                        srcset: x.srcSet,*/}
-                {/*                        caption: x.title*/}
-                {/*                    }))}*/}
-                {/*                />*/}
-                {/*            </Modal>*/}
-                {/*        ) : null}*/}
-                {/*    </ModalGateway>*/}
+            <div className={styles.sliderWrapper}>
+                {/*<div className={styles.smallImages}>*/}
+                    <Gallery photos={currentTypeOfWaste.imgs} onClick={openLightbox} />
                 {/*</div>*/}
+                {/*<ImageGallery items={currentTypeOfWaste.imgs} onClick={openLightbox}/>*/}
+                <div className={styles.test}>
+                    <ModalGateway>
+                        {viewerIsOpen ? (
+                            <Modal onClose={closeLightbox}>
+                                <Carousel
+                                    styles={{
+                                        navigationNext: (StyleObj, State)=> ({
+                                            ...StyleObj,
+                                            right: '-100px',
+                                        }),
+                                        navigationPrev: (StyleObj, State)=> ({
+                                            ...StyleObj,
+                                            left: '-100px',
+                                        }),
 
+                                        // view: () => ({
+                                        //     // none of react-images styles are passed to <View />
+                                        //     height: 400,
+                                        //     width: 600,
+                                        // }),
+                                        container: (base, state) => ({
+                                            ...base,
+                                            width: 600,
+                                            height: 500,
+                                            ['@media (max-width: 770px)']: {
+                                                ...base,
+                                                alignItems: 'center',
+                                                display: 'flex ',
+                                                justifyContent: 'center',
+                                            },
+                                        }),
+                                        view: base => ({
+                                            ...base,
+                                            alignItems: 'center',
+                                            display: 'flex ',
+                                            justifyContent: 'center',
 
+                                            ['@media (max-width: 770px)']: {
+                                                ...base,
+                                                padding: 20,
+                                                maxWidth: '300px',
+                                                alignItems: 'center',
+                                                display: 'flex ',
+                                                justifyContent: 'center',
+                                            },
 
+                                            '& > img': {
+                                            },
+                                        })
 
-            {/*</div>*/}
+                                    }}
+                                    components={{ Footer: CustomFooter,
+                                        // View: CustomView(currentTypeOfWaste.imgs)
+                                    }}
+                                    currentIndex={currentImage}
+                                    views={currentTypeOfWaste.imgs}
+                                />
+                            </Modal>
+                        ) : null}
+                    </ModalGateway>
+                </div>
+            </div>
         </div>
     )
 

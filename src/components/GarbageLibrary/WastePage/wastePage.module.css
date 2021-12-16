@@ -15,7 +15,7 @@ h4 {
     padding: 15px;
     border-bottom: 1px solid #BEBEBE;
 }
-.btnArrows {
+img.btnArrows {
     width: 15px;
     height: 20px;
     display: inline-block;
@@ -65,7 +65,7 @@ h4 {
         margin: 70px auto 0;
         padding-bottom: 80px;
     }
-    .btnArrows {
+    img.btnArrows {
         width: 10px;
         height: 15px;
         margin-top: -4px;
@@ -125,5 +125,15 @@ h4 {
   z-index: 20000;
   width: 85vw;
   margin: auto;
+}
+
+.sliderWrapper img {
+    width: 171px;
+    height: 171px;
+}
+
+.react-images__view-image {
+    width: 500px!important;
+    height: 500px!important;
 }
 
