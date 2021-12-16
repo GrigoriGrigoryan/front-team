@@ -47,6 +47,8 @@ const CustomMarker = (props) => {
         locale={props.locale}
         addressRu={props.addressRu}
         deliveryOptionsRu={props.deliveryOptionsRu}
+        markerid={props.markerid}
+        comments={props.comments}
       />
     </>
   );
@@ -68,6 +70,8 @@ CustomMarker.propTypes = {
   locale: PropTypes.string,
   deliveryOptionsRu: PropTypes.array,
   addressRu: PropTypes.string,
+  markerid: PropTypes.number,
+  comments: PropTypes.array,
 };
 
 export default CustomMarker;

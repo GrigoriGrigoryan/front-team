@@ -17,6 +17,8 @@ const CustomizedMarker = (props, ecoStation, index) => (
     workingHours={ecoStation.workingHours}
     addressRu={ecoStation.addressRu}
     deliveryOptionsRu={ecoStation.deliveryOptionsRu}
+    markerid={ecoStation.id}
+    comments={ecoStation.comments}
   >
     <CustomPopup />
   </CustomMarker>

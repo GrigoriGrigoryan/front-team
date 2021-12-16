@@ -4,7 +4,8 @@ import StarRatings from 'react-star-ratings';
 import { ICONS } from '../../models/Icons';
 import { DELIVERY } from '../../types/deliveryOptions';
 import { LOCALES } from '../../types/locales';
-import '../styles/Button.css';
+import Comments from '../Comments/Comments';
+
 import './EcoStationModal.css';
 import '../styles/CustomPopup.css';
 import { useIntl } from 'react-intl';
@@ -37,9 +38,12 @@ const EcoStationModal = ({
   wasteTypes,
   deliveryOptions,
   deliveryOptionsRu,
+  markerid,
+  comments,
   ...props
 }) => {
   const intl = useIntl();
+
   return (
     <>
       <div
@@ -132,6 +136,15 @@ const EcoStationModal = ({
             </div>
           ))}
         </div>
+        <div className='CommentContainer'>
+          <Comments
+            locale={props.locale}
+            address={address}
+            addressru={addressRu}
+            comments={comments}
+            markerid={markerid}
+          />
+        </div>
       </div>
     </>
   );
@@ -153,5 +166,7 @@ EcoStationModal.propTypes = {
   locale: PropTypes.string,
   addressRu: PropTypes.string,
   deliveryOptionsRu: PropTypes.array,
+  markerid: PropTypes.number,
+  comments: PropTypes.array,
 };
 export default EcoStationModal;
