@@ -333,10 +333,6 @@ const WastePage = (props) => {
         setViewerIsOpen(false);
     };
 
-
-    // console.log('src', allIcons[0].imgs[0])
-    // $('.sliderWrapper').slickLightbox();
-
     return (
         currentTypeOfWaste.isAllInfo === true ?
             <div className={styles.wrapper}>
@@ -364,10 +360,9 @@ const WastePage = (props) => {
                     {currentTypeOfWaste.info}
                 </div>
                 <br></br>
-                {/*<h4>Photo examples for this  garbage type:</h4>*/}
                 <h4>{intl.formatMessage({ id: messages.photoExamplesMsg })}</h4>
                 <div className={styles.sliderWrapper}>
-                    <Gallery photos={currentTypeOfWaste.imgs} onClick={openLightbox} />
+                    <Gallery photos={currentTypeOfWaste.imgs} onClick={openLightbox}/>
                     <div className={styles.test}>
                         <ModalGateway>
                             {viewerIsOpen ? (
@@ -377,10 +372,16 @@ const WastePage = (props) => {
                                             navigationNext: (StyleObj, State)=> ({
                                                 ...StyleObj,
                                                 right: '-100px',
+                                                ['@media (max-width: 770px)']: {
+                                                    right: '110px',
+                                                }
                                             }),
                                             navigationPrev: (StyleObj, State)=> ({
                                                 ...StyleObj,
                                                 left: '-100px',
+                                                ['@media (max-width: 770px)']: {
+                                                    left: '110px',
+                                                }
                                             }),
 
                                             // view: () => ({
@@ -392,11 +393,17 @@ const WastePage = (props) => {
                                                 ...base,
                                                 width: 600,
                                                 height: 500,
+                                                position: 'relative',
+
                                                 ['@media (max-width: 770px)']: {
                                                     ...base,
-                                                    alignItems: 'center',
-                                                    display: 'flex ',
-                                                    justifyContent: 'center',
+                                                    // alignItems: 'center',
+                                                    // display: 'flex ',
+                                                    // justifyContent: 'center',
+                                                    // width: 300,
+                                                    // height: 200,
+                                                    width: 300,
+
                                                 },
                                             }),
                                             view: base => ({
@@ -406,12 +413,22 @@ const WastePage = (props) => {
                                                 justifyContent: 'center',
 
                                                 ['@media (max-width: 770px)']: {
-                                                    ...base,
-                                                    padding: 20,
+                                                    // ...base,
+                                                    padding: 10,
                                                     maxWidth: '300px',
-                                                    alignItems: 'center',
-                                                    display: 'flex ',
-                                                    justifyContent: 'center',
+                                                    marginLeft: 'auto',
+                                                    marginRight: 'auto',
+                                                    // alignItems: 'center',
+                                                    // alignSelf: 'center',
+                                                    // display: 'flex ',
+                                                    // justifyContent: 'center',
+                                                    // position: 'absolute',
+                                                    // top: '50%',
+                                                    // left: '50%',
+                                                    // transform: `translate(-50%, -50%)`,
+                                                    // '& > img': {
+                                                    //     width: 200,
+                                                    // },
                                                 },
 
                                                 '& > img': {
@@ -420,6 +437,7 @@ const WastePage = (props) => {
 
                                         }}
                                         components={{ Footer: CustomFooter,
+                                                        Header: null,
                                             // View: CustomView(currentTypeOfWaste.imgs)
                                         }}
                                         currentIndex={currentImage}

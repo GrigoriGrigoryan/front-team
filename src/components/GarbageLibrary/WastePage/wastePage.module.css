@@ -129,8 +129,7 @@ img.btnArrows {
         padding-bottom: 10px;
     }
     .bigLeafWrapper {
-
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
     .bigLeaf {
         width: 300px;
@@ -145,6 +144,15 @@ img.btnArrows {
     .heartImg {
         left: 235px;
     }
+    div.sliderWrapper {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .sliderWrapper img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+    }
 }
 @media (max-width: 541px) {
     .wrapper {
@@ -156,6 +164,20 @@ img.btnArrows {
     .heartImg {
         left: 160px;
     }
+    .sliderWrapper img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+    }
+    div.sliderWrapper {
+        width: 339px;
+        margin: 0 auto;
+    }
 }
 
+.test {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
