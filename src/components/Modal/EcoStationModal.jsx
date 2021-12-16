@@ -22,6 +22,7 @@ const messages = {
   sunday: 'modal_sunday',
   dayOff: 'modal_dayOff',
   notSpecified: 'modal_notSpecified',
+  unknownID: 'unknownId',
 };
 
 const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, deliveryOptions, ...props }) => {
@@ -38,7 +39,7 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
       <div className={`MainContainer ${props.show ? 'active' : ''}`}>
         <div className='Stars'>
           <StarRatings
-            rating={+rating}
+            rating={rating ? +rating : 0}
             starSpacing='1px'
             starDimension='1.2rem'
             starRatedColor='#00db7a'
@@ -46,9 +47,11 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
             name='rating'
           />
         </div>
-        <h4 className='StationTitl'>{ecoStationName}</h4>
+        <h4 className='StationTitl'>
+          {ecoStationName ? ecoStationName : intl.formatMessage({ id: messages.unknownID })}
+        </h4>
         <i className='fas fa-map-marker-alt location'>
-          <span>{address}</span>
+          <span>{address ? address : intl.formatMessage({ id: messages.unknownID })}</span>
         </i>
         <hr />
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.contactPhone })}</h4>
@@ -96,7 +99,18 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
         </div>
 
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.paymentConditionsID })}</h4>
-        <p style={{ marginLeft: '1rem' }}>(I need more data to clarify...)</p>
+        <div className='DeliveryOpt'>
+          {deliveryOptions.map((option, index) => (
+            <div key={`list_${index}`}>
+              {option === 'self-delivery' ? (
+                <i className='fas fa-hand-holding-usd'></i>
+              ) : (
+                <i className='fas fa-money-bill'></i>
+              )}
+              <span>{option}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

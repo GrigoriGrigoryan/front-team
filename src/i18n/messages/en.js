@@ -50,4 +50,7 @@ export const ENGLISH_MESSAGES = {
   modal_sunday: 'Sunday:',
   modal_dayOff: 'day off',
   modal_notSpecified: 'not specified',
+  unknownId: 'unknown',
+  paidId: 'paid',
+  freeId: 'free',
 };

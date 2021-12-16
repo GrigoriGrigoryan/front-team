@@ -19,6 +19,9 @@ const Map = () => {
   useEffect(async () => {
     const data = await getLeaves();
     setLeaves(data);
+    for (let dat of data) {
+      console.log(dat.deliveryOptions[0]);
+    }
   }, []);
 
   const DisableScrollWhenModalAppear = () => {
@@ -36,7 +39,7 @@ const Map = () => {
   return (
     <div className='MapContainer'>
       <div className='Map'>
-        <MapContainer className='Map' center={[59.9375, 30.308611]} zoom={9} scrollWheelZoom={true}>
+        <MapContainer className='Map' center={[59.747097, 30.091669]} zoom={10} scrollWheelZoom={true}>
           <DisableScrollWhenModalAppear />
           <TileLayer
             attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'

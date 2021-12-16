@@ -49,4 +49,7 @@ export const RUSSIAN_MESSAGES = {
   modal_sunday: '???',
   modal_dayOff: '???',
   modal_notSpecified: '???',
+  unknownId: '???',
+  paidId: '???',
+  freeId: '???',
 };
