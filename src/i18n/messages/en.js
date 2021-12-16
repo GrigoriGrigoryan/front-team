@@ -1,4 +1,3 @@
-
 // import img from './../../assets/images/heart.png'
 export const ENGLISH_MESSAGES = {
   helloWorldID: 'Hello world',
@@ -88,4 +87,11 @@ export const ENGLISH_MESSAGES = {
   backID: 'Back',
   nextID: 'Next',
   photoExamplesID: 'Photo examples for this  garbage type:',
+  modal_notSpecified: 'not specified',
+  unknownId: 'unknown',
+  paidId: 'paid',
+  freeId: 'free',
+  modal_commentsID: 'Comments & questions',
+  modal_writeCommentID: 'Write comment or ask question...',
+  modal_noCommentsYet: 'There are no comments for this station yet. Be the first to comment!',
 };

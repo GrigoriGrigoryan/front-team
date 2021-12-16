@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TileLayer, MapContainer, useMap } from 'react-leaflet';
+import PropTypes from 'prop-types';
 import '../styles/Map.css';
 import MapStations from './MapStations';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
@@ -11,7 +12,7 @@ const messages = {
   pickMaterialsID: 'pickMaterialsID',
 };
 
-const Map = () => {
+const Map = (props) => {
   const [filterOptions, setFilterOptions] = useState([]);
   const [isSelectedMarker, setSelectedMarker] = useState(false);
   const [leaves, setLeaves] = useState([]);
@@ -36,7 +37,7 @@ const Map = () => {
   return (
     <div className='MapContainer'>
       <div className='Map'>
-        <MapContainer className='Map' center={[59.9375, 30.308611]} zoom={9} scrollWheelZoom={true}>
+        <MapContainer className='Map' center={[59.827915582182186, 30.37541961288402]} zoom={11} scrollWheelZoom={true}>
           <DisableScrollWhenModalAppear />
           <TileLayer
             attribution='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
@@ -46,15 +47,27 @@ const Map = () => {
             noWrap={true}
           />
           <MarkerClusterGroup>
-            <MapStations leaves={leaves} setSelectedMarker={setSelectedMarker} filterOptions={filterOptions} />
+            <MapStations
+              locale={props.locale}
+              leaves={leaves}
+              setSelectedMarker={setSelectedMarker}
+              filterOptions={filterOptions}
+            />
           </MarkerClusterGroup>
         </MapContainer>
       </div>
       <div className='GarbageTypes'>
         <h4 className='PickMaterialsTitle'>{intl.formatMessage({ id: messages.pickMaterialsID })}</h4>
-        <Icons showText filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
+        <div className='MapIcons'>
+          <Icons showText filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
+        </div>
       </div>
     </div>
   );
 };
+
+Map.propTypes = {
+  locale: PropTypes.string,
+};
+
 export default Map;

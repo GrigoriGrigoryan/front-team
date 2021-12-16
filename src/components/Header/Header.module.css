@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 .navbarWrapper {
-  background-color: #00DB7A;
+  background-color: #00db7a;
   width: 100%;
   margin: 0 auto;
   position: fixed !important;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1002;
   /*height: 60px;*/
 }
 
@@ -41,7 +41,6 @@
 .active {
   border-bottom: 2px solid white;
 }
-
 
 .logo {
   width: 200px;
@@ -109,4 +108,3 @@
   .pagesWrapper {
   }
 }
-

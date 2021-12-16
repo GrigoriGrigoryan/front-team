@@ -39,7 +39,9 @@ const App = () => {
         <Header localeHandler={localeHandler} currentLang={currentLang} />
         <Switch>
           <Route exact path='/' component={MainPage} />
-          <Route path='/map' component={Map} />
+          <Route path='/map'>
+            <Map locale={locale} />
+          </Route>
           <Route path='/garbageLibrary' component={GarbageLibrary} />
           <Route path='/articles' component={Articles} />
           <Route path='/article/:id' component={Article} />

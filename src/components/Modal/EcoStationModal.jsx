@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import { ICONS } from '../../models/Icons';
-import '../styles/Button.css';
+import { DELIVERY } from '../../types/deliveryOptions';
+import { LOCALES } from '../../types/locales';
+import Comments from '../Comments/Comments';
+
 import './EcoStationModal.css';
 import '../styles/CustomPopup.css';
 import { useIntl } from 'react-intl';
 
 const displayAcceptedGarbageTypes = (wasteTypes) => {
-  return ICONS.map((icon) => wasteTypes.includes(icon.key) && icon.component(null, true, false));
+  return ICONS.map((icon) => wasteTypes.includes(icon.key) && icon.component(null, true, true));
 };
 
 const messages = {
@@ -21,10 +24,26 @@ const messages = {
   saturday: 'modal_saturday',
   sunday: 'modal_sunday',
   dayOff: 'modal_dayOff',
+  notSpecified: 'modal_notSpecified',
+  unknownID: 'unknownId',
+  paidID: 'paidId',
+  freeID: 'freeId',
 };
 
-const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, deliveryOptions, ...props }) => {
+const EcoStationModal = ({
+  address,
+  addressRu,
+  ecoStationName,
+  rating,
+  wasteTypes,
+  deliveryOptions,
+  deliveryOptionsRu,
+  markerid,
+  comments,
+  ...props
+}) => {
   const intl = useIntl();
+
   return (
     <>
       <div
@@ -37,7 +56,7 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
       <div className={`MainContainer ${props.show ? 'active' : ''}`}>
         <div className='Stars'>
           <StarRatings
-            rating={+rating}
+            rating={rating ? +rating : 0}
             starSpacing='1px'
             starDimension='1.2rem'
             starRatedColor='#00db7a'
@@ -45,15 +64,25 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
             name='rating'
           />
         </div>
-        <h4 className='EcoStationTitle'>{ecoStationName}</h4>
+        <h4 className='StationTitl'>
+          {ecoStationName ? ecoStationName : intl.formatMessage({ id: messages.unknownID })}
+        </h4>
         <i className='fas fa-map-marker-alt location'>
-          <span>{address}</span>
+          <span>
+            {props.locale === LOCALES.ENGLISH
+              ? address
+                ? address
+                : intl.formatMessage({ id: messages.unknownID })
+              : addressRu
+              ? addressRu
+              : intl.formatMessage({ id: messages.unknownID })}
+          </span>
         </i>
         <hr />
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.contactPhone })}</h4>
         <div className='ContactPhone'>
           <i className='fas fa-phone-volume'></i>
-          <span>{props.contact}</span>
+          <span>{props.contact === '-' ? intl.formatMessage({ id: messages.notSpecified }) : props.contact}</span>
         </div>
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.workingHours })}</h4>
         <div className='WorkingHours'>
@@ -63,13 +92,16 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
               {intl.formatMessage({ id: messages.mondayFriday })} {props.workingHours[0]}
             </span>
             <span>
-              {intl.formatMessage({ id: messages.saturday })} {props.workingHours[props.workingHours.length - 2]}
+              {intl.formatMessage({ id: messages.saturday })}{' '}
+              {props.workingHours[props.workingHours.length - 2] === '-'
+                ? intl.formatMessage({ id: messages.dayOff })
+                : props.workingHours[props.workingHours.length - 2]}
             </span>
             <span>
               {intl.formatMessage({ id: messages.sunday })}{' '}
-              {props.workingHours[props.workingHours.length - 1] === '-'
-                ? 'day off'
-                : props.workingHours[props.workingHours.length - 1]}
+              {props.workingHours[props.workingHours.length - 2] === '-'
+                ? intl.formatMessage({ id: messages.dayOff })
+                : props.workingHours[props.workingHours.length - 2]}
             </span>
           </div>
         </div>
@@ -81,18 +113,38 @@ const EcoStationModal = ({ address, ecoStationName, rating, wasteTypes, delivery
         <div className='DeliveryOpt'>
           {deliveryOptions.map((option, index) => (
             <div key={`list_${index}`}>
-              {option === 'free of charge' ? (
-                <i className='fas fa-hand-holding-usd'></i>
-              ) : (
-                <i className='fas fa-taxi'></i>
-              )}
-              <span>{option}</span>
+              {option === DELIVERY.selfDelivery ? <i className='fas fa-car'></i> : <i className='fas fa-taxi'></i>}
+              <span>{props.locale === LOCALES.ENGLISH ? option : deliveryOptionsRu[index]}</span>
             </div>
           ))}
         </div>
 
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.paymentConditionsID })}</h4>
-        <p style={{ marginLeft: '1rem' }}>(I need more data to clarify...)</p>
+        <div className='PaymentCondition'>
+          {deliveryOptions.map((option, index) => (
+            <div key={`list_${index}`}>
+              {option === DELIVERY.selfDelivery ? (
+                <i className='fas fa-hand-holding-usd'></i>
+              ) : (
+                <i className='fas fa-money-bill'></i>
+              )}
+              <span>
+                {option === DELIVERY.selfDelivery
+                  ? intl.formatMessage({ id: messages.freeID })
+                  : intl.formatMessage({ id: messages.paidID })}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className='CommentContainer'>
+          <Comments
+            locale={props.locale}
+            address={address}
+            addressru={addressRu}
+            comments={comments}
+            markerid={markerid}
+          />
+        </div>
       </div>
     </>
   );
@@ -111,5 +163,10 @@ EcoStationModal.propTypes = {
   address: PropTypes.string,
   workingHours: PropTypes.array,
   contact: PropTypes.string,
+  locale: PropTypes.string,
+  addressRu: PropTypes.string,
+  deliveryOptionsRu: PropTypes.array,
+  markerid: PropTypes.number,
+  comments: PropTypes.array,
 };
 export default EcoStationModal;

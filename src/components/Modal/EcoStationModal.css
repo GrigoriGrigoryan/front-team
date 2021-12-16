@@ -43,7 +43,7 @@
 
 .Stars {
   position: absolute;
-  top: 0.5rem;
+  top: 0.1rem;
   right: 0.5rem;
 }
 
@@ -53,22 +53,21 @@
   margin-left: 0.3rem;
 }
 
-.EcoStationTitle {
-  margin-top: 0.8rem;
-  font-weight: bolder;
-  font-size: 1.3rem !important;
+.StationTitl {
+  padding-top: 1rem;
 }
 
 .location {
   font-size: 0.9rem;
   color: #00db7a;
   margin-bottom: 0.4rem;
-  margin-left: 0.4rem;
 }
 
 .location > span,
 .WorkingHoursTexts > span,
-.ContactPhone > span {
+.ContactPhone > span,
+.DeliveryOpt span,
+.PaymentCondition span {
   font-size: 0.9rem;
   margin-left: 0.2rem;
   color: grey;
@@ -77,7 +76,8 @@
 
 .WorkingHours,
 .ContactPhone,
-.DeliveryOpt {
+.DeliveryOpt,
+.PaymentCondition {
   position: relative;
   margin-bottom: 1.5rem;
 }
@@ -88,27 +88,33 @@
 
 .WorkingHours > i,
 .ContactPhone > i,
-.DeliveryOpt i {
-  font-size: 3.3rem;
-  margin-left: 0.3rem;
+.DeliveryOpt i,
+.PaymentCondition i {
+  font-size: 3rem;
+  margin-left: 0.6rem;
 }
 
 .WorkingHoursTexts {
   position: absolute;
-  left: 20%;
+  left: 25%;
   top: 0%;
 }
 
 .ContactPhone > span,
-.DeliveryOpt span {
+.DeliveryOpt span,
+.PaymentCondition span {
   position: absolute;
-  left: 20%;
+  left: 23%;
   top: 40%;
 }
 .DeliveryOpt span {
-  left: 23%;
-  font-size: 0.9rem;
+  left: 26%;
 }
+.PaymentCondition span {
+  top: 25%;
+  left: 27%;
+}
+
 /* Custom scrollbar */
 
 /* width */
