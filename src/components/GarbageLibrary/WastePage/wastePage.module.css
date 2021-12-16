@@ -73,7 +73,6 @@ img.btnArrows {
 
 .bigLeafWrapper {
     position: relative;
-    margin-bottom: 200px;
     text-align: center;
 }
 .bigLeaf {
@@ -129,7 +128,6 @@ img.btnArrows {
         padding-bottom: 10px;
     }
     .bigLeafWrapper {
-        margin-bottom: 50px;
     }
     .bigLeaf {
         width: 300px;
