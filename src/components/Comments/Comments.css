@@ -1,3 +1,7 @@
+.ModalBody {
+  max-height: 30rem;
+}
+
 .ButtonContainer {
   text-align: center;
 }
@@ -70,4 +74,14 @@
   font-size: 3rem;
   margin-bottom: 0.5rem;
   color: #00db7a;
+}
+
+.RateStation {
+  margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 40rem) {
+  .FormattedComment {
+    width: 22rem;
+  }
 }

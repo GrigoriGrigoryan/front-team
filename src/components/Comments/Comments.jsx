@@ -7,6 +7,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import StarRatings from 'react-star-ratings';
 import { useIntl } from 'react-intl';
 import { LOCALES } from '../../types/locales';
 import './Comments.css';
@@ -21,20 +22,38 @@ const messages = {
 const Comments = (props) => {
   const intl = useIntl();
   const [showComment, setShowComment] = useState(false);
-  const [data, setData] = useState({ id: props.markerid, content: '' });
+  const [data, setData] = useState({ id: props.markerid, content: '', rating_info: null });
   const [allComments, setAllComments] = useState([]);
+  const [rating, setRating] = useState(0);
+  const [isRated, setIsRated] = useState(false);
   const postComment = () => {
-    submitComment(data);
-    setAllComments([
-      ...allComments,
-      { comment_id: new Date().getTime(), content: data.content, createdAt: new Date() },
-    ]);
-    setData({ ...data, content: '' });
+    if (data.content === '') {
+      submitComment({ id: data.id, rating_info: rating });
+    } else {
+      if (data.rating_info === null) {
+        submitComment({ id: data.id, content: data.content });
+      } else {
+        submitComment(data);
+      }
+      setAllComments([
+        ...allComments,
+        { comment_id: new Date().getTime(), content: data.content, createdAt: new Date() },
+      ]);
+    }
+    setData({ ...data, content: '', rating_info: null });
+    setRating(0);
+    setIsRated(false);
   };
   const onKeyUp = (event) => {
-    if (event.charCode === 13) {
+    if (event.charCode === 13 && data.content !== '' && !data.content.includes('\n')) {
       postComment();
     }
+  };
+
+  const handleRatingChange = (point) => {
+    setRating(point);
+    setData({ ...data, rating_info: point });
+    setIsRated(true);
   };
 
   useEffect(async () => {
@@ -65,7 +84,7 @@ const Comments = (props) => {
               : intl.formatMessage({ id: messages.unknownID })}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{ margin: '0', padding: '0', maxHeight: '30rem' }}>
+        <Modal.Body className='ModalBody'>
           <div className='CommentsContainer'>
             {allComments.length ? (
               allComments.map((comment, index) => (
@@ -88,7 +107,18 @@ const Comments = (props) => {
             )}
           </div>
         </Modal.Body>
-        <Modal.Footer style={{ margin: '0', padding: '0', height: '10rem' }}>
+        <Modal.Footer style={{ margin: '0', padding: '0', height: '11rem' }}>
+          <div className='RateStation'>
+            <StarRatings
+              rating={rating}
+              starSpacing='1px'
+              starDimension='1.5rem'
+              starRatedColor='#00db7a'
+              changeRating={handleRatingChange}
+              numberOfStars={5}
+              name='rating'
+            />
+          </div>
           <FloatingLabel
             className='TxtArea'
             controlId='floatingTextarea'
@@ -104,8 +134,8 @@ const Comments = (props) => {
             />
           </FloatingLabel>
           <button
-            className={`SendButton ${!data.content && 'disabled'}`}
-            disabled={!data.content}
+            className={`SendButton ${!data.content && !isRated && 'disabled'}`}
+            disabled={!data.content && !isRated}
             onClick={() => postComment()}
           >
             {' '}

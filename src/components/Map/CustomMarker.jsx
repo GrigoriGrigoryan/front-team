@@ -2,18 +2,19 @@ import React, { useRef, useState } from 'react';
 import Leaflet from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 import GreenIcon from '../../assets/images/leaf-green.png';
+import ActiveIcon from '../../assets/images/leaf.png';
 import PropTypes from 'prop-types';
 import EcoStationModal from '../Modal/EcoStationModal';
-const icon = Leaflet.icon({
-  iconUrl: GreenIcon,
-  iconSize: [80, 90],
-  iconAnchor: [24, 105],
-  popupAnchor: [-6, -90],
-});
 
 const CustomMarker = (props) => {
   const leafletRef = useRef();
   const [showModal, setShowModal] = useState(false);
+  const icon = Leaflet.icon({
+    iconUrl: showModal ? ActiveIcon : GreenIcon,
+    iconSize: [80, 90],
+    iconAnchor: [24, 105],
+    popupAnchor: [-6, -90],
+  });
   return (
     <>
       <Marker
