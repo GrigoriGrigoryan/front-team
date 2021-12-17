@@ -117,6 +117,6 @@ export const ENGLISH_MESSAGES = {
   paidId: 'paid',
   freeId: 'free',
   modal_commentsID: 'Comments & questions',
-  modal_writeCommentID: 'Write comment or ask question...',
+  modal_writeCommentID: 'Write a comment or ask a question...',
   modal_noCommentsYet: 'There are no comments for this station yet. Be the first to comment!',
 };
