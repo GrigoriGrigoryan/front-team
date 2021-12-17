@@ -18,10 +18,10 @@ const messages = {
 const Header = (props) => {
   const intl = useIntl();
   const checkActive = (match, location) => {
-    if(!location) return false;
-    const {pathname} = location;
-    return pathname === "/";
-  }
+    if (!location) return false;
+    const { pathname } = location;
+    return pathname === '/';
+  };
 
   return (
     <Navbar className={`m-0 ${styles.navbarWrapper}`} expand='md' variant='dark'>
@@ -33,19 +33,19 @@ const Header = (props) => {
         <Navbar.Collapse id='basic-navbar-nav' className={styles.navbarCollapse}>
           <Nav className={`${styles.pagesWrapper}`}>
             <NavLink to='/' className={styles.linkWrapper} activeClassName={styles.active} isActive={checkActive}>
-                {intl.formatMessage({ id: messages.homeMsg })}
+              {intl.formatMessage({ id: messages.homeMsg })}
             </NavLink>
             <NavLink to='/map' className={styles.linkWrapper} activeClassName={styles.active}>
-                {intl.formatMessage({ id: messages.mapMsg })}
+              {intl.formatMessage({ id: messages.mapMsg })}
             </NavLink>
             <NavLink to='/articles' className={styles.linkWrapper} activeClassName={styles.active}>
-                {intl.formatMessage({ id: messages.articlesMsg })}
+              {intl.formatMessage({ id: messages.articlesMsg })}
             </NavLink>
             <NavLink to='/garbageLibrary' className={styles.linkWrapper} activeClassName={styles.active}>
-                {intl.formatMessage({ id: messages.garbageLibraryMsg })}
+              {intl.formatMessage({ id: messages.garbageLibraryMsg })}
             </NavLink>
           </Nav>
-          <BtnsLanguages localeHandler={props.localeHandler} currentLang={props.currentLang}/>
+          <BtnsLanguages localeHandler={props.localeHandler} currentLang={props.currentLang} />
         </Navbar.Collapse>
       </div>
     </Navbar>
