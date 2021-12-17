@@ -71,6 +71,7 @@ const WastePage = (props) => {
         batteriesInfoMsg: 'batteriesInfoID',
         householdInfoMsg: 'householdInfoID',
         lightBulbsInfoMsg: 'lightBulbsInfoID',
+        constructionInfoMsg: 'constructionInfoID',
         automotiveInfoMsg: 'automotiveInfoID',
         metalInfoMsg: 'metalInfoID',
         hazardousInfoMsg: 'hazardousInfoID',
@@ -121,7 +122,7 @@ const WastePage = (props) => {
                 icon={['fas', 'book-open']}
             ></FontAwesomeIcon>,
             name: messages.paperMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.paperInfoMsg})),
             isAllInfo: false,
         },
         {
@@ -131,7 +132,7 @@ const WastePage = (props) => {
                 icon={['fas', 'wine-bottle']}
             ></FontAwesomeIcon>,
             name: messages.glassMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.glassInfoMsg})),
             imgs: [
                 {
                     src: glass1,
@@ -164,7 +165,7 @@ const WastePage = (props) => {
                 icon={['fab', 'gulp']}
             ></FontAwesomeIcon>,
             name: messages.plasticMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.plasticInfoMsg})),
             isAllInfo: false,
         },
         {
@@ -174,7 +175,7 @@ const WastePage = (props) => {
                 icon={['fas', 'tshirt']}
             ></FontAwesomeIcon>,
             name: messages.clothingMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.clothingInfoMsg})),
             imgs: [
                 {
                     src: cloth1,
@@ -207,7 +208,7 @@ const WastePage = (props) => {
                 icon={['fas', 'laptop']}
             ></FontAwesomeIcon>,
             name: messages.electronicsMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.electronicsInfoMsg})),
             isAllInfo: false,
         },
         {
@@ -217,7 +218,7 @@ const WastePage = (props) => {
                 icon={['fas', 'battery-three-quarters']}
             ></FontAwesomeIcon>,
             name: messages.batteriesMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.batteriesInfoMsg})),
             isAllInfo: false,
         },
         {
@@ -227,7 +228,7 @@ const WastePage = (props) => {
                 icon={['fas', 'home']}
             ></FontAwesomeIcon>,
             name: messages.householdMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.householdInfoMsg})),
             isAllInfo: false,
         },
         {
@@ -237,7 +238,7 @@ const WastePage = (props) => {
                 icon={['fas', 'lightbulb']}
             ></FontAwesomeIcon>,
             name: messages.lightBulbsMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.lightBulbsInfoMsg})),
             isAllInfo: false,
         },
         {
@@ -257,7 +258,7 @@ const WastePage = (props) => {
                 icon={['fas', 'car-crash']}
             ></FontAwesomeIcon>,
             name: messages.automotiveMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.automotiveInfoMsg})),
             isAllInfo: false,
         },
         {
@@ -267,7 +268,7 @@ const WastePage = (props) => {
                 icon={['fas', 'pager']}
             ></FontAwesomeIcon>,
             name: messages.metalMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.metalInfoMsg})),
             isAllInfo: false,
         },
         {
@@ -277,7 +278,7 @@ const WastePage = (props) => {
                 icon={['fas', 'radiation']}
             ></FontAwesomeIcon>,
             name: messages.hazardousMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.hazardousInfoMsg})),
             isAllInfo: false,
         },
         {
@@ -287,7 +288,7 @@ const WastePage = (props) => {
                 icon={['fas', 'tree']}
             ></FontAwesomeIcon>,
             name: messages.treeMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.treeInfoMsg})),
             isAllInfo: false,
         },
         {
@@ -297,7 +298,7 @@ const WastePage = (props) => {
                 icon={['fas', 'hands']}
             ></FontAwesomeIcon>,
             name: messages.otherMsg,
-            info: Parser(intl.formatMessage({ id: messages.organicWasteInfoMsg})),
+            info: Parser(intl.formatMessage({ id: messages.otherInfoMsg})),
             isAllInfo: false,
         }
     ];
