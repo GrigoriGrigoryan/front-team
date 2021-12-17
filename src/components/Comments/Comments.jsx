@@ -87,18 +87,24 @@ const Comments = (props) => {
         <Modal.Body className='ModalBody'>
           <div className='CommentsContainer'>
             {allComments.length ? (
-              allComments.map((comment, index) => (
-                <div className='FormattedComment' key={`${index}_comment_${comment.comment_id}`}>
-                  {comment.content}
-                  <span className='CommentDate'>
-                    {new Date(comment.createdAt).getHours()}
-                    {':'}
-                    {new Date(comment.createdAt).getMinutes()}
-                    {', '}
-                    {new Date(comment.createdAt).toLocaleDateString()}
-                  </span>
-                </div>
-              ))
+              allComments.map((comment, index) => {
+                if (comment.content && comment.content.replace(/ /g, '').replace(/(?:\r\n|\r|\n)/g, '').length) {
+                  return (
+                    <div className='FormattedComment' key={`${index}_comment_${comment.comment_id}`}>
+                      {comment.content}
+                      <span className='CommentDate'>
+                        {new Date(comment.createdAt).getHours()}
+                        {':'}
+                        {new Date(comment.createdAt).getMinutes() > 9
+                          ? new Date(comment.createdAt).getMinutes()
+                          : '0' + new Date(comment.createdAt).getMinutes()}
+                        {', '}
+                        {new Date(comment.createdAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                  );
+                }
+              })
             ) : (
               <div className='NoCommentYet'>
                 <FontAwesomeIcon className='CommentSlash' icon={['fas', 'comment-slash']} />
