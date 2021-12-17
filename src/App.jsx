@@ -8,19 +8,17 @@ import I18nProvider from './i18n/provider';
 import { LOCALES } from './types/locales';
 import { COUNTRY_CODES } from './types/countryCodes';
 import './App.css';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, HashRouter as Router } from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
 import Article from './components/Articles/Article/Article';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import WastePage from "./components/GarbageLibrary/WastePage/WastePage";
-
+import WastePage from './components/GarbageLibrary/WastePage/WastePage';
 
 const App = () => {
   const [locale, setLocale] = useState(LOCALES.ENGLISH);
   const [currentLang, setCurrentLang] = useState('en');
 
-  // eslint-disable-next-line no-unused-vars
   const localeHandler = (countryCode) => {
     if (countryCode === COUNTRY_CODES.EN) {
       setLocale(LOCALES.ENGLISH);
@@ -32,8 +30,6 @@ const App = () => {
   };
 
   return (
-    // Wrap the children elements into I18nProvider
-    // and pass the localeHandler to change the language
     <I18nProvider locale={locale}>
       <Router>
         <Header localeHandler={localeHandler} currentLang={currentLang} />

@@ -8,10 +8,6 @@
   top: 0;
   left: 0;
   z-index: 1002;
-  /*height: 60px;*/
-}
-
-.pagesWrapper {
 }
 
 .navbarContainer {
@@ -52,22 +48,16 @@
 }
 
 @media (max-width: 1400px) {
-  .pagesWrapper {
-  }
   .navbarContainer {
     width: 1270px;
   }
 }
 @media (max-width: 1200px) {
-  .pagesWrapper {
-  }
 }
 
 @media (max-width: 999px) {
   .navbarContainer {
     width: 768px;
-  }
-  .pagesWrapper {
   }
   .navLink {
     font-size: 16px;
@@ -104,7 +94,5 @@
 @media (max-width: 450px) {
   .navbarContainer {
     width: 375px;
-  }
-  .pagesWrapper {
   }
 }
