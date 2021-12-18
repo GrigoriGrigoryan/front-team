@@ -44,16 +44,26 @@ const Comments = (props) => {
     setRating(0);
     setIsRated(false);
   };
-  const onKeyUp = (event) => {
-    if (event.charCode === 13 && data.content !== '' && !data.content.includes('\n')) {
-      postComment();
-    }
-  };
 
   const handleRatingChange = (point) => {
     setRating(point);
     setData({ ...data, rating_info: point });
     setIsRated(true);
+  };
+
+  const isComment = (comment) => {
+    return comment.content && comment.content.replace(/ /g, '').replace(/(?:\r\n|\r|\n)/g, '').length;
+  };
+
+  const commentExists = (allComments) => {
+    if (allComments.length) {
+      for (let comment of allComments) {
+        if (isComment(comment)) {
+          return true;
+        }
+      }
+    }
+    return false;
   };
 
   useEffect(async () => {
@@ -86,25 +96,23 @@ const Comments = (props) => {
         </Modal.Header>
         <Modal.Body className='ModalBody'>
           <div className='CommentsContainer'>
-            {allComments.length ? (
-              allComments.map((comment, index) => {
-                if (comment.content && comment.content.replace(/ /g, '').replace(/(?:\r\n|\r|\n)/g, '').length) {
-                  return (
-                    <div className='FormattedComment' key={`${index}_comment_${comment.comment_id}`}>
-                      {comment.content}
-                      <span className='CommentDate'>
-                        {new Date(comment.createdAt).getHours()}
-                        {':'}
-                        {new Date(comment.createdAt).getMinutes() > 9
-                          ? new Date(comment.createdAt).getMinutes()
-                          : '0' + new Date(comment.createdAt).getMinutes()}
-                        {', '}
-                        {new Date(comment.createdAt).toLocaleDateString()}
-                      </span>
-                    </div>
-                  );
-                }
-              })
+            {commentExists(allComments) ? (
+              allComments.map((comment, index) =>
+                isComment(comment) ? (
+                  <div className='FormattedComment' key={`${index}_comment_${comment.comment_id}`}>
+                    {comment.content}
+                    <span className='CommentDate'>
+                      {new Date(comment.createdAt).getHours()}
+                      {':'}
+                      {new Date(comment.createdAt).getMinutes() > 9
+                        ? new Date(comment.createdAt).getMinutes()
+                        : '0' + new Date(comment.createdAt).getMinutes()}
+                      {', '}
+                      {new Date(comment.createdAt).toLocaleDateString()}
+                    </span>
+                  </div>
+                ) : null
+              )
             ) : (
               <div className='NoCommentYet'>
                 <FontAwesomeIcon className='CommentSlash' icon={['fas', 'comment-slash']} />
@@ -133,7 +141,6 @@ const Comments = (props) => {
             <Form.Control
               onChange={(e) => setData({ ...data, content: e.target.value })}
               value={data.content}
-              onKeyPress={onKeyUp}
               as='textarea'
               maxLength={255}
               style={{ height: '7rem', maxHeight: '8rem' }}
