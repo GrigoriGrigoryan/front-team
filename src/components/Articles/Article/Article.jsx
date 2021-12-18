@@ -11,9 +11,9 @@ import Article_06 from './../../../assets/images/Article_06.jpeg';
 import Article_07 from './../../../assets/images/Article_07.jpeg';
 import Article_08 from './../../../assets/images/Article_08.jpeg';
 import Article_09 from './../../../assets/images/Article_09.jpeg';
+import PropTypes from "prop-types";
 
 const Article = (props) => {
-    // eslint-disable-next-line react/prop-types
     const currentArticleID = +props.match.params.id;
     const intl = useIntl();
 
@@ -140,5 +140,11 @@ const Article = (props) => {
         </div>
 )
 }
-
+Article.propTypes = {
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            id: PropTypes.string
+        })
+    }),
+};
 export default Article;

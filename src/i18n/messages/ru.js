@@ -68,7 +68,7 @@ export const RUSSIAN_MESSAGES = {
   icons_organicWasteID: 'Биоотходы',
   icons_otherID: 'Другое',
   icons_treeID: 'Древесина',
-  garbageLibraryTitleID: 'Добро пожаловать в справочник мусора',
+  garbageLibraryTitleID: 'Добро пожаловать в справочник видов отходов',
   garbageLibraryMainTextID:
     'Чтобы упростить вам процесс сортировки, мы создали этот справочник видов отходов, где вы можете прочитать подробную информацию о каждом типе отходов.',
   organicWasteInfoID:

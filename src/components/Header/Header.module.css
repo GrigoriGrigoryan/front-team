@@ -39,8 +39,8 @@
 }
 
 .logo {
-  width: 200px;
-  height: 55px;
+  width: 135px;
+  height: 35px;
 }
 
 .navbarCollapse {
@@ -52,9 +52,6 @@
     width: 1270px;
   }
 }
-@media (max-width: 1200px) {
-}
-
 @media (max-width: 999px) {
   .navbarContainer {
     width: 768px;

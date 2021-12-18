@@ -7,7 +7,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Noto Serif', serif;
+  /*font-family: 'Noto Serif', serif;*/
+  font-family: 'Roboto', sans-serif;
   padding-bottom: 100px;
 }
 .garbageLibraryWrapper .link {
@@ -23,7 +24,8 @@
 }
 
 .garbageLibraryTitle {
-  font-family: 'Noto Serif', serif;
+  /*font-family: 'Noto Serif', serif;*/
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   margin-bottom: 50px;
   font-weight: 700;
@@ -51,6 +53,14 @@
   color: white;
   border-radius: 50%;
   background-color: #00db7a;
+  transition: .1s;
+}
+.iconWrapper:active .icon {
+  color: white;
+  border-radius: 50%;
+  background-color: #009D00;
+  transition: .1s;
+
 }
 .iconWrapper {
   margin-bottom: 30px;
@@ -74,9 +84,6 @@
   line-height: 19px;
 }
 
-@media (max-width: 999px) {
-}
-
 @media (max-width: 767px) {
   .garbageLibraryWrapper {
     width: 500px;
@@ -87,7 +94,6 @@
   }
   .icon {
     text-align: center;
-    /*font-size: 140px;*/
     width: 100%;
     height: 100%;
   }

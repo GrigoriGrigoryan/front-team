@@ -17,15 +17,16 @@
 }
 
 .title {
-  font-family: 'Noto Serif', serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 28px;
   line-height: 40px;
   margin-bottom: 30px;
 }
 .text {
-  font-family: 'Noto Serif', serif;
+  /*font-family: 'Noto Serif', serif;*/
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -33,7 +34,8 @@
   text-align: justify;
 }
 .headerImg {
-  font-family: 'Noto Serif', serif;
+  /*font-family: 'Noto Serif', serif;*/
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 30px;
@@ -54,7 +56,8 @@
   padding-bottom: 100px;
 }
 .textDonate {
-  font-family: 'Noto Serif', serif;
+  /*font-family: 'Noto Serif', serif;*/
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 32px;

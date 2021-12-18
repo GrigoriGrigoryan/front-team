@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Articles.module.css';
-// import {Link} from "react-router-dom";
 import NavLink from "react-router-dom/es/NavLink";
 import {useIntl} from "react-intl";
 import Article_01 from './../../assets/images/Article_01.jpeg';
@@ -12,7 +11,6 @@ import Article_06 from './../../assets/images/Article_06.jpeg';
 import Article_07 from './../../assets/images/Article_07.jpeg';
 import Article_08 from './../../assets/images/Article_08.jpeg';
 import Article_09 from './../../assets/images/Article_09.jpeg';
-
 
 const Articles = () => {
     const intl = useIntl();
@@ -123,8 +121,7 @@ const Articles = () => {
             {
                 articlesArr.map((item) => {
                     return (
-                        // eslint-disable-next-line react/jsx-key
-                        <div className={styles.articleItem}>
+                        <div key={item.title} className={styles.articleItem}>
                             <NavLink to={`/article/${item.id}`}>
                                 <h4 className={styles.articleTitle}>{intl.formatMessage({ id: item.title})}</h4>
                                 <img className={styles.articleImg} src={item.img} alt=""/>
