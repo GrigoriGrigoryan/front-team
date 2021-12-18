@@ -115,6 +115,19 @@
   left: 27%;
 }
 
+.OverlayTrigger {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+}
+
+.PhoneBtn {
+  font-size: 0.9rem;
+}
+
+.PhoneBtn:active {
+  transform: scale(0.95);
+}
 /* Custom scrollbar */
 
 /* width */

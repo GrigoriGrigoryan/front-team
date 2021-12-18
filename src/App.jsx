@@ -9,22 +9,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from './components/Routes/Routes';
 
 const App = () => {
-  const [locale, setLocale] = useState(LOCALES.ENGLISH);
-  const [currentLang, setCurrentLang] = useState('en');
+  const [locale, setLocale] = useState(localStorage.getItem('locale') || LOCALES.ENGLISH);
 
   const localeHandler = (countryCode) => {
     if (countryCode === COUNTRY_CODES.EN) {
+      localStorage.setItem('locale', LOCALES.ENGLISH);
       setLocale(LOCALES.ENGLISH);
-      setCurrentLang('en');
     } else {
+      localStorage.setItem('locale', LOCALES.RUSSIAN);
       setLocale(LOCALES.RUSSIAN);
-      setCurrentLang('ru');
     }
   };
 
   return (
     <I18nProvider locale={locale}>
-      <Routes locale={locale} localeHandler={localeHandler} currentLang={currentLang} />
+      <Routes locale={locale} localeHandler={localeHandler} />
     </I18nProvider>
   );
 };

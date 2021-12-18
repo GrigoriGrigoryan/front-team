@@ -12,7 +12,7 @@ import WastePage from '../GarbageLibrary/WastePage/WastePage';
 
 const Routes = (props) => (
   <Router>
-    <Header localeHandler={props.localeHandler} currentLang={props.currentLang} />
+    <Header localeHandler={props.localeHandler} currentLang={props.locale} />
     <Switch>
       <Route exact path='/' component={MainPage} />
       <Route path='/map'>
@@ -30,7 +30,6 @@ const Routes = (props) => (
 Routes.propTypes = {
   localeHandler: PropTypes.func,
   locale: PropTypes.string,
-  currentLang: PropTypes.string,
 };
 
 export default Routes;

@@ -5,6 +5,7 @@ import { ICONS } from '../../models/Icons';
 import { DELIVERY } from '../../types/deliveryOptions';
 import { LOCALES } from '../../types/locales';
 import Comments from '../Comments/Comments';
+import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
 
 import './EcoStationModal.css';
 import '../styles/CustomPopup.css';
@@ -43,6 +44,9 @@ const EcoStationModal = ({
   ...props
 }) => {
   const intl = useIntl();
+  const copyToClipboard = (phoneNumber) => {
+    navigator.clipboard.writeText(phoneNumber);
+  };
 
   return (
     <>
@@ -82,7 +86,17 @@ const EcoStationModal = ({
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.contactPhone })}</h4>
         <div className='ContactPhone'>
           <i className='fas fa-phone-volume'></i>
-          <span>{props.contact === '-' ? intl.formatMessage({ id: messages.notSpecified }) : props.contact}</span>
+          {props.contact === '-' ? (
+            <span>{intl.formatMessage({ id: messages.notSpecified })}</span>
+          ) : (
+            <div className='OverlayTrigger'>
+              <OverlayTrigger placement='top' overlay={<Tooltip id='tooltip-top'>Copy to clipboard.</Tooltip>}>
+                <Button className='PhoneBtn' variant='outline-secondary' onClick={() => copyToClipboard(props.contact)}>
+                  {props.contact}
+                </Button>
+              </OverlayTrigger>
+            </div>
+          )}
         </div>
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.workingHours })}</h4>
         <div className='WorkingHours'>
