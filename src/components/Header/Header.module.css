@@ -75,8 +75,8 @@
     display: flex;
   }
   .logo {
-    width: 150px;
-    height: 45px;
+    width: 120px;
+    height: 30px;
   }
   .active {
     border: none;

@@ -7,8 +7,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /*font-family: 'Noto Serif', serif;*/
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Serif', serif;
   padding-bottom: 100px;
 }
 .garbageLibraryWrapper .link {
@@ -24,8 +23,7 @@
 }
 
 .garbageLibraryTitle {
-  /*font-family: 'Noto Serif', serif;*/
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Serif', serif;
   text-align: center;
   margin-bottom: 50px;
   font-weight: 700;

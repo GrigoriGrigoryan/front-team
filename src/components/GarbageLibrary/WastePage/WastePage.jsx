@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Parser from "html-react-parser";
 import { useIntl } from "react-intl";
@@ -23,7 +24,6 @@ import cloth3 from './../../../assets/images/cloth3.jpeg';
 import cloth4 from './../../../assets/images/cloth4.jpeg';
 import bigLeaf from './../../../assets/images/bigLeaf.png';
 import heart from './../../../assets/images/heart.png';
-import PropTypes from "prop-types";
 
 const WastePage = (props) => {
     const intl = useIntl();

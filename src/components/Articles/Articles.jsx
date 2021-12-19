@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Articles.module.css';
 import NavLink from "react-router-dom/es/NavLink";
-import {useIntl} from "react-intl";
+import { useIntl } from "react-intl";
 import Article_01 from './../../assets/images/Article_01.jpeg';
 import Article_02 from './../../assets/images/Article_02.jpeg';
 import Article_03 from './../../assets/images/Article_03.jpeg';
