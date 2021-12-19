@@ -92,7 +92,7 @@ const EcoStationModal = ({
             <div className='OverlayTrigger'>
               <OverlayTrigger placement='top' overlay={<Tooltip id='tooltip-top'>Copy to clipboard.</Tooltip>}>
                 <Button className='PhoneBtn' variant='outline-secondary' onClick={() => copyToClipboard(props.contact)}>
-                  {props.contact}
+                  {props.contact} <i className='far fa-copy'></i>
                 </Button>
               </OverlayTrigger>
             </div>

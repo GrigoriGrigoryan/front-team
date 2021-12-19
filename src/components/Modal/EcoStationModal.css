@@ -128,6 +128,11 @@
 .PhoneBtn:active {
   transform: scale(0.95);
 }
+
+.PhoneBtn i {
+  margin-left: 0.2rem;
+  font-size: 1rem;
+}
 /* Custom scrollbar */
 
 /* width */
@@ -152,11 +157,13 @@
 
 @media screen and (min-width: 44rem) {
   .MainContainer {
+    margin: 1rem auto;
     position: absolute;
-    top: 13%;
   }
 
   .MainContainer.active {
     right: 0.2%;
+    bottom: 2%;
+    top: auto;
   }
 }
