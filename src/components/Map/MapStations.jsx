@@ -19,6 +19,7 @@ const CustomizedMarker = (props, ecoStation, index) => (
     deliveryOptionsRu={ecoStation.deliveryOptionsRu}
     markerid={ecoStation.id}
     comments={ecoStation.comments}
+    ratingCount={ecoStation.rating_count ? ecoStation.rating_count : 0}
   >
     <CustomPopup />
   </CustomMarker>

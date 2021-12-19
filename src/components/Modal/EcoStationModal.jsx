@@ -5,6 +5,7 @@ import { ICONS } from '../../models/Icons';
 import { DELIVERY } from '../../types/deliveryOptions';
 import { LOCALES } from '../../types/locales';
 import Comments from '../Comments/Comments';
+import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
 
 import './EcoStationModal.css';
 import '../styles/CustomPopup.css';
@@ -40,9 +41,13 @@ const EcoStationModal = ({
   deliveryOptionsRu,
   markerid,
   comments,
+  ratingCount,
   ...props
 }) => {
   const intl = useIntl();
+  const copyToClipboard = (phoneNumber) => {
+    navigator.clipboard.writeText(phoneNumber);
+  };
 
   return (
     <>
@@ -54,10 +59,11 @@ const EcoStationModal = ({
         }}
       ></div>
       <div className={`MainContainer ${props.show ? 'active' : ''}`}>
-        <div className='Stars'>
+        <div className={`Stars ${ratingCount ? ' count' : ''}`}>
+          {ratingCount ? <span className='RatingCount'>{ratingCount}</span> : null}
           <StarRatings
             rating={rating ? +rating : 0}
-            starSpacing='1px'
+            starSpacing='2px'
             starDimension='1.2rem'
             starRatedColor='#00db7a'
             numberOfStars={5}
@@ -82,7 +88,17 @@ const EcoStationModal = ({
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.contactPhone })}</h4>
         <div className='ContactPhone'>
           <i className='fas fa-phone-volume'></i>
-          <span>{props.contact === '-' ? intl.formatMessage({ id: messages.notSpecified }) : props.contact}</span>
+          {props.contact === '-' ? (
+            <span>{intl.formatMessage({ id: messages.notSpecified })}</span>
+          ) : (
+            <div className='OverlayTrigger'>
+              <OverlayTrigger placement='top' overlay={<Tooltip id='tooltip-top'>Copy to clipboard.</Tooltip>}>
+                <Button className='PhoneBtn' variant='outline-secondary' onClick={() => copyToClipboard(props.contact)}>
+                  {props.contact} <i className='far fa-copy'></i>
+                </Button>
+              </OverlayTrigger>
+            </div>
+          )}
         </div>
         <h4 className='ModalTitle'>{intl.formatMessage({ id: messages.workingHours })}</h4>
         <div className='WorkingHours'>
@@ -168,5 +184,6 @@ EcoStationModal.propTypes = {
   deliveryOptionsRu: PropTypes.array,
   markerid: PropTypes.number,
   comments: PropTypes.array,
+  ratingCount: PropTypes.number,
 };
 export default EcoStationModal;

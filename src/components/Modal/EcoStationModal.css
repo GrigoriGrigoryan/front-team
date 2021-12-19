@@ -43,8 +43,19 @@
 
 .Stars {
   position: absolute;
-  top: 0.1rem;
+  top: 0.3rem;
   right: 0.5rem;
+}
+
+.Stars.count {
+  left: 11.4rem;
+}
+
+.RatingCount {
+  position: absolute;
+  color: grey;
+  left: 7.5rem;
+  top: 0.15rem;
 }
 
 .ModalTitle {
@@ -115,6 +126,24 @@
   left: 27%;
 }
 
+.OverlayTrigger {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+}
+
+.PhoneBtn {
+  font-size: 0.9rem;
+}
+
+.PhoneBtn:active {
+  transform: scale(0.95);
+}
+
+.PhoneBtn i {
+  margin-left: 0.2rem;
+  font-size: 1rem;
+}
 /* Custom scrollbar */
 
 /* width */
@@ -139,11 +168,13 @@
 
 @media screen and (min-width: 44rem) {
   .MainContainer {
+    margin: 1rem auto;
     position: absolute;
-    top: 13%;
   }
 
   .MainContainer.active {
     right: 0.2%;
+    bottom: 2%;
+    top: auto;
   }
 }

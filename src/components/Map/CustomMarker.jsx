@@ -30,7 +30,7 @@ const CustomMarker = (props) => {
           },
         }}
       >
-        <Popup>{React.cloneElement(props.children, { ...props })}</Popup>
+        <Popup ratingCount={props.ratingCount}>{React.cloneElement(props.children, { ...props })}</Popup>
       </Marker>
       <EcoStationModal
         rating={props.rating}
@@ -50,6 +50,7 @@ const CustomMarker = (props) => {
         deliveryOptionsRu={props.deliveryOptionsRu}
         markerid={props.markerid}
         comments={props.comments}
+        ratingCount={props.ratingCount}
       />
     </>
   );
@@ -73,6 +74,7 @@ CustomMarker.propTypes = {
   addressRu: PropTypes.string,
   markerid: PropTypes.number,
   comments: PropTypes.array,
+  ratingCount: PropTypes.number,
 };
 
 export default CustomMarker;

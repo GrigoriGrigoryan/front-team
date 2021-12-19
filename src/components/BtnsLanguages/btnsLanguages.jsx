@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { COUNTRY_CODES } from '../../types/countryCodes';
 import styles from './BtnsLanguages.module.css';
+import { LOCALES } from '../../types/locales';
 
 const BtnsLanguages = (props) => {
-  const isLangEn = props.currentLang === 'en' ? `${styles.active}` : ' ';
-  const isLangRu = props.currentLang === 'ru' ? `${styles.active}` : ' ';
+  const isLangEn = props.currentLang === LOCALES.ENGLISH ? `${styles.active}` : ' ';
+  const isLangRu = props.currentLang === LOCALES.RUSSIAN ? `${styles.active}` : ' ';
 
   return (
     <>

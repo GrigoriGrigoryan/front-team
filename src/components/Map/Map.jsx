@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { TileLayer, MapContainer, useMap } from 'react-leaflet';
 import PropTypes from 'prop-types';
 import '../styles/Map.css';
+import '../styles/Spinner.css';
 import MapStations from './MapStations';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import Icons from './Icons/Icons';
 import { useIntl } from 'react-intl';
 import { getLeaves } from '../Api/MapApi';
+import { Spinner } from 'react-bootstrap';
 
 const messages = {
   pickMaterialsID: 'pickMaterialsID',
@@ -15,7 +17,7 @@ const messages = {
 const Map = (props) => {
   const [filterOptions, setFilterOptions] = useState([]);
   const [isSelectedMarker, setSelectedMarker] = useState(false);
-  const [leaves, setLeaves] = useState([]);
+  const [leaves, setLeaves] = useState(null);
 
   useEffect(async () => {
     const data = await getLeaves();
@@ -25,9 +27,25 @@ const Map = (props) => {
   const DisableScrollWhenModalAppear = () => {
     const map = useMap();
     if (isSelectedMarker) {
+      map.dragging.disable();
+      map.touchZoom.disable();
+      map.doubleClickZoom.disable();
       map.scrollWheelZoom.disable();
+      map.boxZoom.disable();
+      map.keyboard.disable();
+      if (map.tap) {
+        map.tap.disable();
+      }
     } else {
+      map.dragging.enable();
+      map.touchZoom.enable();
+      map.doubleClickZoom.enable();
       map.scrollWheelZoom.enable();
+      map.boxZoom.enable();
+      map.keyboard.enable();
+      if (map.tap) {
+        map.tap.enable();
+      }
     }
     return null;
   };
@@ -46,14 +64,20 @@ const Map = (props) => {
             minZoom={3}
             noWrap={true}
           />
-          <MarkerClusterGroup>
-            <MapStations
-              locale={props.locale}
-              leaves={leaves}
-              setSelectedMarker={setSelectedMarker}
-              filterOptions={filterOptions}
-            />
-          </MarkerClusterGroup>
+          {!leaves ? (
+            <div className='Spinner'>
+              <Spinner animation='border' className='SpinnerStyles' />
+            </div>
+          ) : (
+            <MarkerClusterGroup>
+              <MapStations
+                locale={props.locale}
+                leaves={leaves}
+                setSelectedMarker={setSelectedMarker}
+                filterOptions={filterOptions}
+              />
+            </MarkerClusterGroup>
+          )}
         </MapContainer>
       </div>
       <div className='GarbageTypes'>

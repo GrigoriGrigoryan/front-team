@@ -6,7 +6,9 @@ import StarRatings from 'react-star-ratings';
 const CustomPopup = (props) => {
   return (
     <div className='Popup'>
-      <div className='Stars'>
+      <div className={`StarsPopup ${props.ratingCount ? ' count' : ''}`}>
+        {props.ratingCount ? <span className='RatingCountPopup'>{props.ratingCount}</span> : null}
+
         <StarRatings
           rating={+props.rating}
           starSpacing='1px'
@@ -26,6 +28,7 @@ CustomPopup.propTypes = {
   rating: PropTypes.number,
   ecoStationName: PropTypes.string,
   address: PropTypes.string,
+  ratingCount: PropTypes.number,
 };
 
 export default CustomPopup;
