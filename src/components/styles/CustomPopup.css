@@ -8,10 +8,21 @@
   padding-top: 1.8rem;
 }
 
-.Stars {
+.StarsPopup {
   position: absolute;
-  bottom: 0%;
-  right: 0%;
+  bottom: 73%;
+  left: 55%;
+}
+
+.StarsPopup.count {
+  left: 51%;
+}
+
+.RatingCountPopup {
+  position: absolute;
+  color: grey;
+  left: 6.8rem;
+  top: 7%;
 }
 
 .EcoStationAddress {

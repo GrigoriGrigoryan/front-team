@@ -41,6 +41,7 @@ const EcoStationModal = ({
   deliveryOptionsRu,
   markerid,
   comments,
+  ratingCount,
   ...props
 }) => {
   const intl = useIntl();
@@ -58,7 +59,8 @@ const EcoStationModal = ({
         }}
       ></div>
       <div className={`MainContainer ${props.show ? 'active' : ''}`}>
-        <div className='Stars'>
+        <div className={`Stars ${ratingCount ? ' count' : ''}`}>
+          {ratingCount ? <span className='RatingCount'>{ratingCount}</span> : null}
           <StarRatings
             rating={rating ? +rating : 0}
             starSpacing='2px'
@@ -182,5 +184,6 @@ EcoStationModal.propTypes = {
   deliveryOptionsRu: PropTypes.array,
   markerid: PropTypes.number,
   comments: PropTypes.array,
+  ratingCount: PropTypes.number,
 };
 export default EcoStationModal;
