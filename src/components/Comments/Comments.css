@@ -1,5 +1,5 @@
 .ModalBody {
-  max-height: 30rem;
+  max-height: 28rem;
 }
 
 .ButtonContainer {
@@ -78,6 +78,35 @@
 
 .RateStation {
   margin-right: 0.5rem;
+  position: absolute;
+  top: 1%;
+}
+
+.CommentsFooter {
+  height: 9rem;
+  position: relative;
+  transition: height 0.4s linear;
+}
+
+.SendComment {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center;
+}
+
+.CommentsFooter.activeFooter {
+  height: 14rem;
+}
+
+.CommentsFormControl {
+  height: 4rem !important;
+  transition: height 0.4s linear;
+}
+
+.CommentsFormControl.activeFooter {
+  height: 9rem !important;
 }
 
 @media screen and (max-width: 40rem) {

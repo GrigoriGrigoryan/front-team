@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CommentButton from './CommentButton';
-import { Modal, FloatingLabel, Form } from 'react-bootstrap';
+import { Modal, FloatingLabel, Form, Collapse } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { submitComment } from '../Api/CommentsApi';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -26,6 +26,7 @@ const Comments = (props) => {
   const [allComments, setAllComments] = useState([]);
   const [rating, setRating] = useState(0);
   const [isRated, setIsRated] = useState(false);
+  const [focused, setFocused] = useState(false);
   const postComment = () => {
     if (data.content === '') {
       submitComment({ id: data.id, rating_info: rating });
@@ -94,34 +95,36 @@ const Comments = (props) => {
               : intl.formatMessage({ id: messages.unknownID })}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className='ModalBody'>
-          <div className='CommentsContainer'>
-            {commentExists(allComments) ? (
-              allComments.map((comment, index) =>
-                isComment(comment) ? (
-                  <div className='FormattedComment' key={`${index}_comment_${comment.comment_id}`}>
-                    {comment.content}
-                    <span className='CommentDate'>
-                      {new Date(comment.createdAt).getHours()}
-                      {':'}
-                      {new Date(comment.createdAt).getMinutes() > 9
-                        ? new Date(comment.createdAt).getMinutes()
-                        : '0' + new Date(comment.createdAt).getMinutes()}
-                      {', '}
-                      {new Date(comment.createdAt).toLocaleDateString()}
-                    </span>
-                  </div>
-                ) : null
-              )
-            ) : (
-              <div className='NoCommentYet'>
-                <FontAwesomeIcon className='CommentSlash' icon={['fas', 'comment-slash']} />
-                {intl.formatMessage({ id: messages.noCommentYet })}
-              </div>
-            )}
-          </div>
-        </Modal.Body>
-        <Modal.Footer style={{ margin: '0', padding: '0', height: '11rem' }}>
+        <Collapse in={!focused}>
+          <Modal.Body className='ModalBody'>
+            <div className='CommentsContainer'>
+              {commentExists(allComments) ? (
+                allComments.map((comment, index) =>
+                  isComment(comment) ? (
+                    <div className='FormattedComment' key={`${index}_comment_${comment.comment_id}`}>
+                      {comment.content}
+                      <span className='CommentDate'>
+                        {new Date(comment.createdAt).getHours()}
+                        {':'}
+                        {new Date(comment.createdAt).getMinutes() > 9
+                          ? new Date(comment.createdAt).getMinutes()
+                          : '0' + new Date(comment.createdAt).getMinutes()}
+                        {', '}
+                        {new Date(comment.createdAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                  ) : null
+                )
+              ) : (
+                <div className='NoCommentYet'>
+                  <FontAwesomeIcon className='CommentSlash' icon={['fas', 'comment-slash']} />
+                  {intl.formatMessage({ id: messages.noCommentYet })}
+                </div>
+              )}
+            </div>
+          </Modal.Body>
+        </Collapse>
+        <Modal.Footer className={`CommentsFooter ${focused ? 'activeFooter' : ''}`}>
           <div className='RateStation'>
             <StarRatings
               rating={rating}
@@ -133,27 +136,31 @@ const Comments = (props) => {
               name='rating'
             />
           </div>
-          <FloatingLabel
-            className='TxtArea'
-            controlId='floatingTextarea'
-            label={intl.formatMessage({ id: messages.writeComment })}
-          >
-            <Form.Control
-              onChange={(e) => setData({ ...data, content: e.target.value })}
-              value={data.content}
-              as='textarea'
-              maxLength={255}
-              style={{ height: '7rem', maxHeight: '8rem' }}
-            />
-          </FloatingLabel>
-          <button
-            className={`SendButton ${!data.content && !isRated && 'disabled'}`}
-            disabled={!data.content && !isRated}
-            onClick={() => postComment()}
-          >
-            {' '}
-            <FontAwesomeIcon icon={['fas', 'paper-plane']} />
-          </button>
+          <div className='SendComment'>
+            <FloatingLabel
+              className='TxtArea'
+              controlId='floatingTextarea'
+              label={intl.formatMessage({ id: messages.writeComment })}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
+            >
+              <Form.Control
+                onChange={(e) => setData({ ...data, content: e.target.value })}
+                value={data.content}
+                as='textarea'
+                maxLength={255}
+                className={`CommentsFormControl ${focused ? 'activeFooter' : ''}`}
+              />
+            </FloatingLabel>
+            <button
+              className={`SendButton ${!data.content && !isRated && 'disabled'}`}
+              disabled={!data.content && !isRated}
+              onClick={() => postComment()}
+            >
+              {' '}
+              <FontAwesomeIcon icon={['fas', 'paper-plane']} />
+            </button>
+          </div>
         </Modal.Footer>
       </Modal>
     </>
