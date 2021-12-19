@@ -9,6 +9,7 @@ import Icons from './Icons/Icons';
 import { useIntl } from 'react-intl';
 import { getLeaves } from '../Api/MapApi';
 import { Spinner } from 'react-bootstrap';
+import Checkbox from './Checkbox';
 
 const messages = {
   pickMaterialsID: 'pickMaterialsID',
@@ -84,6 +85,7 @@ const Map = (props) => {
         <h4 className='PickMaterialsTitle'>{intl.formatMessage({ id: messages.pickMaterialsID })}</h4>
         <div className='MapIcons'>
           <Icons showText filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
+          <Checkbox filterOptions={filterOptions} setFilterOptions={setFilterOptions} />
         </div>
       </div>
     </div>

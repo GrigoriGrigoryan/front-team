@@ -118,4 +118,6 @@ export const ENGLISH_MESSAGES = {
   modal_commentsID: 'Comments & questions',
   modal_writeCommentID: 'Write a comment or ask a question...',
   modal_noCommentsYet: 'There are no comments for this station yet. Be the first to comment!',
+  checkbox_selectAll: 'Select all',
+  checkbox_unselectAll: 'Unselect all',
 };
