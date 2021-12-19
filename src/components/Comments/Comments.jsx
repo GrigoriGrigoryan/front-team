@@ -125,6 +125,13 @@ const Comments = (props) => {
           </Modal.Body>
         </Collapse>
         <Modal.Footer className={`CommentsFooter ${focused ? 'activeFooter' : ''}`}>
+          {focused ? (
+            <FontAwesomeIcon
+              className='BackBtn'
+              icon={['fas', 'arrow-circle-left']}
+              onClick={() => setFocused(false)}
+            />
+          ) : null}
           <div className='RateStation'>
             <StarRatings
               rating={rating}
@@ -142,7 +149,6 @@ const Comments = (props) => {
               controlId='floatingTextarea'
               label={intl.formatMessage({ id: messages.writeComment })}
               onFocus={() => setFocused(true)}
-              onBlur={() => setFocused(false)}
             >
               <Form.Control
                 onChange={(e) => setData({ ...data, content: e.target.value })}

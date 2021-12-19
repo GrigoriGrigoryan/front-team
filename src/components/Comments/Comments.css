@@ -82,6 +82,15 @@
   top: 1%;
 }
 
+.BackBtn {
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #00db7a;
+}
+
 .CommentsFooter {
   height: 9rem;
   position: relative;
