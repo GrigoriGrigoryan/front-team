@@ -1,4 +1,3 @@
-// import img from './../../assets/images/heart.png'
 export const ENGLISH_MESSAGES = {
   helloWorldID: 'Hello world',
   homeID: 'Home',
@@ -7,9 +6,7 @@ export const ENGLISH_MESSAGES = {
   garbageLibraryID: 'Garbage library',
   aboutProjectID: 'About our project ',
   aboutProjectTextID:
-    'Our project aims to promote the practice of sorting garbage to the public. Thanks to waste sorting, we return valuable resources contained in garbage to our economy - to processing plants.  \n' +
-    '\n' +
-    'The importance of waste sorting is the key to environmental safety. Each of us, making daily decisions about garbage sorting, will make a significant contribution to restoring the ecology of our planet. ',
+    '<p>Our project aims to promote the practice of sorting garbage to the public.</p><p>Thanks to waste sorting, we return valuable resources contained in garbage to our economy - to processing plants.</p><p>The importance of waste sorting is the key to environmental safety. Each of us, making daily decisions about garbage sorting, will make a significant contribution to restoring the ecology of our planet.</p>',
   howToStartRecyclingID: 'How to start recycling?',
   collectRecycleID: 'Collect. Recycle. Make better future.',
   thankYouForVotingID: 'THANK YOU FOR VOTING ',

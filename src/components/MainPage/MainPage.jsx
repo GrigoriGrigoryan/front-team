@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useIntl } from 'react-intl';
+import { NavLink } from 'react-router-dom';
 import styles from './MainPage.module.css';
 import mainPageImg from '../../assets/images/mainPageImg.jpeg';
 import Modal from './Modal';
-import { useIntl } from 'react-intl';
-import { NavLink } from 'react-router-dom';
+import Parser from "html-react-parser";
+
 
 const MainPage = () => {
   const [modalActive, setModalActive] = useState();
@@ -26,7 +28,10 @@ const MainPage = () => {
             <br></br>
             Recycling MAP
           </h4>
-          <p className={styles.text}>{intl.formatMessage({ id: messages.aboutProjectTextMsg })}</p>
+          <p className={styles.text}>
+            {Parser(intl.formatMessage({ id: messages.aboutProjectTextMsg }))}
+
+          </p>
         </div>
         <div className={styles.mainPageImgWrapper}>
           <NavLink to={`/article/3`}>
