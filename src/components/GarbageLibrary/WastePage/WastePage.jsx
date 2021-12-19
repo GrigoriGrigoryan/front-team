@@ -1,13 +1,15 @@
-/* eslint-disable no-unused-vars */
-import React, {useCallback, useState} from 'react';
+import React, { useCallback, useState } from 'react';
+import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Parser from "html-react-parser";
+import { useIntl } from "react-intl";
+import { GARBAGE_TYPES } from "../../../types/garbageTypes";
+import Gallery from "react-photo-gallery";
+import Carousel, { Modal, ModalGateway } from "react-images";
 import styles from './wastePage.module.css';
-import {useIntl} from "react-intl";
-import {GARBAGE_TYPES} from "../../../types/garbageTypes";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import prev from './../../../assets/images/prev.png';
 import next from './../../../assets/images/next.png'
-import {NavLink} from "react-router-dom";
-import Parser from "html-react-parser";
 import organic1 from './../../../assets/images/organic1.jpeg';
 import organic2 from './../../../assets/images/organic2.jpeg';
 import organic3 from './../../../assets/images/organic3.jpeg';
@@ -22,24 +24,11 @@ import cloth3 from './../../../assets/images/cloth3.jpeg';
 import cloth4 from './../../../assets/images/cloth4.jpeg';
 import bigLeaf from './../../../assets/images/bigLeaf.png';
 import heart from './../../../assets/images/heart.png';
-import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
-
-// eslint-disable-next-line react/prop-types
-const CustomFooter = ({ innerProps, isModal }) => isModal ? (
-    <div {...innerProps}>
-        {/*// your component internals*/}
-    </div>
-) : null;
 
 const WastePage = (props) => {
-    const [showBigger, setShowBigger] = useState(false);
     const intl = useIntl();
-    // eslint-disable-next-line react/prop-types
     let currentTypeOfWasteID = +props.match.params.id;
-    // eslint-disable-next-line react/prop-types
     let prevTypeOfWasteID = +props.match.params.id-1;
-    // eslint-disable-next-line react/prop-types
     let nextTypeOfWasteID = +props.match.params.id+1;
     if(prevTypeOfWasteID <= 0) {
         prevTypeOfWasteID = 15;
@@ -81,7 +70,7 @@ const WastePage = (props) => {
         nextMsg: 'nextID',
         photoExamplesMsg: 'photoExamplesID',
     }
-    const allIcons = [
+    const garbageTypesInfo = [
         {
             id: 1,
             key: GARBAGE_TYPES.organicWaste,
@@ -113,7 +102,6 @@ const WastePage = (props) => {
                 },
             ],
             isAllInfo: true,
-
         },
         {
             id: 2,
@@ -303,7 +291,7 @@ const WastePage = (props) => {
         }
     ];
     let currentTypeOfWaste = {};
-    allIcons.forEach((item) => {
+    garbageTypesInfo.forEach((item) => {
         if(currentTypeOfWasteID === item.id) {
             currentTypeOfWaste = item;
         }
@@ -357,15 +345,15 @@ const WastePage = (props) => {
                                 <Modal onClose={closeLightbox}>
                                     <Carousel
                                         styles={{
-                                            navigationNext: (StyleObj, State)=> ({
+                                            navigationNext: (StyleObj)=> ({
                                                 ...StyleObj,
                                                 right: '-100px',
                                             }),
-                                            navigationPrev: (StyleObj, State)=> ({
+                                            navigationPrev: (StyleObj)=> ({
                                                 ...StyleObj,
                                                 left: '-100px',
                                             }),
-                                            container: (base, state) => ({
+                                            container: (base) => ({
                                                 ...base,
                                                 width: 600,
                                                 height: 500,
@@ -395,7 +383,7 @@ const WastePage = (props) => {
                                             })
 
                                         }}
-                                        components={{ Footer: CustomFooter,
+                                        components={{ Footer: null,
                                                         Header: null,
                                             // View: CustomView(currentTypeOfWaste.imgs)
                                         }}
@@ -439,5 +427,11 @@ const WastePage = (props) => {
             </div>
     )
 }
-
+WastePage.propTypes = {
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            id: PropTypes.string
+        })
+    }),
+};
 export default WastePage;

@@ -39,8 +39,6 @@ img.btnArrows {
 .icon {
     font-size: 65px;
     text-align: center;
-    /*width: 50px;*/
-    /*height: 50px;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,22 +60,12 @@ img.btnArrows {
     height: 171px;
     object-fit: cover;
 }
-
-.sliderWrapper {
-}
-
-.react-images__view-image {
-    width: 500px!important;
-    height: 500px!important;
-}
-
 .bigLeafWrapper {
     position: relative;
     text-align: center;
 }
 .bigLeaf {
     width: 470px;
-    /*height: 300px;*/
 }
 .noAllText {
     font-family: 'Noto Serif', serif;
@@ -95,9 +83,6 @@ img.btnArrows {
     display: block;
     width: 35px;
     height: 30px;
-}
-@media (max-width: 999px) {
-
 }
 
 @media (max-width: 767px) {
@@ -126,8 +111,6 @@ img.btnArrows {
     }
     .titleWrapper {
         padding-bottom: 10px;
-    }
-    .bigLeafWrapper {
     }
     .bigLeaf {
         width: 300px;
@@ -172,5 +155,3 @@ img.btnArrows {
         margin: 0 auto;
     }
 }
-
-

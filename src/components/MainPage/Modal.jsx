@@ -1,10 +1,10 @@
 import React from 'react';
 import './Modal.css';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import { CloseButton } from 'react-bootstrap';
 import imgHeart from './../../assets/images/heart.png';
 import leaf from './../../assets/images/leaf-solid.svg';
-import { useIntl } from 'react-intl';
 
 const Modal = ({ active, setActive }) => {
   const intl = useIntl();
