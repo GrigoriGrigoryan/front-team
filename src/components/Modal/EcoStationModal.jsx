@@ -61,7 +61,7 @@ const EcoStationModal = ({
         <div className='Stars'>
           <StarRatings
             rating={rating ? +rating : 0}
-            starSpacing='1px'
+            starSpacing='2px'
             starDimension='1.2rem'
             starRatedColor='#00db7a'
             numberOfStars={5}

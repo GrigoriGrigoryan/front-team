@@ -125,8 +125,8 @@ const Comments = (props) => {
           <div className='RateStation'>
             <StarRatings
               rating={rating}
-              starSpacing='1px'
-              starDimension='1.5rem'
+              starSpacing='3px'
+              starDimension='1.6rem'
               starRatedColor='#00db7a'
               changeRating={handleRatingChange}
               numberOfStars={5}
