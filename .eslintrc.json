@@ -24,40 +24,31 @@
   },
   "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "rules": {
-		"react/jsx-props-no-spreading": [
-			"warning",
-			{
-				"exceptions": ["FormattedMessage"]
-			}
-		],
-		"prettier/prettier": [
-			"warning",
-			{
-				"trailingComma": "es5",
-				"useTabs": true
-			}
-		],
-
-		"import/no-default-export": "error",
-		"import/order": [
-			"warning",
-			{
-				"groups": [
-					["builtin"],
-					["external"],
-					["internal", "parent", "sibling", "index"]
-				],
-				"newlines-between": "always"
-			}
-		],
-
-		"react/no-multi-comp": ["warning", { "ignoreStateless": true }],
-
-		"react/no-unused-prop-types": "off",
-		"react/prop-types": "off",
+    "quotes": [2, "single", "avoid-escape"],
+    "react/jsx-props-no-spreading": "off",
+    "prettier/prettier": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowExpressions": true
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/prop-types": "off",
 		"react/require-default-props": "off",
 
-		"react/jsx-max-depth": ["warning", { "max" : 7 }],
+		"react/jsx-max-depth": ["warn", { "max" : 7 }],
 
 		"react/display-name": "off",
 		"react/require-optimization": "off",
@@ -66,36 +57,11 @@
 		"react/no-set-state": "off",
 		"react/jsx-no-literals": "off",
 		"react/forbid-component-props": "off",
-		"react/jsx-no-bind": "off",
-
-		"react/jsx-filename-extension": [
-			"warning",
-			{ "extensions": [".jsx", ".tsx"] }
-		]
-	},
-	"settings": {
-		"react": {
-			"version": "detect"
-		}
-	},
-
-	"overrides": [
-		{
-			"files": ["*.js", "*.jsx"],
-			"parser": "babel-eslint"
-		},
-		{
-			"files": ["*.ts", "*.tsx"],
-			"parser": "@typescript-eslint/parser",
-			"plugins": ["@typescript-eslint/eslint-plugin"],
-			"rules": {
-				"@typescript-eslint/no-unused-vars": [
-					"error",
-					{ "argsIgnorePattern": "^_" }
-				],
-				"no-dupe-class-members": "off",
-				"no-unused-vars": "off"
-			}
-		}
-	]
+		"react/jsx-no-bind": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 }
