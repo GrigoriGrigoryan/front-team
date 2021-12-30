@@ -1,7 +1,12 @@
 import React from 'react';
+import './App.css';
 
 const App = (): JSX.Element => {
-  return <h1>Hello World</h1>;
+  return (
+    <div className="App">
+      <p>Hello world</p>
+    </div>
+  );
 };
 
 export default App;
