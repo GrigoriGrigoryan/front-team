@@ -1,6 +1,5 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/react,node,visualstudiocode,webstorm
-# Edit at https://www.toptal.com/developers/gitignore?templates=react,node,visualstudiocode,webstorm
+# Created by https://www.toptal.com/developers/gitignore/api/react,yarn,webstorm,node
+# Edit at https://www.toptal.com/developers/gitignore?templates=react,yarn,webstorm,node
 
 ### Node ###
 # Logs
@@ -145,25 +144,6 @@ psd
 thumb
 sketch
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-
-# Local History for Visual Studio Code
-.history/
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
-
-# Support for Project snippet scope
-!.vscode/*.code-snippets
-
 ### WebStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -269,5 +249,21 @@ fabric.properties
 # CodeStream plugin
 # https://plugins.jetbrains.com/plugin/12206-codestream
 .idea/codestream.xml
-.idea
-# End of https://www.toptal.com/developers/gitignore/api/react,node,visualstudiocode,webstorm
+
+### yarn ###
+# https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
+
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# if you are NOT using Zero-installs, then:
+# comment the following lines
+!.yarn/cache
+
+# and uncomment the following lines
+# .pnp.*
+
+# End of https://www.toptal.com/developers/gitignore/api/react,yarn,webstorm,node
