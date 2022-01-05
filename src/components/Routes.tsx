@@ -1,28 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
-import NavigationBar from './navigation/NavigationBar';
-import Map from './Map/Map';
-import Home from './Home/Home';
-
-// Replace component to element!!!
+import { Route, Routes } from 'react-router-dom';
+import Map from './map/Map';
+import Home from './home/Home';
 
 const PageRoutes: React.FC = (): JSX.Element => (
-  <HashRouter>
-    <NavigationBar />
-
-    <Routes>
-      <Route path="/map" element={<Map />} />
-      <Route path="/" element={<Home />} />
-
-      {/*
-    <Route path='/garbageLibrary' component={GarbageLibrary} />
-    <Route path='/articles' component={Articles} />
-    <Route path='/article/:id' component={Article} />
-    <Route path='/typeofwaste/:id' component={WastePage} /> */}
-    </Routes>
-    {/* <Footer /> */}
-  </HashRouter>
+  <Routes>
+    <Route path="/map" element={<Map />} />
+    <Route path="/" element={<Home />} />
+  </Routes>
 );
 
 export default PageRoutes;

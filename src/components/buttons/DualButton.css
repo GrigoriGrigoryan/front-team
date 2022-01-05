@@ -1,0 +1,45 @@
+.dualBtn {
+  display: flex;
+  margin: 0 0.5rem;
+  justify-content: center;
+}
+
+.customBtn {
+  color: white !important;
+  border: 2px solid transparent !important;
+  background: transparent;
+  margin: 0 0.25rem;
+  padding: 0 !important;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.customBtn:hover {
+  color: white;
+  opacity: 0.8;
+}
+
+.customBtn:focus {
+  outline: none;
+}
+
+.customBtn.bold {
+  font-weight: bold;
+}
+
+@media screen and (min-width: 62rem) {
+  .customBtn {
+    opacity: 1;
+    font-size: 1rem;
+  }
+
+  .customBtn.active {
+    border-bottom: 2px solid white !important;
+  }
+}
+
+@media screen and (max-width: 62rem) {
+  .customBtn.active {
+    opacity: 0.7;
+  }
+}
